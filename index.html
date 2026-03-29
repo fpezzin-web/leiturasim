@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.I.M. — Sistema Inteligente de Mentoria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#F5F7FA;--bg2:#EAEFF6;--dark:#0B1F3A;--mid:#1A3D6B;--accent:#2563EB;--muted:#6B8BAF;--text2:#3D5A80;--white:#FFFFFF;--pad:1.25rem}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--dark);line-height:1.6;font-size:16px;overflow-x:hidden;width:100%}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+    img{max-width:100%;display:block}
+    .oferta-bar{background:var(--dark);color:#fff;padding:.55rem var(--pad);font-size:.72rem;font-weight:500;display:flex;align-items:center;justify-content:center;gap:.4rem;position:sticky;top:0;z-index:300;flex-wrap:wrap;text-align:center}
+    .oferta-bar .dot{width:7px;height:7px;border-radius:50%;background:#22C55E;flex-shrink:0;animation:blink-dot 1.5s infinite}
+    @keyframes blink-dot{0%,100%{opacity:1}50%{opacity:.3}}
+    .countdown{font-weight:700;color:#60A5FA;letter-spacing:.04em}
+    nav{display:flex;justify-content:center;align-items:center;padding:1rem var(--pad);background:rgba(245,247,250,.97);border-bottom:1px solid rgba(37,99,235,.08);backdrop-filter:blur(10px);position:sticky;top:34px;z-index:200}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--dark);letter-spacing:.05em;text-decoration:none}
+    .nav-logo span{color:var(--accent)}
+    .hero{padding:3rem var(--pad) 2.5rem;text-align:center;background:var(--white);border-bottom:1px solid rgba(37,99,235,.08)}
+    .hero-badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(37,99,235,.2);background:rgba(37,99,235,.06);padding:.35rem .9rem;border-radius:100px;font-size:.7rem;font-weight:600;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem}
+    .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero h1{font-size:clamp(2rem,8vw,3rem);font-weight:900;line-height:1.08;color:var(--dark);margin-bottom:1.25rem}
+    .hero h1 .accent{color:var(--accent)}
+    .hero h1 .dim{color:var(--muted)}
+    .hero-sub{font-size:1rem;color:var(--muted);line-height:1.7;margin:0 auto 2rem}
+    .hero-photo{width:100%;height:220px;background:var(--bg2);border-radius:12px;border:2px dashed rgba(37,99,235,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:var(--muted);font-size:.78rem}
+    .hero-photo .ph-icon{font-size:1.8rem;opacity:.35}
+    .hero-stats{display:flex;justify-content:center;gap:0;margin-top:2rem;flex-wrap:wrap;border:2px solid #0B2A6B;border-radius:14px;overflow:hidden;background:#1A3F8F}
+    .hero-stats>div{flex:1;min-width:120px;padding:1rem .75rem;text-align:center;border-right:1px solid rgba(255,255,255,.15)}
+    .hero-stats>div:last-child{border-right:none}
+    .hero-stats .stat-num{color:#fff;font-size:2.2rem}
+    .hero-stats .stat-label{color:rgba(255,255,255,.85);font-size:.78rem}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--accent)}
+    .stat-label{font-size:.68rem;color:var(--muted);margin-top:.1rem;text-transform:uppercase;letter-spacing:.06em}
+    section{padding:3rem var(--pad)}
+    .section-label{font-size:.65rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block;text-align:center}
+    .section-title{font-size:clamp(1.6rem,6vw,2.4rem);font-weight:800;line-height:1.15;color:var(--dark);margin-bottom:1rem;text-align:center}
+    .section-title .accent{color:var(--accent)}
+    .section-title .muted{color:var(--muted)}
+    .section-sub{font-size:.95rem;color:var(--muted);line-height:1.75}
+    .problema{background:var(--white);border-top:3px solid var(--accent)}
+    .ciclo{display:flex;flex-direction:column;gap:0;margin-top:2rem;width:100%}
+    .ciclo-item{padding:.85rem 1rem;border:1px solid rgba(11,31,58,.08);font-size:.88rem;color:var(--text2);font-weight:500;background:var(--bg2);text-align:center;width:100%}
+    .ciclo-item.highlight{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+    .ciclo-arrow{text-align:center;color:var(--accent);opacity:.5;font-size:1.1rem;padding:.2rem 0}
+    .demonstracao{background:var(--dark)}
+    .demonstracao .section-label{color:rgba(255,255,255,.4)}
+    .demonstracao .section-title{color:#fff}
+    .demonstracao .section-sub{color:rgba(255,255,255,.6)}
+    .demo-especialista{display:flex;flex-direction:column;align-items:center;gap:1.5rem;margin-top:2rem}
+    .demo-especialista img{width:100%;max-width:360px;border-radius:16px;border:3px solid rgba(255,255,255,.1)}
+    .demo-especialista-texto{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.8;text-align:left}
+    .demo-especialista-texto strong{color:#fff}
+    .demo-telas{display:flex;flex-direction:column;gap:2rem;margin-top:2.5rem}
+    .demo-tela{display:flex;flex-direction:column;gap:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.25rem;overflow:hidden}
+    .demo-tela img{width:100%;max-width:360px;border-radius:10px;border:1px solid rgba(255,255,255,.1);display:block;margin:0 auto}
+    .demo-tela-titulo{font-size:1rem;font-weight:700;color:#fff}
+    .demo-tela-desc{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7}
+    .demo-tela-label{display:inline-block;background:var(--accent);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:99px;letter-spacing:.05em;margin-bottom:.4rem}
+    .objecoes{background:var(--bg)}
+    .obj-lista{display:flex;flex-direction:column;gap:.85rem;margin-top:2rem}
+    .obj-card{display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;background:#FFF1F1;border:1px solid rgba(239,68,68,.12);border-radius:12px;font-size:.88rem;color:var(--dark)}
+    .obj-card.sim{background:#F0FFF4;border-color:rgba(34,197,94,.2);font-weight:600}
+    .obj-icon{font-size:1.2rem;flex-shrink:0}
+    .etapas{background:var(--dark)}
+    .etapas .section-label{color:rgba(255,255,255,.4)}
+    .etapas .section-title{color:#fff}
+    .etapas .section-title .accent{color:#60A5FA}
+    .etapas-lista{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.08);margin-top:2rem;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden}
+    .etapa{padding:1.5rem;background:var(--dark);display:flex;gap:1rem;align-items:flex-start}
+    .etapa-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:rgba(96,165,250,.25);line-height:1;flex-shrink:0;width:2rem}
+    .etapa-nome{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+    .etapa-desc{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
+    .etapa-conclusao{margin-top:1.5rem;padding:1.25rem;border:1px solid rgba(96,165,250,.2);border-radius:8px;background:rgba(96,165,250,.06);font-size:.9rem;color:rgba(255,255,255,.65);font-style:italic;text-align:center;line-height:1.6}
+    .etapa-conclusao strong{color:#60A5FA;font-style:normal}
+    .transform{background:var(--bg2)}
+    .transform-cards{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+    .transform-col{padding:1.5rem;border-radius:12px;border:1px solid rgba(11,31,58,.08);width:100%}
+    .antes-col{background:var(--white)}
+    .depois-col{background:var(--dark)}
+    .col-header{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
+    .col-header.antes{color:var(--muted)}
+    .col-header.depois{color:#60A5FA}
+    .col-header::before{content:'';width:16px;height:1px}
+    .col-header.antes::before{background:var(--muted)}
+    .col-header.depois::before{background:#60A5FA}
+    .t-item{font-size:.9rem;font-weight:500;padding:.7rem 0;border-bottom:1px solid rgba(11,31,58,.05);display:flex;align-items:center;gap:.6rem}
+    .depois-col .t-item{border-bottom-color:rgba(255,255,255,.06)}
+    .t-item.antes-i{color:var(--muted)}
+    .t-item.depois-i{color:rgba(255,255,255,.85)}
+    .t-icon{font-size:.8rem;width:18px;text-align:center;flex-shrink:0}
+    .agentes{background:var(--white)}
+    .agentes-grid{display:flex;flex-direction:column;gap:.85rem;margin-top:2rem}
+    .agente-card{background:var(--bg);border:1px solid rgba(37,99,235,.1);border-radius:12px;border-top:3px solid var(--accent);padding:1.5rem}
+    .agente-topo{display:flex;align-items:center;gap:.75rem;margin-bottom:.6rem}
+    .agente-icon{width:36px;height:36px;background:rgba(37,99,235,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .agente-nome{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--dark)}
+    .agente-tag{font-size:.65rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+    .agente-desc{font-size:.84rem;color:var(--muted);line-height:1.6}
+    .para-quem{background:var(--bg2)}
+    .para-quem-box{background:var(--dark);border-radius:12px;padding:1.5rem;color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7;margin:1.5rem 0}
+    .para-quem-box strong{display:block;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+    .pq-lista{display:flex;flex-direction:column}
+    .pq-item{display:flex;align-items:flex-start;gap:.85rem;padding:1rem 0;border-bottom:1px solid rgba(11,31,58,.07)}
+    .pq-arrow{color:var(--accent);font-size:.85rem;flex-shrink:0;margin-top:.15rem}
+    .pq-texto strong{display:block;font-size:.9rem;font-weight:600;color:var(--dark);margin-bottom:.15rem}
+    .pq-texto span{font-size:.82rem;color:var(--muted)}
+    .transformacao{background:var(--white)}
+    .transf-foto{width:100%;height:200px;background:var(--bg2);border-radius:12px;border:2px dashed rgba(37,99,235,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:var(--muted);font-size:.78rem;margin:1.5rem 0}
+    .transf-foto .ph-icon{font-size:1.8rem;opacity:.35}
+    .transf-lista{display:flex;flex-direction:column;gap:.85rem}
+    .transf-item{display:flex;align-items:flex-start;gap:.85rem;padding:1.1rem;background:var(--dark);border:1px solid rgba(255,255,255,.08);border-radius:10px}
+    .transf-q{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:rgba(255,255,255,.15);line-height:1;flex-shrink:0}
+    .transf-titulo{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:.2rem}
+    .transf-desc{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.6}
+    .depoimentos{background:var(--bg2)}
+    .dep-video{width:100%;border-radius:10px;overflow:hidden;margin:1.5rem 0}
+    .dep-video iframe{width:100%;aspect-ratio:16/9;display:block;border:none;height:auto}
+    .dep-grid{display:flex;flex-direction:column;gap:1rem}
+    .dep-card{background:var(--white);border:1px solid rgba(11,31,58,.07);border-radius:12px;overflow:hidden}
+    .dep-card img{width:100%;height:auto;display:block}
+    .dep-placeholder{padding:2rem;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem}
+    .dep-card-body{padding:1.1rem}
+    .dep-texto{font-size:.88rem;color:var(--text2);line-height:1.7;font-style:italic;margin-bottom:.6rem}
+    .dep-autor{font-size:.78rem;font-weight:700;color:var(--dark)}
+    .preco{background:var(--bg2)}
+    .preco .section-title{font-size:1.6rem}
+    .preco .section-title span{color:var(--accent)}
+    .preco-card{background:var(--white);border:2px solid var(--accent);border-radius:16px;padding:2rem 1.25rem;margin-top:2rem;position:relative;box-shadow:0 8px 40px rgba(37,99,235,.15);text-align:center}
+    .preco-fire{font-size:2.2rem;margin-bottom:.5rem}
+    .preco-valor{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:.3rem}
+    .preco-sub{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
+    .preco-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.75rem;text-align:left}
+    .preco-lista{margin-bottom:1.25rem;text-align:left}
+    .preco-item{display:flex;align-items:center;gap:.7rem;font-size:.86rem;color:var(--text2);padding:.55rem 0;border-bottom:1px solid rgba(11,31,58,.05);font-weight:700}
+    .preco-item span{color:var(--accent);font-weight:700;font-size:.9rem;flex-shrink:0}
+    .preco-bonus-bloco{background:#eff6ff;border:1.5px solid var(--accent);border-radius:10px;padding:1rem 1.1rem;margin-bottom:1.25rem;text-align:left;display:flex;gap:.75rem;align-items:flex-start}
+    .preco-bonus-icon{font-size:1.4rem;flex-shrink:0}
+    .preco-bonus-texto strong{display:block;font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.15rem}
+    .preco-bonus-texto span{font-size:.78rem;color:var(--muted)}
+    .preco-bonus-tag{display:inline-block;background:var(--accent);color:#fff;font-size:.65rem;font-weight:800;padding:.15rem .55rem;border-radius:99px;margin-top:.35rem;letter-spacing:.05em}
+    .preco-avista{font-size:.88rem;color:var(--muted);margin-bottom:1.25rem;font-style:italic}
+    .preco-garantia-verde{background:#f0fff4;border:1.5px solid #22c55e;border-radius:10px;padding:.85rem 1rem;margin-top:1.25rem;text-align:center}
+    .preco-garantia-verde strong{display:block;color:#15803d;font-size:.9rem;font-weight:700;margin-bottom:.2rem}
+    .preco-garantia-verde span{font-size:.78rem;color:#166534;line-height:1.6}
+    @keyframes pulse-btn{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,.6)}50%{box-shadow:0 0 0 12px rgba(249,115,22,0)}}
+    .btn-checkout{display:block;width:100%;background:#000;color:#F97316;font-weight:800;padding:1.25rem;border-radius:8px;text-decoration:none;font-size:1rem;text-align:center;text-transform:uppercase;letter-spacing:.08em;border:2px solid #F97316;animation:pulse-btn 1.8s infinite}
+    .btn-checkout:hover{background:#F97316;color:#000;animation:none;box-shadow:0 0 0 12px rgba(249,115,22,0)}
+    .seguranca{display:flex;flex-direction:column;gap:.75rem;margin-top:1.25rem}
+    .seg-item{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;background:var(--bg);border-radius:8px}
+    .seg-item strong{font-weight:600;color:var(--dark);display:block;font-size:.85rem}
+    .seg-item span{font-size:.78rem;color:var(--muted)}
+    .seg-icon{font-size:1.3rem;flex-shrink:0}
+    .garantia{margin-top:1.25rem;display:flex;align-items:center;justify-content:center;gap:.5rem;font-size:.8rem;color:var(--muted)}
+    footer{padding:2rem var(--pad);background:var(--dark);text-align:center}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:rgba(255,255,255,.4);letter-spacing:.05em;text-decoration:none;display:block;margin-bottom:.5rem}
+    .footer-logo span{color:#60A5FA}
+    .footer-copy{font-size:.72rem;color:rgba(255,255,255,.2)}
+    .whatsapp-btn{position:fixed;bottom:1.25rem;right:1.25rem;z-index:9999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s}
+    .whatsapp-btn:hover{transform:scale(1.08)}
+    .whatsapp-btn svg{width:28px;height:28px;fill:#fff}
+    .faq{background:var(--bg)}
+    .faq-lista{display:flex;flex-direction:column;gap:0;margin-top:2rem;border:1px solid rgba(11,31,58,.08);border-radius:12px;overflow:hidden}
+    .faq-item{border-bottom:1px solid rgba(11,31,58,.07);background:var(--white)}
+    .faq-item:last-child{border-bottom:none}
+    .faq-pergunta{padding:1.1rem 1.25rem;font-size:.92rem;font-weight:600;color:var(--dark);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;user-select:none}
+    .faq-pergunta::after{content:'+';font-size:1.3rem;color:var(--accent);flex-shrink:0;transition:transform .3s;font-weight:300;line-height:1}
+    .faq-item.open .faq-pergunta::after{transform:rotate(45deg)}
+    .faq-resposta{font-size:.88rem;color:var(--muted);line-height:1.75;padding:0 1.25rem;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+    .faq-item.open .faq-resposta{max-height:300px;padding:.1rem 1.25rem 1.25rem};bottom:1.25rem;right:1.25rem;z-index:999;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s}
+    .whatsapp-btn:hover{transform:scale(1.08)}
+    .whatsapp-btn svg{width:28px;height:28px;fill:#fff}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    /* VÉRTICE CARD */
+    .vertice-wrap{padding:0 var(--pad) 2.5rem;background:var(--white)}
+    .vertice-card{background:#1E1E1E;border-radius:14px;overflow:hidden;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+    .vertice-header{background:#2A2A2A;padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07)}
+    .vertice-header-left{display:flex;align-items:center;gap:.6rem;min-width:0}
+    .vertice-avatar{width:28px;height:28px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#fff;flex-shrink:0}
+    .vertice-name{font-size:.78rem;font-weight:600;color:#fff}
+    .vertice-sub{font-size:.62rem;color:rgba(255,255,255,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .vertice-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;flex-shrink:0}
+    .vertice-body{padding:1rem}
+    .vtx-user-msg{background:#2563EB;color:#fff;border-radius:10px 10px 2px 10px;padding:.75rem 1rem;font-size:.8rem;line-height:1.55;margin-bottom:.75rem;margin-left:1.5rem}
+    .vtx-ai-block{margin-bottom:.5rem}
+    .vtx-ai-label{font-size:.6rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+    .vtx-ai-label::before{content:'💡';font-size:.7rem}
+    .vtx-ai-bubble{background:#2A2A2A;border:1px solid rgba(255,255,255,.08);border-radius:2px 10px 10px 10px;padding:.85rem 1rem;font-size:.79rem;line-height:1.65;color:rgba(255,255,255,.82)}
+    .vtx-ai-bubble h4{font-family:'Playfair Display',serif;font-size:.82rem;font-weight:700;color:#fff;margin:.65rem 0 .3rem;display:flex;align-items:center;gap:.35rem}
+    .vtx-ai-bubble ul{margin:.3rem 0 .3rem 1rem;display:flex;flex-direction:column;gap:.15rem}
+    .vtx-ai-bubble ul li{font-size:.77rem;color:rgba(255,255,255,.65)}
+    .vtx-ai-bubble .highlight{color:#60A5FA;font-weight:600}
+    .vtx-ai-bubble .bold{color:#fff;font-weight:600}
+    .vtx-typing{display:flex;gap:4px;align-items:center;padding:.6rem 1rem;background:#2A2A2A;border:1px solid rgba(255,255,255,.08);border-radius:2px 10px 10px 10px;width:fit-content;margin-top:.5rem}
+    .vtx-typing span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4);animation:blink2 1.2s infinite}
+    .vtx-typing span:nth-child(2){animation-delay:.2s}
+    .vtx-typing span:nth-child(3){animation-delay:.4s}
+    @keyframes blink2{0%,100%{opacity:.2}50%{opacity:1}}
+    .vertice-footer{padding:.65rem 1rem;background:#2A2A2A;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.5rem}
+    .vtx-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.45rem .75rem;font-size:.75rem;color:rgba(255,255,255,.4);font-family:'Inter',sans-serif;min-width:0}
+    .vtx-send{width:28px;height:28px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff;flex-shrink:0}
+    @media(min-width:768px){
+      :root{--pad:3rem}
+      .hero{padding:5rem 3rem 4rem}
+      .agentes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+      .transform-cards{display:grid;grid-template-columns:1fr 1fr}
+      .dep-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+      .vertice-card{max-width:520px;margin:0 auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="oferta-bar"><span class="dot"></span><span>⚡ Oferta especial expira em</span><span class="countdown" id="countdown">01d 00:00:00</span></div>
+  <nav><a href="#" class="nav-logo">S<span>.</span>I<span>.</span>M<span style="color:var(--accent)">.</span></a></nav>
+  <section class="hero">
+    <div class="hero-badge reveal"><span class="badge-dot"></span>Sistema de Mentoria com IA</div>
+    <h1 class="reveal">Leia, entenda e <span class="accent">explique ideias com clareza</span>, sem esquecer o que você acabou de ler</h1>
+    <ul class="hero-sub reveal" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;text-align:left;">
+      <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1rem;">➜</span><span>Saia do ciclo silencioso de ler muito e continuar com a vida igual, transforme cada leitura em aplicação real, para que <strong style="color:var(--accent)">ideias boas realmente virem ideias usadas</strong>.</span></li>
+      <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1rem;">➜</span><span>Aplique o processo simples que faz seu cérebro finalmente guardar o que você lê, eliminando o problema de "eu li, mas não sei explicar", para que você tenha <strong style="color:var(--accent)">argumentos na ponta da língua</strong>.</span></li>
+      <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1rem;">➜</span><span>Pare de acumular livros e começar a construir um repertório mental sólido, <strong style="color:var(--accent)">criando uma biblioteca que vive dentro de você</strong>.</span></li>
+    </ul>
+    <img src="assets/img primeira secao.jpg" alt="S.I.M." style="width:100%;max-width:480px;border-radius:12px;margin:1.5rem auto 0;display:block;">
+    <div class="hero-stats reveal">
+      <div><div class="stat-num">5</div><div class="stat-label">Agentes de IA</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">Etapas do método</div></div>
+      <div><div class="stat-num">💬</div><div class="stat-label">Acompanhamento direto<br>com o especialista pelo WhatsApp</div></div>
+    </div>
+  </section>
+
+  <!-- VÉRTICE AO VIVO -->
+  <div class="vertice-wrap reveal">
+    <div class="vertice-card">
+      <div class="vertice-header">
+        <div class="vertice-header-left">
+          <div class="vertice-avatar">VS</div>
+          <div>
+            <div class="vertice-name">Vértice</div>
+            <div class="vertice-sub">Assistente de Leitura · S.I.M.</div>
+          </div>
+        </div>
+        <div class="vertice-dot"></div>
+      </div>
+      <div class="vertice-body">
+        <div class="vtx-user-msg">Acabei de terminar o capítulo sobre vieses cognitivos. Achei muito interessante mas não sei bem como aplicar isso no dia a dia.</div>
+        <div class="vtx-ai-block">
+          <div class="vtx-ai-label">Vértice respondeu</div>
+          <div class="vtx-ai-bubble">
+            <span class="highlight">🧠 Síntese do que você leu</span><br><br>
+            Você captou algo importante. Vamos organizar isso.
+            <h4>1️⃣ O que são vieses cognitivos</h4>
+            São atalhos mentais que o cérebro usa para decidir rápido, mas que <span class="bold">frequentemente nos enganam.</span>
+            <h4>✅ Vieses que você provavelmente já viveu</h4>
+            <ul>
+              <li>Viés de confirmação → busca só o que confirma o que já acredita</li>
+              <li>Efeito ancoragem → primeira informação domina a decisão</li>
+              <li>Viés de disponibilidade → o que veio à mente é tratado como verdade</li>
+            </ul>
+            <h4>📌 Pergunta para aprofundar</h4>
+            Qual desses você acha que mais interfere nas suas decisões? <span class="highlight">Vamos explorar a partir da sua experiência real.</span>
+          </div>
+        </div>
+        <div class="vtx-typing"><span></span><span></span><span></span></div>
+      </div>
+      <div class="vertice-footer">
+        <div class="vtx-input">Responder ao Vértice...</div>
+        <div class="vtx-send">↑</div>
+      </div>
+    </div>
+  </div>
+  <section class="problema">
+    <div class="section-label reveal">— O problema</div>
+    <h2 class="section-title reveal">Existe uma ilusão silenciosa<br>no mundo da leitura.</h2>
+    <p class="section-title reveal" style="font-size:1.5rem;color:var(--accent);font-weight:800;margin-top:-0.5rem;">A sensação de aprendizado.</p>
+    <p class="section-sub reveal">Você termina um livro com a impressão de que aprendeu muito.</p>
+    <p class="section-sub reveal" style="font-weight:600;margin-top:0.25rem;">Enquanto lê:</p>
+    <div class="ciclo reveal" style="flex-direction:row;gap:1rem;justify-content:center;">
+      <div class="ciclo-item" style="border-top:3px solid var(--accent);">📖 tudo parece claro</div>
+      <div class="ciclo-item" style="border-top:3px solid var(--accent);">💬 as ideias parecem profundas</div>
+      <div class="ciclo-item" style="border-top:3px solid var(--accent);">🔄 você sente que está evoluindo</div>
+    </div>
+    <p class="section-sub reveal" style="margin-top:1.5rem;">Mas alguns dias depois . . .</p>
+    <p class="reveal" style="font-size:1.1rem;color:var(--accent);font-weight:700;margin-top:0.25rem;">quase nada aparece quando você precisa.</p>
+    <p class="section-sub reveal" style="margin-top:1rem;">Isso acontece porque <strong style="text-decoration:underline;">sentir que entendeu não é o mesmo que consolidar conhecimento</strong>.</p>
+    <div class="reveal" style="background:#4a0a0a;border:1px solid #8b1a1a;border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.5rem;color:#f5c6c6;">
+      <p style="font-size:0.85rem;opacity:0.8;margin-bottom:0.5rem;">⊗ Sem reflexão e aplicação...</p>
+      <p style="font-size:1rem;line-height:1.6;">o conteúdo passa pela mente<br>mas <strong>não se transforma em repertório</strong></p>
+    </div>
+    <p class="section-sub reveal" style="margin-top:1.5rem;">E então começa um ciclo silencioso:</p>
+    <div class="ciclo reveal" style="flex-direction:row;gap:0;margin-top:0.75rem;">
+      <div class="ciclo-item highlight" style="flex:1;">você lê</div>
+      <div class="ciclo-arrow" style="padding:0 0.25rem;display:flex;align-items:center;">→</div>
+      <div class="ciclo-item highlight" style="flex:1;">sente que aprendeu</div>
+      <div class="ciclo-arrow" style="padding:0 0.25rem;display:flex;align-items:center;">→</div>
+      <div class="ciclo-item highlight" style="flex:1;background:#6B0000;border-color:#6B0000;font-size:1.2rem;text-decoration:underline;">esquece</div>
+      <div class="ciclo-arrow" style="padding:0 0.25rem;display:flex;align-items:center;">→</div>
+      <div class="ciclo-item highlight" style="flex:1;">começa outro livro.</div>
+    </div>
+    <p class="section-sub reveal" style="margin-top:1.25rem;">Sua estante cresce, mas você não aplica o que aprendeu.</p>
+  </section>
+  <section class="demonstracao">
+    <div class="section-label reveal">— Veja na prática</div>
+    <h2 class="section-title reveal">Existe um jeito de transformar<br>leitura em <span style="color:#60A5FA">conhecimento prático.</span></h2>
+    <div class="demo-especialista reveal">
+      <img src="assets/foto-especialista.jpeg" alt="Especialista com o livro Quincas Borba">
+      <div class="demo-especialista-texto">
+        <p>Com o tempo, percebi que as leituras que realmente permaneciam eram aquelas que eu conseguia <strong>debater com alguém</strong>.</p>
+        <br>
+        <p>Quando eu explicava uma ideia, minha mente organizava o pensamento, ativava os detalhes do que eu havia lido e começava a <strong>transformar em repertório</strong>.</p>
+        <br>
+        <p>O problema é que, na rotina corrida de hoje, é difícil encontrar pessoas dispostas a ter esse tipo de conversa.</p>
+        <br>
+        <p>Até que comecei a criar algo que resolve isso: o <strong>S.I.M.</strong>, um sistema de agentes treinados para <strong>classificar suas ideias, trazer clareza e ajudar você a transformar cada leitura em desenvolvimento real.</strong></p>
+      </div>
+    </div>
+    <p class="section-sub reveal" style="margin-top:2rem;color:rgba(255,255,255,.5);font-style:italic;text-align:center;">✦ Leitura vira conhecimento quando suas ideias são questionadas, aprofundadas e consolidadas.</p>
+    <div class="demo-telas reveal">
+      <div class="demo-tela">
+        <span class="demo-tela-label">VÉRTICE: Fechamento da obra lida</span>
+        <img src="assets/vertice-1.jpg" alt="Vértice — Resumo e ideias centrais do Quincas Borba">
+        <div class="demo-tela-titulo">Suas reflexões organizadas + 3 ideias centrais</div>
+        <div class="demo-tela-desc">Após a leitura, o Vértice gera um fechamento completo a partir do que você pensou, sentiu e conectou enquanto lia. Não é um resumo do livro que você encontra no Google. É um registro das suas reflexões e conexões, organizado em até 10 linhas, com as três ideias que realmente importaram para você e uma opinião crítica que aprofunda o que você já percebeu.</div>
+      </div>
+      <div class="demo-tela">
+        <span class="demo-tela-label">VÉRTICE: Aprofundamento crítico</span>
+        <img src="assets/vertice-2.jpg" alt="Vértice — Opinião crítica e aprofundamento">
+        <div class="demo-tela-titulo">Sua posição crítica + o que você ainda não havia percebido</div>
+        <div class="demo-tela-desc">A partir das reflexões que você registrou, o Vértice constrói uma opinião crítica com a sua voz e adiciona camadas que passariam despercebidas. Você enxerga onde seu pensamento já estava no caminho certo e onde ele pode ir mais fundo, sem precisar de um professor ou grupo de discussão para isso.</div>
+      </div>
+      <div class="demo-tela">
+        <span class="demo-tela-label">VÉRTICE: Aplicação prática</span>
+        <img src="assets/vertice-3.jpg" alt="Vértice — Aplicação prática do conteúdo">
+        <div class="demo-tela-titulo">Do que você pensou para o que você vai fazer</div>
+        <div class="demo-tela-desc">Depois de organizar suas reflexões e aprofundar sua leitura crítica, o Vértice dá o passo final: conecta as ideias que você extraiu com situações reais da sua vida. Você sai com aplicações concretas, não com a sensação de que aprendeu. Com algo que você realmente vai usar.</div>
+      </div>
+    </div>
+  </section>
+  <section class="objecoes">
+    <div class="section-label reveal">— Antes de continuar</div>
+    <h2 class="section-title reveal">Você <span class="accent">não precisa</span><br>de nada disso</h2>
+    <div class="obj-lista reveal">
+      <div class="obj-card"><span class="obj-icon">❌</span> Ter lido centenas de livros</div>
+      <div class="obj-card"><span class="obj-icon">❌</span> Ter tempo sobrando no dia</div>
+      <div class="obj-card"><span class="obj-icon">❌</span> Ser acadêmico ou estudioso</div>
+      <div class="obj-card"><span class="obj-icon">❌</span> Saber usar inteligência artificial</div>
+      <div class="obj-card sim"><span class="obj-icon">✅</span> Você só precisa querer transformar o que lê em algo real</div>
+    </div>
+  </section>
+  <section class="etapas">
+    <div class="section-label reveal">— O método</div>
+    <h2 class="section-title reveal">Quando uma leitura passa<br>por <span class="accent">4 etapas</span>...</h2>
+    <div class="etapas-lista reveal">
+      <div class="etapa"><div class="etapa-num">01</div><div><div class="etapa-nome">Ler</div><div class="etapa-desc">Inclui ler, não apenas consumir páginas. É identificar ideias que realmente têm valor.</div></div></div>
+      <div class="etapa"><div class="etapa-num">02</div><div><div class="etapa-nome">Pensar</div><div class="etapa-desc">O momento que a ideia realmente entra na sua mente e encontra as suas experiências.</div></div></div>
+      <div class="etapa"><div class="etapa-num">03</div><div><div class="etapa-nome">Aplicar</div><div class="etapa-desc">Quando a leitura encontra um problema real, o sistema aprende e passa a ser seu.</div></div></div>
+      <div class="etapa"><div class="etapa-num">04</div><div><div class="etapa-nome">Articular</div><div class="etapa-desc">Quando você consegue explicar, deixa de ser algo que você leu para ser algo que você domina.</div></div></div>
+    </div>
+    <div class="etapa-conclusao reveal">...ela deixa de ser apenas conteúdo consumido e se torna <strong>repertório real</strong>.</div>
+  </section>
+  <section class="transform">
+    <div class="section-label reveal">— A transformação</div>
+    <h2 class="section-title reveal">O que o S.I.M. provoca</h2>
+    <div class="transform-cards reveal">
+      <div class="transform-col antes-col">
+        <div class="col-header antes">Antes do S.I.M.</div>
+        <div class="t-item antes-i"><span class="t-icon">✕</span> Leitura vira consumo</div>
+        <div class="t-item antes-i"><span class="t-icon">✕</span> Ideias se perdem</div>
+        <div class="t-item antes-i"><span class="t-icon">✕</span> Pensamento superficial</div>
+        <div class="t-item antes-i"><span class="t-icon">✕</span> Dificuldade de argumentar</div>
+      </div>
+      <div class="transform-col depois-col">
+        <div class="col-header depois">Com o S.I.M.</div>
+        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Leitura vira repertório</div>
+        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Ideias se conectam</div>
+        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Pensamento mais profundo</div>
+        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Expressão clara e confiante</div>
+      </div>
+    </div>
+  </section>
+  <section class="agentes">
+    <div class="section-label reveal">— Os agentes</div>
+    <h2 class="section-title reveal">Um sistema guiado por<br><span class="accent">agentes inteligentes</span></h2>
+    <p class="section-sub reveal">Cada agente tem um papel claro na sua evolução como leitor e pensador.</p>
+    <div class="agentes-grid reveal">
+      <div class="agente-card"><div class="agente-topo"><div class="agente-icon">🧭</div><div><div class="agente-nome">Guia S.I.M.</div><div class="agente-tag">Treinador</div></div></div><div class="agente-desc">Apresenta o método, orienta o uso do sistema e acompanha sua jornada de leitura a cada livro.</div></div>
+      <div class="agente-card"><div class="agente-topo"><div class="agente-icon">💡</div><div><div class="agente-nome">Vértice</div><div class="agente-tag">Leitura</div></div></div><div class="agente-desc">Desenvolve suas ideias ao longo da leitura. Questiona, aprofunda e transforma anotações em insight.</div></div>
+      <div class="agente-card"><div class="agente-topo"><div class="agente-icon">🌅</div><div><div class="agente-nome">Aurora</div><div class="agente-tag">Clareza</div></div></div><div class="agente-desc">Conecta o conteúdo lido com seus objetivos e valores pessoais, dando direção ao aprendizado.</div></div>
+      <div class="agente-card"><div class="agente-topo"><div class="agente-icon">🎯</div><div><div class="agente-nome">Mentor</div><div class="agente-tag">Desenvolvimento</div></div></div><div class="agente-desc">Transforma leituras em planos práticos com metas objetivas e acompanhamento de evolução.</div></div>
+      <div class="agente-card"><div class="agente-topo"><div class="agente-icon">⚡</div><div><div class="agente-nome">Prompter</div><div class="agente-tag">Facilitador</div></div></div><div class="agente-desc">Facilita sua comunicação com os agentes, ajudando a formular perguntas mais profundas e precisas.</div></div>
+    </div>
+    <div class="agente-card reveal" style="margin-top:1.5rem;border:2px solid #F97316;background:#000;">
+      <div class="agente-topo" style="align-items:center;gap:.75rem;">
+        <span style="font-size:1.8rem;">⚡</span>
+        <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;">
+          <span style="display:inline-block;background:#F97316;color:#000;font-size:.75rem;font-weight:800;padding:.2rem .75rem;border-radius:99px;letter-spacing:.08em;">BÔNUS</span>
+          <div class="agente-nome" style="color:#F97316;">S.I.M. na Prática</div>
+        </div>
+      </div>
+      <div class="agente-desc" style="color:#F97316;opacity:.9;">Não é um agente. É um conjunto de aulas que mostram como extrair o potencial máximo de cada agente do sistema, com demonstrações em contextos reais, de ficção científica a filosofia e negócios.</div>
+    </div>
+    <div class="agente-card reveal" style="margin-top:1rem;border:2px solid #F97316;background:#000;">
+      <div class="agente-topo" style="align-items:center;gap:.75rem;">
+        <span style="font-size:1.8rem;">⚡</span>
+        <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;">
+          <span style="display:inline-block;background:#F97316;color:#000;font-size:.75rem;font-weight:800;padding:.2rem .75rem;border-radius:99px;letter-spacing:.08em;">BÔNUS</span>
+          <div class="agente-nome" style="color:#F97316;">Jornada S.I.M.</div>
+        </div>
+      </div>
+      <div class="agente-desc" style="color:#F97316;opacity:.9;">Não é um agente. É a comunidade exclusiva do S.I.M., onde você acompanha outros leitores, compartilha reflexões e evolui junto com quem também está transformando leitura em repertório real.</div>
+    </div>
+  </section>
+  <section class="para-quem">
+    <div class="section-label reveal">— Para quem é</div>
+    <h2 class="section-title reveal">O S.I.M. é<br>feito para você?</h2>
+    <div class="para-quem-box reveal" style="display:flex;flex-direction:column;gap:1.25rem;">
+      <div>
+        <strong>Para quem já lê bastante</strong>
+        Você lê com frequência, termina os livros, mas sente que poderia aproveitar muito mais. As ideias entram mas não ficam. O S.I.M. organiza o que você já lê e transforma em repertório real que você consegue usar.
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem;">
+        <strong>Para quem quer começar a ler</strong>
+        Você sabe que a leitura pode te transformar, mas ainda não criou o hábito ou não sabe por onde começar. O S.I.M. te dá um processo simples para que cada livro que você leia, mesmo que seja um por mês, já faça diferença real.
+      </div>
+    </div>
+    <div class="pq-lista reveal">
+      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Quer pensar com mais profundidade</strong><span>Você deseja ir além da superfície e desenvolver um pensamento mais estruturado.</span></div></div>
+      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Deseja falar e escrever com mais clareza</strong><span>Você quer se expressar melhor em conversas, reuniões e apresentações.</span></div></div>
+      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Quer construir identidade intelectual própria</strong><span>Você busca desenvolver ideias originais e um repertório genuinamente seu.</span></div></div>
+      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Quer transformar leitura em desenvolvimento real</strong><span>Você quer que cada livro lido seja uma alavanca para clareza, repertório e evolução.</span></div></div>
+    </div>
+  </section>
+  <section class="transformacao">
+    <div class="section-label reveal">— O impacto</div>
+    <h2 class="section-title reveal">O S.I.M. não transforma<br>apenas a sua leitura.</h2>
+    <div class="transf-lista reveal">
+      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Um leitor ativo</div><div class="transf-desc">Você deixa de apenas consumir livros e começa a dialogar com as ideias que encontra neles.</div></div></div>
+      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Um pensador mais profundo</div><div class="transf-desc">Você passa a analisar conceitos com mais clareza e questionar argumentos com mais profundidade.</div></div></div>
+      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Uma pessoa com repertório</div><div class="transf-desc">As ideias deixam de ser informações isoladas e formam uma rede de referências conectadas.</div></div></div>
+      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Alguém que se expressa melhor</div><div class="transf-desc">Você consegue explicar ideias com clareza e articular argumentos com mais segurança.</div></div></div>
+      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Um aprendiz contínuo</div><div class="transf-desc">Aprender deixa de ser algo esporádico e passa a ser um processo constante de evolução.</div></div></div>
+    </div>
+  </section>
+  <section class="depoimentos">
+    <div class="section-label reveal">— Resultados reais</div>
+    <h2 class="section-title reveal">Veja como o S.I.M. está<br>mudando a forma de aprender</h2>
+    <div class="dep-grid reveal">
+      <div class="dep-card"><img src="assets/depoimento1.jpg" alt="Depoimento Jackson Vulpi" style="width:100%;border-radius:12px;display:block;"></div>
+      <div class="dep-card"><img src="assets/depoimento2.jpg" alt="Depoimento Victor" style="width:100%;border-radius:12px;display:block;"></div>
+      <div class="dep-card"><img src="assets/depoimento3.jpg" alt="Depoimento Renato Pechinho" style="width:100%;border-radius:12px;display:block;"></div>
+    </div>
+  </section>
+  <section class="preco" id="inscricao">
+    <div class="section-label reveal">— Investimento</div>
+    <h2 class="section-title reveal">Tudo isso por <span>menos que um livro</span><br>que você vai esquecer na estante</h2>
+    <div class="preco-card reveal">
+      <div class="preco-fire">🔥</div>
+      <div class="preco-valor">R$ 74,90</div>
+      <div class="preco-sub">Pagamento único — Acesso completo</div>
+      <div class="preco-sub" style="margin-top:-.75rem;margin-bottom:1rem;">ou 10x de R$ 9,00 no cartão, pix ou boleto</div>
+      <div class="preco-label">Ao se inscrever hoje, você recebe:</div>
+      <div class="preco-lista">
+        <div class="preco-item"><span>✓</span> Guia S.I.M.: treinador da jornada</div>
+        <div class="preco-item"><span>✓</span> Vértice: assistente de leitura</div>
+        <div class="preco-item"><span>✓</span> Aurora: agente de clareza</div>
+        <div class="preco-item"><span>✓</span> Mentor: agente de desenvolvimento</div>
+        <div class="preco-item"><span>✓</span> Prompter: facilitador de prompts</div>
+        <div class="preco-item"><span>✓</span> Sistema digital pronto para usar</div>
+      </div>
+      <div style="text-align:center;margin-bottom:.5rem;">
+        <span style="display:inline-block;background:var(--accent);color:#fff;font-size:.75rem;font-weight:800;padding:.25rem .9rem;border-radius:99px;letter-spacing:.08em;">BÔNUS</span>
+      </div>
+      <div class="preco-bonus-bloco">
+        <div class="preco-bonus-icon">⚡</div>
+        <div class="preco-bonus-texto">
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <strong>S.I.M. na Prática</strong>
+            <div class="preco-bonus-tag">INCLUÍDA NESTA OFERTA</div>
+          </div>
+          <span>Aulas exclusivas para extrair o potencial máximo de cada agente</span>
+        </div>
+      </div>
+      <div class="preco-bonus-bloco">
+        <div class="preco-bonus-icon">⚡</div>
+        <div class="preco-bonus-texto">
+          <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">
+            <strong>Jornada S.I.M.</strong>
+            <div class="preco-bonus-tag">INCLUÍDA NESTA OFERTA</div>
+          </div>
+          <span>Comunidade exclusiva de leitores transformando leitura em repertório real</span>
+        </div>
+      </div>
+      <a href="https://pay.hotmart.com/Y102564448I" class="btn-checkout">COMEÇAR MINHA JORNADA NO S.I.M.</a>
+      <div class="seguranca" style="margin-top:1.25rem;">
+        <div class="seg-item"><span class="seg-icon">🔒</span><div><strong>Pagamento Seguro</strong><span>Processado pela Hotmart</span></div></div>
+        <div class="seg-item"><span class="seg-icon">✅</span><div><strong>100% Seguro</strong><span>Certificado SSL</span></div></div>
+      </div>
+      <div class="preco-garantia-verde" style="margin-top:1.25rem;">
+        <img src="assets/garantia.jpg" alt="Garantia 7 dias" style="width:90px;height:auto;margin:0 auto .5rem;display:block;">
+        <strong>✓ GARANTIA DE 7 DIAS</strong>
+        <span>Nós te damos 7 dias para testar o S.I.M. sem compromisso. Se não for para você, a gente te devolve o dinheiro imediatamente e sem burocracia.</span>
+      </div>
+    </div>
+  </section>
+  <section class="faq">
+    <div class="section-label reveal">— Ainda com dúvidas?</div>
+    <h2 class="section-title reveal">Perguntas frequentes</h2>
+    <div class="faq-lista reveal">
+      <div class="faq-item">
+        <div class="faq-pergunta">Preciso instalar algum aplicativo?</div>
+        <div class="faq-resposta">Não. O S.I.M. é 100% digital e funciona direto no navegador do seu celular ou computador, sem instalar nada. Assim que você confirmar o pagamento, recebe o acesso imediato.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Não tenho experiência com tecnologia, consigo usar?</div>
+        <div class="faq-resposta">Sim. O sistema foi pensado para ser simples de usar. Se você sabe conversar pelo WhatsApp, consegue usar o S.I.M. sem dificuldade. E se tiver qualquer dúvida, o suporte está disponível para te ajudar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Como funciona o suporte?</div>
+        <div class="faq-resposta">O suporte é feito diretamente via WhatsApp. É só chamar e eu te respondo pessoalmente para tirar qualquer dúvida sobre o uso do sistema.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Por quanto tempo vou ter acesso ao S.I.M.?</div>
+        <div class="faq-resposta">O acesso é vitalício. Você paga uma vez e tem acesso para sempre, incluindo todas as atualizações futuras do sistema. Sem mensalidades, sem renovação.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">E se eu não gostar, posso pedir reembolso?</div>
+        <div class="faq-resposta">Sim, sem problema. Você tem 7 dias a partir da compra para testar o S.I.M. com total liberdade. Se não fizer sentido para você, é só pedir o reembolso e devolvemos 100% do valor. Sem perguntas, sem burocracia.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Não sou um leitor frequente, o S.I.M. é para mim?</div>
+        <div class="faq-resposta">O S.I.M. não exige que você leia muito. Ele foi criado justamente para quem quer começar a extrair mais de cada leitura, independente do ritmo. Um livro por mês já é suficiente para o sistema funcionar e gerar resultados reais.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-pergunta">Não tenho tempo para nada, consigo usar?</div>
+        <div class="faq-resposta">O S.I.M. não cria mais uma tarefa na sua rotina. Ele se encaixa nos buracos do seu dia. Aqueles 5 minutos esperando na fila do caixa do supermercado? São suficientes para processar uma ideia do livro que você está lendo com o Vértice. Não precisa de blocos de tempo. Precisa só do celular e de uma ideia para explorar.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="footer-logo">S<span>.</span>I<span>.</span>M<span style="color:#60A5FA">.</span></a>
+    <div class="footer-copy">© 2026 S.I.M. — Sistema Inteligente de Mentoria. Todos os direitos reservados.</div>
+  </footer>
+  <a href="https://wa.me/5527999507096?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20S.I.M." class="whatsapp-btn" target="_blank" title="Fale no WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.736 5.472 2.025 7.774L0 32l8.454-2.017A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.854l-.486-.289-5.02 1.198 1.22-4.88-.317-.502A13.26 13.26 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.874c-.398-.199-2.356-1.162-2.72-1.294-.365-.133-.63-.199-.896.199-.265.398-1.028 1.294-1.26 1.56-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.956-.323-.776-.65-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.393 1.361-1.393 3.32 0 1.96 1.427 3.854 1.626 4.12.2.264 2.81 4.29 6.808 6.017.952.41 1.694.655 2.273.839.955.304 1.824.261 2.512.158.766-.114 2.356-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.099-.166-.364-.265-.763-.464z"/></svg>
+  </a>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-pergunta').forEach(function(pergunta) {
+      pergunta.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    function updateCountdown(){const now=new Date();const end=new Date();const d=(7-now.getDay())%7||7;end.setDate(now.getDate()+d);end.setHours(23,59,0,0);const diff=end-now;if(diff<=0)return;const dd=Math.floor(diff/86400000).toString().padStart(2,'0');const h=Math.floor((diff%86400000)/3600000).toString().padStart(2,'0');const m=Math.floor((diff%3600000)/60000).toString().padStart(2,'0');const s=Math.floor((diff%60000)/1000).toString().padStart(2,'0');const el=document.getElementById('countdown');if(el)el.textContent=`${dd}d ${h}:${m}:${s}`}
+    updateCountdown();setInterval(updateCountdown,1000);
+
+    // Reveal on scroll
+    const reveals=document.querySelectorAll('.reveal');
+    const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.08});
+    reveals.forEach(el=>observer.observe(el));
+
+    // Autoplay vídeo ao entrar na tela
+    var ytReady = false;
+    function onYouTubeIframeAPIReady() { ytReady = true; }
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+
+    var player;
+    var videoStarted = false;
+    var videoContainer = document.getElementById('video-container');
+    var videoObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !videoStarted) {
+          videoStarted = true;
+          var iframe = document.getElementById('yt-player');
+          // Tenta via postMessage (funciona mesmo sem API carregada)
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          // Fallback: recarrega src com autoplay
+          var src = iframe.src;
+          if (src.indexOf('autoplay') === -1) {
+            iframe.src = src + '&autoplay=1';
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+    if (videoContainer) videoObserver.observe(videoContainer);
+  </script>
+<a href="https://wa.me/5527999507096?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20S.I.M." class="whatsapp-btn" target="_blank" title="Fale no WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.736 5.472 2.025 7.774L0 32l8.454-2.017A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.854l-.486-.289-5.02 1.198 1.22-4.88-.317-.502A13.26 13.26 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.874c-.398-.199-2.356-1.162-2.72-1.294-.365-.133-.63-.199-.896.199-.265.398-1.028 1.294-1.26 1.56-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.956-.323-.776-.65-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.393 1.361-1.393 3.32 0 1.96 1.427 3.854 1.626 4.12.2.264 2.81 4.29 6.808 6.017.952.41 1.694.655 2.273.839.955.304 1.824.261 2.512.158.766-.114 2.356-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.099-.166-.364-.265-.763-.464z"/>
+  </svg>
+</a>
+</body>
+</html>
