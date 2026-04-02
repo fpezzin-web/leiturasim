@@ -77,10 +77,12 @@
     .ciclo-item.highlight{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
     .ciclo-arrow{text-align:center;color:var(--accent);opacity:.5;font-size:1.1rem;padding:.2rem 0}
     @media(max-width:600px){.ciclo{flex-direction:column!important;gap:0!important}.ciclo-arrow{padding:.1rem 0}}
-    .demonstracao{background:var(--dark)}
-    .demonstracao .section-label{color:rgba(255,255,255,.4)}
+    .demonstracao{background:#0B1F3A}
+    .demonstracao .section-label{color:rgba(255,255,255,.6)}
     .demonstracao .section-title{color:#fff}
-    .demonstracao .section-sub{color:rgba(255,255,255,.6)}
+    .demonstracao .section-sub{color:rgba(255,255,255,.7)}
+    .demonstracao .demo-especialista-texto p{color:rgba(255,255,255,.85)}
+    .demonstracao img{opacity:.95}
     .demo-especialista{display:flex;flex-direction:column;align-items:center;gap:1.5rem;margin-top:2rem}
     .demo-especialista img{width:100%;max-width:360px;border-radius:16px;border:3px solid rgba(255,255,255,.1)}
     .demo-especialista-texto{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.8;text-align:left}
@@ -231,6 +233,8 @@
     .vtx-typing span:nth-child(2){animation-delay:.2s}
     .vtx-typing span:nth-child(3){animation-delay:.4s}
     @keyframes blink2{0%,100%{opacity:.2}50%{opacity:1}}
+    @keyframes badge-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(0.97)}}
+    @keyframes balloon-in{from{opacity:0;transform:translateX(20px) scale(0.8)}to{opacity:1;transform:translateX(0) scale(1)}}
     .vertice-footer{padding:.65rem 1rem;background:#2A2A2A;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:.5rem}
     .vtx-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.45rem .75rem;font-size:.75rem;color:rgba(255,255,255,.4);font-family:'Inter',sans-serif;min-width:0}
     .vtx-send{width:28px;height:28px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff;flex-shrink:0}
@@ -249,13 +253,26 @@
   <nav><a href="#" class="nav-logo">S<span>.</span>I<span>.</span>M<span style="color:var(--accent)">.</span></a></nav>
   <section class="hero">
     <div class="hero-badge reveal"><span class="badge-dot"></span>Sistema de Mentoria com IA</div>
-    <h1 class="reveal">Leia, entenda e <span class="accent">explique ideias com clareza</span>, sem esquecer o que você acabou de ler</h1>
-    <ul class="hero-sub reveal" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;text-align:left;">
-      <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1rem;">➜</span><span>Saia do ciclo silencioso de ler muito e continuar com a vida igual, transforme cada leitura em aplicação real, para que <strong style="color:var(--accent)">ideias boas realmente virem ideias usadas</strong>.</span></li>
-      <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1rem;">➜</span><span>Aplique o processo simples que faz seu cérebro finalmente guardar o que você lê, eliminando o problema de "eu li, mas não sei explicar", para que você tenha <strong style="color:var(--accent)">argumentos na ponta da língua</strong>.</span></li>
-      <li style="display:flex;gap:0.6rem;align-items:flex-start;"><span style="color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.1rem;">➜</span><span>Pare de acumular livros e começar a construir um repertório mental sólido, <strong style="color:var(--accent)">criando uma biblioteca que vive dentro de você</strong>.</span></li>
-    </ul>
-    <img src="assets/img primeira secao.jpg" alt="S.I.M." style="width:100%;max-width:480px;border-radius:12px;margin:1.5rem auto 0;display:block;">
+    <h1 class="reveal">Guarde as principais <span style="color:#60A5FA;">ideias</span> das suas leituras de um jeito que elas <span style="color:#60A5FA;">grudam na sua mente</span> e você nunca mais esquece.</h1>
+    <div class="hero-badge" style="animation:badge-pulse 1.5s ease-in-out infinite;background:#0B1F3A;border-color:#0B1F3A;color:#fff;"><span class="badge-dot"></span>O S.I.M. te prepara pra isso já no primeiro capítulo.</div>
+    <img src="assets/espiral_vertice.png" alt="Espiral do Vértice" style="width:100%;max-width:520px;height:auto;display:block;margin:1.5rem auto 0;border-radius:12px;">
+    <!-- Badge explicativo -->
+    <div style="max-width:520px;margin:1.5rem auto 0;text-align:center;">
+      <div style="display:inline-block;background:#0B1F3A;border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:1rem 1.5rem;">
+        <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:0.5rem;">O Vértice funciona em espiral.</p>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.7;margin:0;">A cada volta do ciclo você não volta ao mesmo ponto.<br>Você volta em um nível mais profundo.</p>
+      </div>
+    </div>
+    <!-- Técnica da espiral -->
+    <div style="max-width:520px;margin:1.5rem auto 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0;">
+      <p style="font-size:0.95rem;color:#0B1F3A;line-height:1.8;margin:0;">Você <strong style="color:#2563EB;">FALA</strong> — o Vértice <strong style="color:#2563EB;">PROVOCA.</strong></p>
+      <p style="font-size:1.2rem;color:#93C5FD;margin:0.1rem 0;">↓</p>
+      <p style="font-size:0.95rem;color:#0B1F3A;line-height:1.8;margin:0;">Você <strong style="color:#1A3D6B;">REPOSICIONA</strong> — o Vértice <strong style="color:#1A3D6B;">APROFUNDA.</strong></p>
+      <p style="font-size:1.2rem;color:#93C5FD;margin:0.1rem 0;">↓</p>
+      <p style="font-size:0.95rem;color:#0B1F3A;line-height:1.8;margin:0;">Você <strong style="color:#3B82F6;">EXPANDE</strong> — o Vértice <strong style="color:#3B82F6;">CONECTA.</strong></p>
+      <p style="font-size:1.2rem;color:#93C5FD;margin:0.1rem 0;">↓</p>
+      <p style="font-size:0.95rem;color:#0B1F3A;line-height:1.8;margin:0;">Você <strong style="color:#0B1F3A;">APLICA</strong> — e volta ao início, <strong style="color:#2563EB;">melhor.</strong></p>
+    </div>
     <div class="hero-stats reveal">
       <div><div class="stat-num">5</div><div class="stat-label">Agentes de IA</div></div>
       <div><div class="stat-num">4</div><div class="stat-label">Etapas do método</div></div>
@@ -263,92 +280,22 @@
     </div>
   </section>
 
-  <!-- VÉRTICE AO VIVO -->
-  <div class="vertice-wrap reveal">
-    <div class="vertice-card">
-      <div class="vertice-header">
-        <div class="vertice-header-left">
-          <div class="vertice-avatar">VS</div>
-          <div>
-            <div class="vertice-name">Vértice</div>
-            <div class="vertice-sub">Assistente de Leitura · S.I.M.</div>
-          </div>
-        </div>
-        <div class="vertice-dot"></div>
-      </div>
-      <div class="vertice-body">
-        <div class="vtx-user-msg">Acabei de terminar o capítulo sobre vieses cognitivos. Achei muito interessante mas não sei bem como aplicar isso no dia a dia.</div>
-        <div class="vtx-ai-block">
-          <div class="vtx-ai-label">Vértice respondeu</div>
-          <div class="vtx-ai-bubble">
-            <span class="highlight">🧠 Síntese do que você leu</span><br><br>
-            Você captou algo importante. Vamos organizar isso.
-            <h4>1️⃣ O que são vieses cognitivos</h4>
-            São atalhos mentais que o cérebro usa para decidir rápido, mas que <span class="bold">frequentemente nos enganam.</span>
-            <h4>✅ Vieses que você provavelmente já viveu</h4>
-            <ul>
-              <li>Viés de confirmação → busca só o que confirma o que já acredita</li>
-              <li>Efeito ancoragem → primeira informação domina a decisão</li>
-              <li>Viés de disponibilidade → o que veio à mente é tratado como verdade</li>
-            </ul>
-            <h4>📌 Pergunta para aprofundar</h4>
-            Qual desses você acha que mais interfere nas suas decisões? <span class="highlight">Vamos explorar a partir da sua experiência real.</span>
-          </div>
-        </div>
-        <div class="vtx-typing"><span></span><span></span><span></span></div>
-      </div>
-      <div class="vertice-footer">
-        <div class="vtx-input">Responder ao Vértice...</div>
-        <div class="vtx-send">↑</div>
-      </div>
-    </div>
-  </div>
-  <section class="problema">
-    <div class="section-label reveal">— O problema</div>
-    <h2 class="section-title reveal">Existe uma ilusão silenciosa<br>no mundo da leitura.</h2>
-    <p class="section-title reveal" style="font-size:1.5rem;color:var(--accent);font-weight:800;margin-top:-0.5rem;">A sensação de aprendizado.</p>
-    <p class="section-sub reveal">Você termina um livro com a impressão de que aprendeu muito.</p>
-    <p class="section-sub reveal" style="font-weight:600;margin-top:0.25rem;">Enquanto lê:</p>
-    <div class="ciclo reveal" style="flex-direction:row;gap:1rem;justify-content:center;">
-      <div class="ciclo-item" style="border-top:3px solid var(--accent);">📖 tudo parece claro</div>
-      <div class="ciclo-item" style="border-top:3px solid var(--accent);">💬 as ideias parecem profundas</div>
-      <div class="ciclo-item" style="border-top:3px solid var(--accent);">🔄 você sente que está evoluindo</div>
-    </div>
-    <p class="section-sub reveal" style="margin-top:1.5rem;">Mas alguns dias depois . . .</p>
-    <p class="reveal" style="font-size:1.1rem;color:var(--accent);font-weight:700;margin-top:0.25rem;">quase nada aparece quando você precisa.</p>
-    <p class="section-sub reveal" style="margin-top:1rem;">Isso acontece porque <strong style="text-decoration:underline;">sentir que entendeu não é o mesmo que consolidar conhecimento</strong>.</p>
-    <div class="reveal" style="background:#4a0a0a;border:1px solid #8b1a1a;border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.5rem;color:#f5c6c6;">
-      <p style="font-size:0.85rem;opacity:0.8;margin-bottom:0.5rem;">⊗ Sem reflexão e aplicação...</p>
-      <p style="font-size:1rem;line-height:1.6;">o conteúdo passa pela mente<br>mas <strong>não se transforma em repertório</strong></p>
-    </div>
-    <p class="section-sub reveal" style="margin-top:1.5rem;">E então começa um ciclo silencioso:</p>
-    <div class="ciclo reveal" style="flex-direction:row;gap:0;margin-top:0.75rem;">
-      <div class="ciclo-item highlight" style="flex:1;">você lê</div>
-      <div class="ciclo-arrow" style="padding:0 0.25rem;display:flex;align-items:center;">→</div>
-      <div class="ciclo-item highlight" style="flex:1;">sente que aprendeu</div>
-      <div class="ciclo-arrow" style="padding:0 0.25rem;display:flex;align-items:center;">→</div>
-      <div class="ciclo-item highlight" style="flex:1;background:#6B0000;border-color:#6B0000;font-size:1.2rem;text-decoration:underline;">esquece</div>
-      <div class="ciclo-arrow" style="padding:0 0.25rem;display:flex;align-items:center;">→</div>
-      <div class="ciclo-item highlight" style="flex:1;">começa outro livro.</div>
-    </div>
-    <p class="section-sub reveal" style="margin-top:1.25rem;">Sua estante cresce, mas você não aplica o que aprendeu.</p>
-  </section>
   <section class="demonstracao">
     <div class="section-label reveal">— Veja na prática</div>
-    <h2 class="section-title reveal">Existe um jeito de transformar<br>leitura em <span style="color:#60A5FA">conhecimento prático.</span></h2>
+    <h2 class="section-title reveal">É assim que uma ideia lida hoje fica para sempre</h2>
     <div class="demo-especialista reveal">
       <img src="assets/foto-especialista.jpeg" alt="Especialista com o livro Quincas Borba">
       <div class="demo-especialista-texto">
-        <p>Com o tempo, percebi que as leituras que realmente permaneciam eram aquelas que eu conseguia <strong>debater com alguém</strong>.</p>
-        <br>
-        <p>Quando eu explicava uma ideia, minha mente organizava o pensamento, ativava os detalhes do que eu havia lido e começava a <strong>transformar em repertório</strong>.</p>
-        <br>
-        <p>O problema é que, na rotina corrida de hoje, é difícil encontrar pessoas dispostas a ter esse tipo de conversa.</p>
-        <br>
-        <p>Até que comecei a criar algo que resolve isso: o <strong>S.I.M.</strong>, um sistema de agentes treinados para <strong>classificar suas ideias, trazer clareza e ajudar você a transformar cada leitura em desenvolvimento real.</strong></p>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,.85);line-height:1.85;margin-top:1rem;">Leituras que ficam são aquelas que você consegue conversar sobre. O problema é que a vida ficou tão corrida que é difícil achar alguém com tempo e vontade para debater temas que só você tem interesse.</p>
+        <p style="font-size:0.95rem;color:rgba(255,255,255,.85);line-height:1.85;margin-top:1rem;">Para resolver isso eu criei o S.I.M. e em especial o Vértice, que com a sua espiral consegue fazer as ideias grudarem na sua mente.</p>
+        <div style="margin-top:1.25rem;">
+          <span style="display:inline-flex;align-items:center;gap:0.5rem;background:#0f2ba3;border-radius:100px;padding:0.5rem 1.25rem;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#93C5FD;flex-shrink:0;animation:pulse 2s infinite;"></span>
+            <span style="font-size:0.82rem;font-weight:700;color:#fff;letter-spacing:0.03em;">Você vai ver isso logo no primeiro dia.</span>
+          </span>
+        </div>
       </div>
     </div>
-    <p class="section-sub reveal" style="margin-top:2rem;color:rgba(255,255,255,.5);font-style:italic;text-align:center;">✦ Leitura vira conhecimento quando suas ideias são questionadas, aprofundadas e consolidadas.</p>
     <div class="demo-telas reveal">
       <div class="demo-tela">
         <span class="demo-tela-label">VÉRTICE: Fechamento da obra lida</span>
@@ -371,8 +318,8 @@
     </div>
   </section>
   <section class="objecoes">
-    <div class="section-label reveal">— Antes de continuar</div>
-    <h2 class="section-title reveal">Você <span class="accent">não precisa</span><br>de nada disso</h2>
+    <div class="section-label reveal">— Sem pré-requisitos</div>
+    <h2 class="section-title reveal">Qualquer leitor. Qualquer ritmo. <span class="accent">Qualquer nível.</span></h2>
     <div class="obj-lista reveal">
       <div class="obj-card"><span class="obj-icon">❌</span> Ter lido centenas de livros</div>
       <div class="obj-card"><span class="obj-icon">❌</span> Ter tempo sobrando no dia</div>
@@ -382,35 +329,23 @@
     </div>
   </section>
   <section class="etapas">
-    <div class="section-label reveal">— O método</div>
-    <h2 class="section-title reveal">Quando uma leitura passa<br>por <span class="accent">4 etapas</span>...</h2>
-    <div class="etapas-lista reveal">
-      <div class="etapa"><div class="etapa-num">01</div><div><div class="etapa-nome">Ler</div><div class="etapa-desc">Inclui ler, não apenas consumir páginas. É identificar ideias que realmente têm valor.</div></div></div>
-      <div class="etapa"><div class="etapa-num">02</div><div><div class="etapa-nome">Pensar</div><div class="etapa-desc">O momento que a ideia realmente entra na sua mente e encontra as suas experiências.</div></div></div>
-      <div class="etapa"><div class="etapa-num">03</div><div><div class="etapa-nome">Aplicar</div><div class="etapa-desc">Quando a leitura encontra um problema real, o sistema aprende e passa a ser seu.</div></div></div>
-      <div class="etapa"><div class="etapa-num">04</div><div><div class="etapa-nome">Articular</div><div class="etapa-desc">Quando você consegue explicar, deixa de ser algo que você leu para ser algo que você domina.</div></div></div>
-    </div>
-    <div class="etapa-conclusao reveal">...ela deixa de ser apenas conteúdo consumido e se torna <strong>repertório real</strong>.</div>
-  </section>
-  <section class="transform">
-    <div class="section-label reveal">— A transformação</div>
-    <h2 class="section-title reveal">O que o S.I.M. provoca</h2>
-    <div class="transform-cards reveal">
-      <div class="transform-col antes-col">
-        <div class="col-header antes">Antes do S.I.M.</div>
-        <div class="t-item antes-i"><span class="t-icon">✕</span> Leitura vira consumo</div>
-        <div class="t-item antes-i"><span class="t-icon">✕</span> Ideias se perdem</div>
-        <div class="t-item antes-i"><span class="t-icon">✕</span> Pensamento superficial</div>
-        <div class="t-item antes-i"><span class="t-icon">✕</span> Dificuldade de argumentar</div>
+    <div class="section-label reveal">— O diferencial</div>
+    <h2 class="section-title reveal">Outros ensinam o método.<br><span style="color:#60A5FA;">O S.I.M. é o método.</span></h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,0.55);margin-top:1rem;">A maioria das metodologias de leitura funciona no papel. O problema é que você aprende a técnica em um momento e tenta aplicar em outro. O S.I.M. é diferente: você aplica <strong style="color:#fff;">enquanto lê.</strong> No mesmo momento em que a ideia aparece, o Vértice está lá para <strong style="color:#60A5FA;">provocar, aprofundar e conectar.</strong></p>
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem;">
+      <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.72rem;font-weight:700;color:rgba(239,68,68,0.8);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;">❌ Outros métodos</p>
+        <p style="font-size:0.92rem;color:rgba(255,255,255,0.6);line-height:1.7;">Você estuda a técnica, tenta lembrar, aplica depois e <strong style="color:rgba(255,255,255,0.85);">já esqueceu metade.</strong></p>
       </div>
-      <div class="transform-col depois-col">
-        <div class="col-header depois">Com o S.I.M.</div>
-        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Leitura vira repertório</div>
-        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Ideias se conectam</div>
-        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Pensamento mais profundo</div>
-        <div class="t-item depois-i"><span class="t-icon" style="color:#60A5FA">✓</span> Expressão clara e confiante</div>
+      <div style="background:rgba(37,99,235,0.12);border:1px solid rgba(96,165,250,0.3);border-radius:10px;padding:1.25rem 1.5rem;">
+        <p style="font-size:0.72rem;font-weight:700;color:#60A5FA;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.6rem;">✅ S.I.M.</p>
+        <p style="font-size:0.92rem;color:rgba(255,255,255,0.85);line-height:1.7;">Você lê, o Vértice <strong style="color:#60A5FA;">age na hora</strong> e a ideia <strong style="color:#60A5FA;">fixa antes de você virar a página.</strong></p>
       </div>
     </div>
+    <div style="margin-top:1.75rem;text-align:center;padding:1.25rem;border:1px solid rgba(96,165,250,0.2);border-radius:10px;background:rgba(96,165,250,0.05);">
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic;">Não é uma aula sobre como ler melhor.<br><strong style="color:#fff;font-style:normal;">É um sistema que funciona enquanto você lê.</strong></p>
+    </div>
+    <div class="etapa-conclusao reveal" style="margin-top:1.5rem;">...ela deixa de ser apenas conteúdo consumido e se torna <strong>repertório real</strong>.</div>
   </section>
   <section class="agentes">
     <div class="section-label reveal">— Os agentes</div>
@@ -422,6 +357,20 @@
       <div class="agente-card"><div class="agente-topo"><div class="agente-icon">🌅</div><div><div class="agente-nome">Aurora</div><div class="agente-tag">Clareza</div></div></div><div class="agente-desc">Conecta o conteúdo lido com seus objetivos e valores pessoais, dando direção ao aprendizado.</div></div>
       <div class="agente-card"><div class="agente-topo"><div class="agente-icon">🎯</div><div><div class="agente-nome">Mentor</div><div class="agente-tag">Desenvolvimento</div></div></div><div class="agente-desc">Transforma leituras em planos práticos com metas objetivas e acompanhamento de evolução.</div></div>
       <div class="agente-card"><div class="agente-topo"><div class="agente-icon">⚡</div><div><div class="agente-nome">Prompter</div><div class="agente-tag">Facilitador</div></div></div><div class="agente-desc">Facilita sua comunicação com os agentes, ajudando a formular perguntas mais profundas e precisas.</div></div>
+    </div>
+    <div style="margin-top:2.5rem;background:linear-gradient(135deg,#0B1F3A,#1A3D6B);border-radius:16px;padding:2rem 1.5rem;text-align:center;box-shadow:0 8px 40px rgba(37,99,235,0.2);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:rgba(96,165,250,0.1);border-radius:50%;"></div>
+      <div style="position:absolute;bottom:-30px;left:-30px;width:90px;height:90px;background:rgba(37,99,235,0.1);border-radius:50%;"></div>
+      <div style="display:inline-block;background:rgba(96,165,250,0.15);border:1px solid rgba(96,165,250,0.3);border-radius:100px;padding:0.3rem 1rem;font-size:0.68rem;font-weight:700;color:#93C5FD;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;">Oferta especial</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:0.5rem;line-height:1.3;">Sua leitura muda hoje<br><span style="color:#60A5FA;">por R$74,90</span></h3>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem;">pagamento único</p>
+      <p style="font-size:1rem;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:1.5rem;">ou 10x de <strong style="color:#fff;">R$9,00</strong></p>
+      <a href="https://pay.hotmart.com/Y102564448I" style="display:block;width:100%;background:#EA580C;color:#fff;font-weight:700;padding:1rem;border-radius:8px;text-decoration:none;font-size:0.95rem;text-align:center;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1.5rem;transition:background 0.2s;" onmouseenter="this.style.background='#C2410C'" onmouseleave="this.style.background='#EA580C'">Começar minha jornada no S.I.M.</a>
+      <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;">
+        <div style="height:1px;width:40px;background:rgba(255,255,255,0.15);"></div>
+        <p style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;">E tem mais ↓</p>
+        <div style="height:1px;width:40px;background:rgba(255,255,255,0.15);"></div>
+      </div>
     </div>
     <div class="agente-card reveal" style="margin-top:1.5rem;border:2px solid #F97316;background:#000;">
       <div class="agente-topo" style="align-items:center;gap:.75rem;">
@@ -455,37 +404,6 @@
       <div class="agente-desc" style="color:#F97316;opacity:.9;">Uma imersão nos grandes clássicos da literatura mundial, onde cada livro vira uma lente para enxergar o mundo com mais profundidade. Primeiro livro comentado: Crime e Castigo — Dostoiévski.</div>
     </div>
   </section>
-  <section class="para-quem">
-    <div class="section-label reveal">— Para quem é</div>
-    <h2 class="section-title reveal">O S.I.M. é<br>feito para você?</h2>
-    <div class="para-quem-box reveal" style="display:flex;flex-direction:column;gap:1.25rem;">
-      <div>
-        <strong>Para quem já lê bastante</strong>
-        Você lê com frequência, termina os livros, mas sente que poderia aproveitar muito mais. As ideias entram mas não ficam. O S.I.M. organiza o que você já lê e transforma em repertório real que você consegue usar.
-      </div>
-      <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem;">
-        <strong>Para quem quer começar a ler</strong>
-        Você sabe que a leitura pode te transformar, mas ainda não criou o hábito ou não sabe por onde começar. O S.I.M. te dá um processo simples para que cada livro que você leia, mesmo que seja um por mês, já faça diferença real.
-      </div>
-    </div>
-    <div class="pq-lista reveal">
-      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Quer pensar com mais profundidade</strong><span>Você deseja ir além da superfície e desenvolver um pensamento mais estruturado.</span></div></div>
-      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Deseja falar e escrever com mais clareza</strong><span>Você quer se expressar melhor em conversas, reuniões e apresentações.</span></div></div>
-      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Quer construir identidade intelectual própria</strong><span>Você busca desenvolver ideias originais e um repertório genuinamente seu.</span></div></div>
-      <div class="pq-item"><span class="pq-arrow">▶</span><div class="pq-texto"><strong>Quer transformar leitura em desenvolvimento real</strong><span>Você quer que cada livro lido seja uma alavanca para clareza, repertório e evolução.</span></div></div>
-    </div>
-  </section>
-  <section class="transformacao">
-    <div class="section-label reveal">— O impacto</div>
-    <h2 class="section-title reveal">O S.I.M. não transforma<br>apenas a sua leitura.</h2>
-    <div class="transf-lista reveal">
-      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Um leitor ativo</div><div class="transf-desc">Você deixa de apenas consumir livros e começa a dialogar com as ideias que encontra neles.</div></div></div>
-      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Um pensador mais profundo</div><div class="transf-desc">Você passa a analisar conceitos com mais clareza e questionar argumentos com mais profundidade.</div></div></div>
-      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Uma pessoa com repertório</div><div class="transf-desc">As ideias deixam de ser informações isoladas e formam uma rede de referências conectadas.</div></div></div>
-      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Alguém que se expressa melhor</div><div class="transf-desc">Você consegue explicar ideias com clareza e articular argumentos com mais segurança.</div></div></div>
-      <div class="transf-item"><div class="transf-q">"</div><div><div class="transf-titulo">Um aprendiz contínuo</div><div class="transf-desc">Aprender deixa de ser algo esporádico e passa a ser um processo constante de evolução.</div></div></div>
-    </div>
-  </section>
   <section class="depoimentos">
     <div class="section-label reveal">— Resultados reais</div>
     <h2 class="section-title reveal">Veja como o S.I.M. está<br>mudando a forma de aprender</h2>
@@ -511,17 +429,6 @@
         <div class="preco-item"><span>✓</span> Mentor: agente de desenvolvimento</div>
         <div class="preco-item"><span>✓</span> Prompter: facilitador de prompts</div>
         <div class="preco-item"><span>✓</span> Sistema digital pronto para usar</div>
-        <div class="preco-item">
-          <span>✓</span>
-          <div>
-            <strong style="display:block;color:var(--dark);margin-bottom:2px;">
-              BÔNUS — Clube da Leitura S.I.M.
-              <span style="background:var(--accent);color:#fff;font-size:0.6rem;padding:2px 7px;border-radius:100px;font-weight:700;vertical-align:middle;margin-left:4px;">NOVIDADE</span>
-            </strong>
-            Aulas onde são debatidos os clássicos da literatura mundial.<br>
-            <span style="font-size:0.8rem;color:var(--muted);">📖 Primeiro livro: Crime e Castigo — Dostoiévski</span>
-          </div>
-        </div>
       </div>
       <div style="text-align:center;margin-bottom:.5rem;">
         <span style="display:inline-block;background:var(--accent);color:#fff;font-size:.75rem;font-weight:800;padding:.25rem .9rem;border-radius:99px;letter-spacing:.08em;">BÔNUS</span>
@@ -608,9 +515,6 @@
     <a href="#" class="footer-logo">S<span>.</span>I<span>.</span>M<span style="color:#60A5FA">.</span></a>
     <div class="footer-copy">© 2026 S.I.M. — Sistema Inteligente de Mentoria. Todos os direitos reservados.</div>
   </footer>
-  <a href="https://wa.me/5527999507096?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20S.I.M." class="whatsapp-btn" target="_blank" title="Fale no WhatsApp">
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.736 5.472 2.025 7.774L0 32l8.454-2.017A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.854l-.486-.289-5.02 1.198 1.22-4.88-.317-.502A13.26 13.26 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.874c-.398-.199-2.356-1.162-2.72-1.294-.365-.133-.63-.199-.896.199-.265.398-1.028 1.294-1.26 1.56-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.956-.323-.776-.65-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.393 1.361-1.393 3.32 0 1.96 1.427 3.854 1.626 4.12.2.264 2.81 4.29 6.808 6.017.952.41 1.694.655 2.273.839.955.304 1.824.261 2.512.158.766-.114 2.356-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.099-.166-.364-.265-.763-.464z"/></svg>
-  </a>
   <script>
     // FAQ accordion
     document.querySelectorAll('.faq-pergunta').forEach(function(pergunta) {
@@ -658,10 +562,36 @@
     }, { threshold: 0.5 });
     if (videoContainer) videoObserver.observe(videoContainer);
   </script>
-<a href="https://wa.me/5527999507096?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20S.I.M." class="whatsapp-btn" target="_blank" title="Fale no WhatsApp">
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.736 5.472 2.025 7.774L0 32l8.454-2.017A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.854l-.486-.289-5.02 1.198 1.22-4.88-.317-.502A13.26 13.26 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.874c-.398-.199-2.356-1.162-2.72-1.294-.365-.133-.63-.199-.896.199-.265.398-1.028 1.294-1.26 1.56-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.956-.323-.776-.65-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.393 1.361-1.393 3.32 0 1.96 1.427 3.854 1.626 4.12.2.264 2.81 4.29 6.808 6.017.952.41 1.694.655 2.273.839.955.304 1.824.261 2.512.158.766-.114 2.356-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.099-.166-.364-.265-.763-.464z"/>
-  </svg>
-</a>
+<div style="position:fixed;bottom:1.25rem;right:1.25rem;z-index:9999;display:flex;align-items:flex-end;gap:0.6rem;">
+  <div id="wpp-balloon" style="background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px 12px 0 12px;padding:0.6rem 0.9rem;font-size:0.75rem;font-weight:500;color:#0B1F3A;box-shadow:0 4px 16px rgba(0,0,0,0.12);max-width:160px;line-height:1.4;animation:balloon-in 0.4s ease forwards;">
+    Ainda com dúvidas? Manda um WhatsApp 👋
+  </div>
+  <a href="https://wa.me/5527999507096?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20S.I.M." target="_blank" title="Fale no WhatsApp" style="width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;flex-shrink:0;transition:transform 0.2s;" onmouseenter="this.style.transform='scale(1.08)'" onmouseleave="this.style.transform='scale(1)'">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.822.736 5.472 2.025 7.774L0 32l8.454-2.017A15.938 15.938 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.854l-.486-.289-5.02 1.198 1.22-4.88-.317-.502A13.26 13.26 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.874c-.398-.199-2.356-1.162-2.72-1.294-.365-.133-.63-.199-.896.199-.265.398-1.028 1.294-1.26 1.56-.232.265-.464.298-.862.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.057-1.983-2.362-2.215-2.76-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.663.133-.265.066-.497-.033-.696-.1-.199-.896-2.16-1.228-2.956-.323-.776-.65-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.061.497-.365.398-1.393 1.361-1.393 3.32 0 1.96 1.427 3.854 1.626 4.12.2.264 2.81 4.29 6.808 6.017.952.41 1.694.655 2.273.839.955.304 1.824.261 2.512.158.766-.114 2.356-.963 2.688-1.893.332-.93.332-1.727.232-1.893-.099-.166-.364-.265-.763-.464z"/></svg>
+  </a>
+</div>
+<script>
+  (function() {
+    const balloon = document.getElementById('wpp-balloon');
+    if (!balloon) return;
+    setTimeout(function() {
+      balloon.style.transition = 'opacity 0.4s ease';
+      balloon.style.opacity = '0';
+      setTimeout(function() { balloon.style.display = 'none'; }, 400);
+    }, 5000);
+    setInterval(function() {
+      balloon.style.display = 'block';
+      balloon.style.opacity = '0';
+      setTimeout(function() {
+        balloon.style.transition = 'opacity 0.4s ease';
+        balloon.style.opacity = '1';
+      }, 50);
+      setTimeout(function() {
+        balloon.style.opacity = '0';
+        setTimeout(function() { balloon.style.display = 'none'; }, 400);
+      }, 5000);
+    }, 30000);
+  })();
+</script>
 </body>
 </html>
