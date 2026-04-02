@@ -150,8 +150,6 @@
     .transf-titulo{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:.2rem}
     .transf-desc{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.6}
     .depoimentos{background:var(--bg2)}
-    .dep-video{width:100%;border-radius:10px;overflow:hidden;margin:1.5rem 0}
-    .dep-video iframe{width:100%;aspect-ratio:16/9;display:block;border:none;height:auto}
     .dep-grid{display:flex;flex-direction:column;gap:1rem}
     .dep-card{background:var(--white);border:1px solid rgba(11,31,58,.07);border-radius:12px;overflow:hidden}
     .dep-card img{width:100%;height:auto;display:block}
@@ -255,7 +253,7 @@
     <div class="hero-badge reveal"><span class="badge-dot"></span>Sistema de Mentoria com IA</div>
     <h1 class="reveal">Guarde as principais <span style="color:#60A5FA;">ideias</span> das suas leituras de um jeito que elas <span style="color:#60A5FA;">grudam na sua mente</span> e você nunca mais esquece.</h1>
     <div class="hero-badge" style="animation:badge-pulse 1.5s ease-in-out infinite;background:#0B1F3A;border-color:#0B1F3A;color:#fff;"><span class="badge-dot"></span>O S.I.M. te prepara pra isso já no primeiro capítulo.</div>
-    <img src="assets/espiral_vertice.png" alt="Espiral do Vértice" style="width:100%;max-width:520px;height:auto;display:block;margin:1.5rem auto 0;border-radius:12px;">
+    <img src="assets/espiral_vertice.png" alt="Espiral do Vértice" width="520" height="400" loading="eager" fetchpriority="high" style="width:100%;max-width:520px;height:auto;display:block;margin:1.5rem auto 0;border-radius:12px;">
     <!-- Badge explicativo -->
     <div style="max-width:520px;margin:1.5rem auto 0;text-align:center;">
       <div style="display:inline-block;background:#0B1F3A;border:1px solid rgba(37,99,235,0.3);border-radius:12px;padding:1rem 1.5rem;">
@@ -284,7 +282,7 @@
     <div class="section-label reveal">— Veja na prática</div>
     <h2 class="section-title reveal">É assim que uma ideia lida hoje fica para sempre</h2>
     <div class="demo-especialista reveal">
-      <img src="assets/foto-especialista.jpg" alt="Especialista com o livro Quincas Borba">
+      <img src="assets/foto-especialista.jpg" alt="Especialista com o livro Quincas Borba" width="480" height="360" loading="lazy">
       <div class="demo-especialista-texto">
         <p style="font-size:0.95rem;color:rgba(255,255,255,.85);line-height:1.85;margin-top:1rem;">Leituras que ficam são aquelas que você consegue conversar sobre. O problema é que a vida ficou tão corrida que é difícil achar alguém com tempo e vontade para debater temas que só você tem interesse.</p>
         <p style="font-size:0.95rem;color:rgba(255,255,255,.85);line-height:1.85;margin-top:1rem;">Para resolver isso eu criei o S.I.M. e em especial o Vértice, que com a sua espiral consegue fazer as ideias grudarem na sua mente.</p>
@@ -299,19 +297,19 @@
     <div class="demo-telas reveal">
       <div class="demo-tela">
         <span class="demo-tela-label">VÉRTICE: Fechamento da obra lida</span>
-        <img src="assets/vertice-1.jpg" alt="Vértice — Resumo e ideias centrais do Quincas Borba">
+        <img src="assets/vertice-1.jpg" alt="Vértice — Resumo e ideias centrais do Quincas Borba" width="300" height="500" loading="lazy">
         <div class="demo-tela-titulo">Suas reflexões organizadas + 3 ideias centrais</div>
         <div class="demo-tela-desc">Após a leitura, o Vértice gera um fechamento completo a partir do que você pensou, sentiu e conectou enquanto lia. Não é um resumo do livro que você encontra no Google. É um registro das suas reflexões e conexões, organizado em até 10 linhas, com as três ideias que realmente importaram para você e uma opinião crítica que aprofunda o que você já percebeu.</div>
       </div>
       <div class="demo-tela">
         <span class="demo-tela-label">VÉRTICE: Aprofundamento crítico</span>
-        <img src="assets/vertice-2.jpg" alt="Vértice — Opinião crítica e aprofundamento">
+        <img src="assets/vertice-2.jpg" alt="Vértice — Opinião crítica e aprofundamento" width="300" height="500" loading="lazy">
         <div class="demo-tela-titulo">Sua posição crítica + o que você ainda não havia percebido</div>
         <div class="demo-tela-desc">A partir das reflexões que você registrou, o Vértice constrói uma opinião crítica com a sua voz e adiciona camadas que passariam despercebidas. Você enxerga onde seu pensamento já estava no caminho certo e onde ele pode ir mais fundo, sem precisar de um professor ou grupo de discussão para isso.</div>
       </div>
       <div class="demo-tela">
         <span class="demo-tela-label">VÉRTICE: Aplicação prática</span>
-        <img src="assets/vertice-3.jpg" alt="Vértice — Aplicação prática do conteúdo">
+        <img src="assets/vertice-3.jpg" alt="Vértice — Aplicação prática do conteúdo" width="300" height="500" loading="lazy">
         <div class="demo-tela-titulo">Do que você pensou para o que você vai fazer</div>
         <div class="demo-tela-desc">Depois de organizar suas reflexões e aprofundar sua leitura crítica, o Vértice dá o passo final: conecta as ideias que você extraiu com situações reais da sua vida. Você sai com aplicações concretas, não com a sensação de que aprendeu. Com algo que você realmente vai usar.</div>
       </div>
@@ -408,9 +406,9 @@
     <div class="section-label reveal">— Resultados reais</div>
     <h2 class="section-title reveal">Veja como o S.I.M. está<br>mudando a forma de aprender</h2>
     <div class="dep-grid reveal">
-      <div class="dep-card"><img src="assets/depoimento1.jpg" alt="Depoimento Jackson Vulpi" style="width:100%;border-radius:12px;display:block;"></div>
-      <div class="dep-card"><img src="assets/depoimento2.jpg" alt="Depoimento Victor" style="width:100%;border-radius:12px;display:block;"></div>
-      <div class="dep-card"><img src="assets/depoimento3.jpg" alt="Depoimento Renato Pechinho" style="width:100%;border-radius:12px;display:block;"></div>
+      <div class="dep-card"><img src="assets/depoimento1.jpg" alt="Depoimento Jackson Vulpi" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
+      <div class="dep-card"><img src="assets/depoimento2.jpg" alt="Depoimento Victor" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
+      <div class="dep-card"><img src="assets/depoimento3.jpg" alt="Depoimento Renato Pechinho" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
     </div>
   </section>
   <section class="preco" id="inscricao">
@@ -470,7 +468,7 @@
         <div class="seg-item"><span class="seg-icon">✅</span><div><strong>100% Seguro</strong><span>Certificado SSL</span></div></div>
       </div>
       <div class="preco-garantia-verde" style="margin-top:1.25rem;">
-        <img src="assets/garantia.jpg" alt="Garantia 7 dias" style="width:90px;height:auto;margin:0 auto .5rem;display:block;">
+        <img src="assets/garantia.jpg" alt="Garantia 7 dias" width="90" height="90" loading="lazy" style="width:90px;height:auto;margin:0 auto .5rem;display:block;">
         <strong>✓ GARANTIA DE 7 DIAS</strong>
         <span>Nós te damos 7 dias para testar o S.I.M. sem compromisso. Se não for para você, a gente te devolve o dinheiro imediatamente e sem burocracia.</span>
       </div>
@@ -533,34 +531,6 @@
     const reveals=document.querySelectorAll('.reveal');
     const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.08});
     reveals.forEach(el=>observer.observe(el));
-
-    // Autoplay vídeo ao entrar na tela
-    var ytReady = false;
-    function onYouTubeIframeAPIReady() { ytReady = true; }
-    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-    var tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    document.head.appendChild(tag);
-
-    var player;
-    var videoStarted = false;
-    var videoContainer = document.getElementById('video-container');
-    var videoObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !videoStarted) {
-          videoStarted = true;
-          var iframe = document.getElementById('yt-player');
-          // Tenta via postMessage (funciona mesmo sem API carregada)
-          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          // Fallback: recarrega src com autoplay
-          var src = iframe.src;
-          if (src.indexOf('autoplay') === -1) {
-            iframe.src = src + '&autoplay=1';
-          }
-        }
-      });
-    }, { threshold: 0.5 });
-    if (videoContainer) videoObserver.observe(videoContainer);
   </script>
 <div style="position:fixed;bottom:1.25rem;right:1.25rem;z-index:9999;display:flex;align-items:flex-end;gap:0.6rem;">
   <div id="wpp-balloon" style="background:#fff;border:1px solid rgba(0,0,0,0.1);border-radius:12px 12px 0 12px;padding:0.6rem 0.9rem;font-size:0.75rem;font-weight:500;color:#0B1F3A;box-shadow:0 4px 16px rgba(0,0,0,0.12);max-width:160px;line-height:1.4;animation:balloon-in 0.4s ease forwards;">
