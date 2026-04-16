@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Descubra qual bloqueio impede você de transformar leitura em pensamento crítico. Quiz gratuito — 2 minutos.">
+<title>Diagnóstico de Leitura · S.I.M</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g1: #0d2b1a; --g2: #1a4a2e; --g3: #2e7d47; --g4: #52b06a;
+  --g5: #a8d8b4; --g6: #e8f5ed; --g7: #f4fbf6;
+  --ink: #181c1a; --ink2: #3a4040; --ink3: #6b7a72;
+  --line: #d4e9db; --white: #fdfefe;
+  --amber: #d4a853; --m4: #c06040;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: #f0f4f1;
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header fixo */
+.header {
+  background: var(--g1);
+  padding: 16px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-logo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--g5);
+  font-weight: 400;
+}
+
+/* Barra de progresso */
+.progress-wrap {
+  position: sticky;
+  top: 49px;
+  height: 6px;
+  background: var(--line);
+  z-index: 99;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--g3);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* Container */
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* Telas */
+.screen { display: none; }
+.screen.active {
+  display: block;
+  animation: fadeIn 0.35s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Tela de entrada */
+.eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--g4);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+.subtitle {
+  font-size: 15px;
+  color: var(--ink3);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+.badge {
+  display: inline-block;
+  background: var(--g6);
+  color: var(--g3);
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+.cta {
+  display: inline-block;
+  background: var(--g3);
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.cta:hover { background: var(--g2); }
+
+/* Perguntas */
+.q-counter {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g4);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.q-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--ink);
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  background: white;
+  border: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  padding: 18px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.2s;
+}
+.option:hover {
+  border-color: var(--g3);
+  background: var(--g7);
+}
+.option.selected {
+  border-color: var(--g3);
+  background: var(--g6);
+  border-left: 3px solid var(--g3);
+  padding-left: 18px;
+}
+.option-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--g3);
+  min-width: 18px;
+}
+.option-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.5;
+}
+.next-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+.btn-next {
+  background: var(--g3);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.2s;
+}
+.btn-next.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.btn-next:hover { background: var(--g2); }
+
+/* Resultado */
+.result-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--g4);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.result-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--g3);
+  margin-bottom: 28px;
+}
+.block {
+  background: white;
+  padding: 22px 24px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+.block-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g3);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.block-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink2);
+  font-weight: 300;
+}
+.block.diag { border-left: 3px solid var(--g3); }
+.block.belief {
+  background: var(--g7);
+  border-left: 3px solid var(--g3);
+}
+.block.belief .block-text {
+  font-style: italic;
+  color: var(--ink);
+}
+.block.system {
+  background: var(--g1);
+  color: white;
+}
+.block.system .block-label { color: var(--g5); }
+.block.system .block-text { color: #dce8df; }
+.agent {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(168, 216, 180, 0.15);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.agent:first-of-type { border-top: none; margin-top: 6px; padding-top: 0; }
+.agent strong { color: var(--g5); font-weight: 500; }
+
+.cta-final {
+  display: block;
+  width: 100%;
+  background: var(--g3);
+  color: white;
+  border: none;
+  padding: 18px 24px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 24px;
+  transition: background 0.2s;
+}
+.cta-final:hover { background: var(--g2); }
+.result-footer {
+  font-size: 12px;
+  color: var(--ink3);
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* Oferta */
+.offer {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.offer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--ink);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.agents-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.agent-card {
+  flex: 1 1 160px;
+  background: white;
+  padding: 20px 18px;
+  border-radius: 2px;
+}
+.agent-card.aurora { border-top: 3px solid var(--amber); }
+.agent-card.vertice { border-top: 3px solid var(--g3); }
+.agent-card.mentor { border-top: 3px solid var(--m4); }
+.agent-card .name {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.agent-card.aurora .name { color: var(--amber); }
+.agent-card.vertice .name { color: var(--g3); }
+.agent-card.mentor .name { color: var(--m4); }
+.agent-card .role {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.agent-card .desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.compare-col {
+  padding: 18px 16px;
+  border-radius: 2px;
+  border: 1px solid;
+}
+.compare-col.before {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+.compare-col.after {
+  background: var(--g7);
+  border-color: var(--g4);
+}
+.compare-col h4 {
+  font-size: 12px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.compare-col.before h4 { color: #b91c1c; }
+.compare-col.after h4 { color: var(--g2); }
+.compare-col ul {
+  list-style: none;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink2);
+  font-weight: 300;
+}
+.compare-col li { padding: 4px 0; }
+
+.price-box {
+  text-align: center;
+  padding: 24px;
+  background: white;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.price-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--g3);
+  font-weight: 500;
+  line-height: 1;
+}
+.price-alt {
+  font-size: 13px;
+  color: var(--ink3);
+  margin-top: 6px;
+}
+.guarantee {
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink3);
+  margin-top: 16px;
+}
+
+/* ===== IMAGENS DE FUNDO (marca d'água) ===== */
+.screen {
+  position: relative;
+  isolation: isolate;
+}
+.screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  z-index: -1;
+}
+.screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 244, 241, 0.82);
+  z-index: 0;
+  pointer-events: none;
+}
+.screen > * {
+  position: relative;
+  z-index: 1;
+}
+#screen-intro { --bg-image: url('01-tela-entrada.jpeg'); }
+#screen-question.block-a { --bg-image: url('02-bloco-a.jpeg'); }
+#screen-question.block-b { --bg-image: url('03-bloco-b.jpeg'); }
+#screen-question.block-c { --bg-image: url('04-bloco-c.jpeg'); }
+#screen-question.block-d { --bg-image: url('05-bloco-d.jpeg'); }
+#screen-result { --bg-image: url('06-tela-resultado.jpeg'); }
+
+@media (max-width: 480px) {
+  .title { font-size: 28px; }
+  .q-text { font-size: 20px; }
+  .agents-grid { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="header"><div class="header-logo">S · I · M</div></div>
+<div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+<div class="container">
+
+  <!-- TELA 0: ENTRADA -->
+  <div class="screen active" id="screen-intro">
+    <div class="eyebrow">DIAGNÓSTICO DE LEITURA</div>
+    <h1 class="title">Transforme cada página que você lê em ideias claras que você consegue explicar</h1>
+    <p class="subtitle">Descubra em 2 minutos qual bloqueio está impedindo você de transformar leitura em pensamento crítico.</p>
+    <div class="badge">⏱ Leva apenas 2 minutos</div><br>
+    <button class="cta" onclick="startQuiz()">Fazer o diagnóstico</button>
+  </div>
+
+  <!-- TELA DE PERGUNTAS -->
+  <div class="screen" id="screen-question">
+    <div class="q-counter" id="qCounter"></div>
+    <h2 class="q-text" id="qText"></h2>
+    <div class="options" id="qOptions"></div>
+  </div>
+
+  <!-- TELA DE RESULTADO -->
+  <div class="screen" id="screen-result"></div>
+
+</div>
+
+<script>
+// ============ TRACKING ============
+const TRACKING_URL = 'https://script.google.com/macros/s/AKfycbxWkZPGFExwRDfqlw-HNV19l1lcI2PpHAkj5jWmvK5NVspqm8P-34VBpY9M47DUjartqA/exec';
+const SESSION_ID = Math.random().toString(36).substr(2, 9);
+
+function trackEvent(evento, pergunta = '', perfil = '') {
+  try {
+    fetch(TRACKING_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        session_id: SESSION_ID,
+        evento: evento,
+        pergunta: pergunta,
+        perfil: perfil,
+        user_agent: navigator.userAgent
+      })
+    }).catch(() => {});
+  } catch (e) {}
+}
+
+trackEvent('quiz_iniciado');
+
+// ============ DADOS ============
+const questions = [
+  {id:1,text:"Hoje, qual dessas situações descreve melhor sua relação com a leitura?",options:[
+    {label:"A",text:"Leio com frequência, mas esqueço grande parte do que li poucos dias depois",score:2},
+    {label:"B",text:"Tenho vários livros que quero ler, mas tenho dificuldade de manter foco por muito tempo",score:3},
+    {label:"C",text:"Consigo terminar livros, mas sinto que não organizo bem as ideias do autor",score:1},
+    {label:"D",text:"Quero ler de forma mais profunda e desenvolver ideias próprias",score:0}]},
+  {id:2,text:"Quando você termina um capítulo de um livro, o que normalmente acontece?",options:[
+    {label:"A",text:"Entendo enquanto leio, mas depois esqueço boa parte",score:2},
+    {label:"B",text:"Preciso reler algumas partes para entender melhor",score:3},
+    {label:"C",text:"Lembro de trechos isolados, mas não da ideia principal",score:2},
+    {label:"D",text:"Tenho dificuldade de explicar o que acabei de ler",score:1}]},
+  {id:3,text:"Se alguém te pedisse para explicar o último livro que você leu, qual situação seria mais comum?",options:[
+    {label:"A",text:"Eu falaria apenas do tema geral",score:2},
+    {label:"B",text:"Lembro de algumas partes, mas sem ordem clara",score:3},
+    {label:"C",text:"Consigo explicar uma ideia ou outra",score:1},
+    {label:"D",text:"Tenho dificuldade de organizar a explicação",score:2}]},
+  {id:4,text:"Durante a leitura, qual situação acontece com mais frequência?",options:[
+    {label:"A",text:"Leio algumas páginas e percebo que não absorvi quase nada",score:3},
+    {label:"B",text:"Minha mente começa a pensar em outras coisas",score:3},
+    {label:"C",text:"Preciso reler parágrafos para entender melhor",score:2},
+    {label:"D",text:"Interrompo a leitura e demoro a voltar",score:2}]},
+  {id:5,text:"O que você costuma fazer para tentar entender melhor o que lê?",options:[
+    {label:"A",text:"Apenas continuo lendo normalmente",score:3},
+    {label:"B",text:"Faço alguns grifos no livro",score:2},
+    {label:"C",text:"Escrevo anotações soltas",score:1},
+    {label:"D",text:"Tento resumir mentalmente",score:0}]},
+  {id:6,text:"Em qual situação você mais sente falta de compreender melhor o que lê?",options:[
+    {label:"A",text:"Em conversas sobre temas importantes",score:2},
+    {label:"B",text:"Ao tentar aplicar ideias na vida real",score:1},
+    {label:"C",text:"Ao tentar conectar esse livro com outros",score:0},
+    {label:"D",text:"Ao explicar o livro para alguém",score:2}]},
+  {id:7,text:"O que mais faria sua leitura valer a pena?",options:[
+    {label:"A",text:"Conseguir explicar claramente o que li",score:2},
+    {label:"B",text:"Lembrar das ideias principais por muito tempo",score:2},
+    {label:"C",text:"Desenvolver minhas próprias interpretações",score:0},
+    {label:"D",text:"Conectar diferentes ideias e autores",score:0}]},
+  {id:8,text:"Você já tentou alguma estratégia para melhorar sua leitura?",options:[
+    {label:"A",text:"Fazer resumos",score:1},
+    {label:"B",text:"Usar grifos ou marcações",score:2},
+    {label:"C",text:"Fazer mapas mentais ou anotações",score:0},
+    {label:"D",text:"Nunca usei um método estruturado",score:3}]},
+  {id:9,text:"Imagine que você acabou de terminar um capítulo e realmente absorveu as ideias. O que acontece primeiro?",options:[
+    {label:"A",text:"Consigo explicar o raciocínio do autor sem esforço",score:0},
+    {label:"B",text:"Lembro de partes importantes, mas não tudo com clareza",score:1},
+    {label:"C",text:"Tenho uma sensação de entendimento, mas não saberia explicar bem",score:2},
+    {label:"D",text:"Ainda precisaria reler para ter certeza de que entendi",score:3}]},
+  {id:10,text:"Quando você escolhe um livro, o que mais espera dele?",options:[
+    {label:"A",text:"Entender melhor um tema que ainda me confunde",score:1},
+    {label:"B",text:"Ter ideias práticas que eu consiga aplicar",score:1},
+    {label:"C",text:"Conseguir explicar o conteúdo para outras pessoas",score:0},
+    {label:"D",text:"Desenvolver uma visão própria sobre o assunto",score:0}]},
+  {id:11,text:"Quando você encontra uma ideia forte em um livro, o que costuma acontecer?",options:[
+    {label:"A",text:"Aceito a ideia e sigo lendo",score:3},
+    {label:"B",text:"Penso nela por algum tempo",score:1},
+    {label:"C",text:"Comparo com outras ideias que já conheço",score:0},
+    {label:"D",text:"Questiono e tento formar minha própria visão",score:0}]},
+  {id:12,text:"Qual dessas habilidades você mais gostaria de desenvolver?",options:[
+    {label:"A",text:"Lembrar melhor do que leio",score:2},
+    {label:"B",text:"Organizar ideias complexas",score:1},
+    {label:"C",text:"Construir argumentos claros",score:0},
+    {label:"D",text:"Pensar criticamente sobre qualquer tema",score:0}]},
+  {id:13,text:"Se existisse um método simples para transformar leitura em pensamento claro, o quanto você gostaria de usar?",options:[
+    {label:"A",text:"Muito! quero melhorar minha forma de pensar",score:0},
+    {label:"B",text:"Bastante! Sinto que poderia aprender muito mais",score:1},
+    {label:"C",text:"Tenho interesse, mas preciso entender melhor",score:2},
+    {label:"D",text:"Um pouco. Depende do esforço",score:3}]},
+  {id:14,text:"Hoje, como você avaliaria sua forma de aprender com livros?",options:[
+    {label:"A",text:"Leio bastante, mas retenho pouco",score:2},
+    {label:"B",text:"Aprendo algo, mas sinto que poderia absorver mais",score:1},
+    {label:"C",text:"Tenho bons momentos de compreensão",score:0},
+    {label:"D",text:"Ainda não encontrei um método que funcione",score:3}]},
+  {id:15,text:"Quanto tempo por semana você dedica à leitura?",options:[
+    {label:"A",text:"Menos de 1 hora",score:2},
+    {label:"B",text:"Entre 1 e 3 horas",score:2},
+    {label:"C",text:"Entre 3 e 5 horas",score:1},
+    {label:"D",text:"Mais de 5 horas",score:0}]},
+  {id:16,text:"Se você pudesse transformar leitura em pensamento claro, quando gostaria de começar?",options:[
+    {label:"A",text:"Agora",score:0},
+    {label:"B",text:"Nas próximas semanas",score:1},
+    {label:"C",text:"Ainda este ano",score:2},
+    {label:"D",text:"Quando tiver mais tempo",score:3}]},
+  {id:17,text:"Qual dessas frases descreve melhor o desafio que você quer resolver?",options:[
+    {label:"A",text:"Quero lembrar melhor do que leio",score:2},
+    {label:"B",text:"Quero entender profundamente o que leio",score:1},
+    {label:"C",text:"Quero organizar ideias complexas",score:1},
+    {label:"D",text:"Quero transformar leitura em pensamento próprio",score:0}]},
+  {id:18,text:"Se cada página que você lesse se transformasse em ideias claras, o que mudaria primeiro?",options:[
+    {label:"A",text:"Minha confiança em conversas intelectuais",score:2},
+    {label:"B",text:"Minha forma de tomar decisões",score:1},
+    {label:"C",text:"Minha velocidade de aprendizado",score:1},
+    {label:"D",text:"Minha capacidade de desenvolver argumentos",score:0}]}
+];
+
+const profiles = {
+  1: {
+    title: "Leitor Analítico em Formação",
+    diagnostico: "Você já não lê de forma passiva. Em vários momentos, você consegue entender ideias com clareza, perceber estruturas de raciocínio e refletir além do texto. Mas isso ainda não é consistente. Às vezes você tem clareza total. Outras vezes, sente que \"quase chegou lá\", mas não conseguiu organizar o pensamento.",
+    mecanismo: "Você já saiu do nível básico da leitura. O problema é que você ainda não tem um sistema para transformar compreensão em estrutura mental. Sem isso, as ideias não se conectam com consistência e o pensamento não se sustenta ao longo do tempo.",
+    crenca: "Não é falta de inteligência. Também não é falta de esforço. O que falta é um método que transforme leitura em raciocínio estruturado.",
+    aurora: "desenvolve sua percepção interna — você começa a identificar exatamente quando sua clareza sobe e quando ela cai.",
+    vertice: "pega esses momentos de clareza e transforma em estruturas de pensamento replicáveis.",
+    mentor: "faz isso deixar de depender de esforço e virar um padrão estável."
+  },
+  2: {
+    title: "Leitor Acumulador",
+    diagnostico: "Você lê. Você aprende coisas. Mas sente que está sempre acumulando… sem transformar isso em clareza real. Você reconhece ideias, lembra de partes, entende trechos — mas quando precisa usar isso, tudo parece meio solto.",
+    mecanismo: "Seu problema não é falta de conteúdo. É excesso sem estrutura. Você está consumindo mais do que está organizando. Sem um processo claro, as ideias não se conectam e o conhecimento não se consolida.",
+    crenca: "O problema não é ler pouco. Na verdade, continuar lendo sem método só aumenta a confusão.",
+    aurora: "faz você perceber, em tempo real, quando está só reconhecendo — e não pensando.",
+    vertice: "interrompe esse padrão e força você a se posicionar diante das ideias.",
+    mentor: "transforma esse posicionamento em comportamento consistente."
+  },
+  3: {
+    title: "Leitor Fragmentado",
+    diagnostico: "Você até consegue entender partes do que lê. Mas não consegue manter uma linha de raciocínio clara. É como se o conteúdo chegasse em pedaços: uma ideia aqui, um trecho ali, uma reflexão isolada. Mas nunca um todo organizado.",
+    mecanismo: "O seu problema não é só retenção. É estrutura. Você não está transformando leitura em sequência lógica de ideias. Sem isso, o cérebro guarda fragmentos mas não constrói entendimento real.",
+    crenca: "Não é que você \"não entendeu\". O problema é que você entendeu partes… mas não organizou o todo.",
+    aurora: "faz você identificar exatamente onde perde a linha de raciocínio.",
+    vertice: "entra nesse ponto e reconstrói a sequência lógica das ideias.",
+    mentor: "treina esse encadeamento até ele se tornar automático."
+  },
+  4: {
+    title: "Leitor Disperso",
+    diagnostico: "Seu maior desafio não é entender. É sustentar a leitura. Você começa, perde o foco, se distrai — ou até continua lendo, mas sem absorver de verdade. No final, parece que você leu… mas não levou nada.",
+    mecanismo: "O problema não é falta de disciplina. É falta de engajamento cognitivo. Sem um processo ativo, a mente se dispersa, a leitura vira passiva e a retenção desaparece.",
+    crenca: "Não é falta de foco. É falta de um método que mantenha sua mente ativa durante a leitura.",
+    aurora: "ancora sua atenção no momento presente da leitura.",
+    vertice: "cria tensão intelectual — e isso naturalmente puxa o foco.",
+    mentor: "transforma essa ativação em ação contínua, evitando passividade."
+  }
+};
+
+// ============ ESTADO ============
+let currentQuestion = 0;
+let totalScore = 0;
+let isTransitioning = false;
+
+// ============ FLUXO ============
+function startQuiz() {
+  trackEvent('quiz_comecou');
+  currentQuestion = 1;
+  totalScore = 0;
+  showScreen('screen-question');
+  renderQuestion();
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function updateProgressBar() {
+  const pct = (currentQuestion / questions.length) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+}
+
+function getBlockForQuestion(q) {
+  if (q <= 6) return 'block-a';
+  if (q <= 12) return 'block-b';
+  if (q <= 16) return 'block-c';
+  return 'block-d';
+}
+
+function updateQuestionBlock(q) {
+  const screen = document.getElementById('screen-question');
+  const blocks = ['block-a', 'block-b', 'block-c', 'block-d'];
+  const newBlock = getBlockForQuestion(q);
+  if (screen.classList.contains(newBlock)) return;
+  blocks.forEach(b => screen.classList.remove(b));
+  screen.classList.add(newBlock);
+}
+
+function renderQuestion() {
+  const q = questions[currentQuestion - 1];
+
+  trackEvent('pergunta_vista', currentQuestion);
+  updateQuestionBlock(currentQuestion);
+
+  document.getElementById('qCounter').textContent = `PERGUNTA ${currentQuestion} DE ${questions.length}`;
+  document.getElementById('qText').textContent = q.text;
+
+  const optsEl = document.getElementById('qOptions');
+  optsEl.innerHTML = '';
+  q.options.forEach(opt => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    div.innerHTML = `<div class="option-label">${opt.label}</div><div class="option-text">${opt.text}</div>`;
+    div.onclick = () => selectOption(div, opt.score);
+    optsEl.appendChild(div);
+  });
+
+  updateProgressBar();
+}
+
+function selectOption(el, score) {
+  if (isTransitioning) return;
+  isTransitioning = true;
+
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  totalScore += score;
+
+  const screen = document.getElementById('screen-question');
+  screen.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+
+  // 1) espera 320ms mostrando seleção
+  setTimeout(() => {
+    // 2) anima saída
+    screen.style.opacity = '0';
+    screen.style.transform = 'translateX(-20px)';
+
+    setTimeout(() => {
+      if (currentQuestion >= questions.length) {
+        trackEvent('quiz_completo');
+        showResult();
+        isTransitioning = false;
+        return;
+      }
+      currentQuestion++;
+      renderQuestion();
+
+      // 3) prepara entrada
+      screen.style.transition = 'none';
+      screen.style.transform = 'translateX(20px)';
+      screen.style.opacity = '0';
+
+      requestAnimationFrame(() => {
+        screen.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        screen.style.opacity = '1';
+        screen.style.transform = 'translateX(0)';
+        setTimeout(() => { isTransitioning = false; }, 200);
+      });
+    }, 200);
+  }, 320);
+}
+
+function getProfile(score) {
+  if (score <= 12) return 1;
+  if (score <= 23) return 2;
+  if (score <= 35) return 3;
+  return 4;
+}
+
+function showResult() {
+  const profileId = getProfile(totalScore);
+  const p = profiles[profileId];
+  const checkoutUrl = 'https://pay.hotmart.com/Y102564448I';
+
+  trackEvent('resultado_visto', '', p.title);
+
+  const html = `
+    <div class="result-badge">SEU DIAGNÓSTICO</div>
+    <h1 class="result-title">${p.title}</h1>
+    <div class="divider"></div>
+
+    <div class="block diag">
+      <div class="block-label">Diagnóstico</div>
+      <p class="block-text">${p.diagnostico}</p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">O que está acontecendo</div>
+      <p class="block-text">${p.mecanismo}</p>
+    </div>
+
+    <div class="block belief">
+      <div class="block-label">Quebra de crença</div>
+      <p class="block-text">${p.crenca}</p>
+    </div>
+
+    <div class="block system">
+      <div class="block-label">O sistema que resolve</div>
+      <div class="agent"><strong>◆ Aurora</strong> — ${p.aurora}</div>
+      <div class="agent"><strong>◆ Vértice</strong> — O Vértice ${p.vertice}</div>
+      <div class="agent"><strong>◆ Mentor</strong> — E o Mentor ${p.mentor}</div>
+    </div>
+
+    <a class="cta-final" href="${checkoutUrl}" target="_blank" rel="noopener" onclick="trackEvent('cta_clicado','','${p.title}')">Quero transformar minha leitura agora →</a>
+    <p class="result-footer">10x de R$9,00 ou R$74,90 à vista · Garantia de 7 dias</p>
+
+    <!-- OFERTA -->
+    <div class="offer">
+      <h2 class="offer-title">S.I.M — Sistema Inteligente de Mentoria</h2>
+
+      <div class="agents-grid">
+        <div class="agent-card aurora">
+          <div class="name">Aurora</div>
+          <div class="role">Percepção interna</div>
+          <div class="desc">Desenvolve sua consciência de leitura em tempo real — você vê quando entende e quando se perde.</div>
+        </div>
+        <div class="agent-card vertice">
+          <div class="name">Vértice</div>
+          <div class="role">Estrutura de pensamento</div>
+          <div class="desc">Transforma o que você lê em estruturas lógicas replicáveis e posicionamento próprio.</div>
+        </div>
+        <div class="agent-card mentor">
+          <div class="name">Mentor</div>
+          <div class="role">Consolidação do hábito</div>
+          <div class="desc">Transforma clareza pontual em padrão estável — leitura ativa vira comportamento automático.</div>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="compare-col before">
+          <h4>❌ Sem o S.I.M</h4>
+          <ul>
+            <li>Lê e esquece em dias</li>
+            <li>Ideias soltas, sem conexão</li>
+            <li>Não consegue explicar</li>
+            <li>Perde o foco na leitura</li>
+            <li>Acumula sem pensar</li>
+          </ul>
+        </div>
+        <div class="compare-col after">
+          <h4>✅ Com o S.I.M</h4>
+          <ul>
+            <li>Retém ideias por semanas</li>
+            <li>Conecta autores e temas</li>
+            <li>Explica com clareza</li>
+            <li>Mente ativa na leitura</li>
+            <li>Desenvolve pensamento próprio</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="price-box">
+        <div class="price-main">10x de R$9,00</div>
+        <div class="price-alt">ou R$74,90 à vista</div>
+      </div>
+
+      <a class="cta-final" href="${checkoutUrl}" target="_blank" rel="noopener" onclick="trackEvent('cta_clicado','','${p.title}')">Quero começar agora →</a>
+      <p class="guarantee">🛡 Garantia incondicional de 7 dias</p>
+    </div>
+  `;
+
+  document.getElementById('screen-result').innerHTML = html;
+  document.getElementById('progressBar').style.width = '100%';
+  showScreen('screen-result');
+}
+</script>
+</body>
+</html>
