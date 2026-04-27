@@ -41,11 +41,7 @@
     body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--dark);line-height:1.6;font-size:16px;overflow-x:hidden;width:100%}
     h1,h2,h3{font-family:'Playfair Display',serif}
     img{max-width:100%;display:block}
-    .oferta-bar{background:var(--dark);color:#fff;padding:.55rem var(--pad);font-size:.72rem;font-weight:500;display:flex;align-items:center;justify-content:center;gap:.4rem;position:sticky;top:0;z-index:300;flex-wrap:wrap;text-align:center}
-    .oferta-bar .dot{width:7px;height:7px;border-radius:50%;background:#22C55E;flex-shrink:0;animation:blink-dot 1.5s infinite}
-    @keyframes blink-dot{0%,100%{opacity:1}50%{opacity:.3}}
-    .countdown{font-weight:700;color:#60A5FA;letter-spacing:.04em}
-    nav{display:flex;justify-content:center;align-items:center;padding:1rem var(--pad);background:rgba(245,247,250,.97);border-bottom:1px solid rgba(37,99,235,.08);backdrop-filter:blur(10px);position:sticky;top:34px;z-index:200}
+    nav{display:flex;justify-content:center;align-items:center;padding:1rem var(--pad);background:rgba(245,247,250,.97);border-bottom:1px solid rgba(37,99,235,.08);backdrop-filter:blur(10px);position:sticky;top:0;z-index:200}
     .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--dark);letter-spacing:.05em;text-decoration:none}
     .nav-logo span{color:var(--accent)}
     .hero{padding:3rem var(--pad) 2.5rem;text-align:center;background:var(--white);border-bottom:1px solid rgba(37,99,235,.08)}
@@ -247,7 +243,6 @@
   </style>
 </head>
 <body>
-  <div class="oferta-bar"><span class="dot"></span><span>⚡ Oferta especial expira em</span><span class="countdown" id="countdown">01d 00:00:00</span></div>
   <nav><a href="#" class="nav-logo">S<span>.</span>I<span>.</span>M<span style="color:var(--accent)">.</span></a></nav>
   <section class="hero">
     <div class="hero-badge reveal"><span class="badge-dot"></span>O S.I.M. é o sistema que faz a leitura grudar e aparecer em quem você se torna.</div>
@@ -568,15 +563,14 @@
     <div style="display:flex;align-items:center;gap:1rem;
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
-    border-radius:10px;padding:1rem;overflow:hidden;
-    opacity:0.7;">
+    border-radius:10px;padding:1rem;overflow:hidden;">
       <img src="assets/Livro_Quincas borba.jpg"
            alt="Quincas Borba"
            width="60" height="90"
            loading="lazy"
            style="width:60px;height:90px;
            object-fit:cover;border-radius:6px;
-           flex-shrink:0;filter:grayscale(40%);">
+           flex-shrink:0;">
       <div>
         <div style="display:flex;align-items:center;
         gap:0.5rem;margin-bottom:0.3rem;flex-wrap:wrap;">
@@ -584,11 +578,11 @@
           font-size:0.95rem;font-weight:800;color:#fff;">
             Quincas Borba
           </span>
-          <span style="background:#EA580C;color:#fff;
+          <span style="background:#0f2ba3;color:#fff;
           font-size:0.6rem;font-weight:700;
           padding:2px 8px;border-radius:100px;
           letter-spacing:0.06em;">
-            EM BREVE
+            DISPONÍVEL
           </span>
         </div>
         <p style="font-size:0.78rem;
@@ -713,19 +707,33 @@
     <div class="section-label reveal">— Investimento</div>
     <h2 class="section-title reveal">Tudo isso por <span>menos que um livro</span><br>que você vai esquecer na estante</h2>
     <div class="preco-card reveal">
-      <div class="preco-fire">🔥</div>
-      <div class="preco-valor">R$ 74,90</div>
-      <div class="preco-sub">Pagamento único — Acesso completo</div>
-      <div class="preco-sub" style="margin-top:-.75rem;margin-bottom:1rem;">ou 10x de R$ 9,00 no cartão, pix ou boleto</div>
       <div class="preco-label">Ao se inscrever hoje, você recebe:</div>
-      <div class="preco-lista">
-        <div class="preco-item"><span>✓</span> Guia S.I.M.: treinador da jornada</div>
-        <div class="preco-item"><span>✓</span> Vértice: assistente de leitura</div>
-        <div class="preco-item"><span>✓</span> Aurora: agente de clareza</div>
-        <div class="preco-item"><span>✓</span> Mentor: agente de desenvolvimento</div>
-        <div class="preco-item"><span>✓</span> Prompter: facilitador de prompts</div>
-        <div class="preco-item"><span>✓</span> Sistema digital pronto para usar</div>
-      </div>
+      <ul class="preco-lista">
+        <li>
+          <span>Guia S.I.M.: treinador da jornada</span>
+          <span style="color:#6B8BAF;font-size:0.82rem;">
+            incluso
+          </span>
+        </li>
+        <li>
+          <span>Vértice: assistente de leitura</span>
+          <span style="color:#6B8BAF;font-size:0.82rem;text-decoration:line-through;">R$97</span>
+        </li>
+        <li>
+          <span>Aurora: agente de clareza</span>
+          <span style="color:#6B8BAF;font-size:0.82rem;text-decoration:line-through;">R$97</span>
+        </li>
+        <li>
+          <span>Mentor: agente de desenvolvimento</span>
+          <span style="color:#6B8BAF;font-size:0.82rem;text-decoration:line-through;">R$97</span>
+        </li>
+        <li>
+          <span>Sistema digital pronto para usar</span>
+          <span style="color:#6B8BAF;font-size:0.82rem;">
+            incluso
+          </span>
+        </li>
+      </ul>
       <div style="text-align:center;margin-bottom:.5rem;">
         <span style="display:inline-block;background:var(--accent);color:#fff;font-size:.75rem;font-weight:800;padding:.25rem .9rem;border-radius:99px;letter-spacing:.08em;">BÔNUS</span>
       </div>
@@ -756,9 +764,24 @@
             <strong>Clube da Leitura S.I.M.</strong>
             <div class="preco-bonus-tag">INCLUÍDA NESTA OFERTA</div>
             <span style="background:var(--accent);color:#fff;font-size:.6rem;font-weight:800;padding:2px 7px;border-radius:100px;vertical-align:middle;">NOVIDADE</span>
+            <span style="font-size:0.72rem;font-weight:700;color:#6B8BAF;text-decoration:line-through;margin-left:0.5rem;">R$290</span>
           </div>
           <span>Uma imersão nos grandes clássicos da literatura mundial, onde cada livro vira uma lente para enxergar o mundo com mais profundidade.</span>
         </div>
+      </div>
+      <div style="text-align:center;margin:1.5rem 0;">
+        <p style="font-size:0.8rem;color:#6B8BAF;text-decoration:line-through;margin-bottom:0.25rem;">
+          R$581,00
+        </p>
+        <div style="font-size:3rem;font-weight:800;color:#0f2ba3;line-height:1;background:#EEF4FB;border-radius:12px;padding:0.75rem 1.5rem;display:inline-block;margin:0.5rem auto;animation:badge-pulse 1.5s ease-in-out infinite;">
+          R$74,90
+        </div>
+        <p style="font-size:0.82rem;color:#6B8BAF;margin-top:0.25rem;">
+          pagamento único — oferta de lançamento
+        </p>
+        <p style="font-size:0.88rem;font-weight:600;color:#0B1F3A;margin-top:0.25rem;">
+          ou 10x de R$9,00
+        </p>
       </div>
       <a href="https://pay.hotmart.com/Y102564448I" class="btn-checkout">COMEÇAR MINHA JORNADA NO S.I.M.</a>
       <div class="seguranca" style="margin-top:1.25rem;">
@@ -822,9 +845,6 @@
       });
     });
 
-    function updateCountdown(){const now=new Date();const end=new Date();const d=(7-now.getDay())%7||7;end.setDate(now.getDate()+d);end.setHours(23,59,0,0);const diff=end-now;if(diff<=0)return;const dd=Math.floor(diff/86400000).toString().padStart(2,'0');const h=Math.floor((diff%86400000)/3600000).toString().padStart(2,'0');const m=Math.floor((diff%3600000)/60000).toString().padStart(2,'0');const s=Math.floor((diff%60000)/1000).toString().padStart(2,'0');const el=document.getElementById('countdown');if(el)el.textContent=`${dd}d ${h}:${m}:${s}`}
-    updateCountdown();setInterval(updateCountdown,1000);
-
     // Reveal on scroll
     const reveals=document.querySelectorAll('.reveal');
     const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.08});
@@ -877,6 +897,48 @@
     });
   }
   window.moverDiario = moverDiario;
+})();
+</script>
+
+<div id="badge-flutuante" style="display:none;position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);z-index:9998;width:90%;max-width:420px;background:#0B1F3A;border:1px solid rgba(96,165,250,0.3);border-radius:12px;padding:1rem 1.25rem;box-shadow:0 8px 32px rgba(0,0,0,0.3);animation:badge-pulse 2s ease-in-out infinite;">
+  <p style="font-size:0.82rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:0.75rem;text-align:center;">
+    Está em dúvida? Entra pro S.I.M. e se em 7 dias você não gostar, é só pedir a devolução do seu dinheiro. Faço isso imediatamente — é só pedir na Hotmart ou pelo WhatsApp.
+  </p>
+  <div style="display:flex;gap:0.75rem;">
+    <a href="https://pay.hotmart.com/Y102564448I"
+       style="flex:1;background:#EA580C;color:#fff;font-weight:700;padding:0.7rem;border-radius:8px;text-decoration:none;font-size:0.82rem;text-align:center;text-transform:uppercase;letter-spacing:0.05em;">
+      Entrar no S.I.M.
+    </a>
+    <button onclick="document.getElementById('badge-flutuante').style.display='none';"
+      style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);border:none;border-radius:8px;padding:0.7rem 1rem;font-size:0.82rem;cursor:pointer;">
+      Fechar
+    </button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var badge = document.getElementById('badge-flutuante');
+  var metodologia = document.getElementById('metodologia');
+  var fechado = false;
+
+  window.addEventListener('scroll', function() {
+    if (fechado || !metodologia || !badge) return;
+    var rect = metodologia.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      badge.style.display = 'block';
+    } else {
+      badge.style.display = 'none';
+    }
+  });
+
+  var btnFechar = badge.querySelector('button');
+  if (btnFechar) {
+    btnFechar.addEventListener('click', function() {
+      fechado = true;
+      badge.style.display = 'none';
+    });
+  }
 })();
 </script>
 </body>
