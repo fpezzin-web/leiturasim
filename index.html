@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -15,7 +16,7 @@
   fbq('track', 'PageView');
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none"
+    <img height="1" width="1" alt="" style="display:none"
     src="https://www.facebook.com/tr?id=1388178406296753&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
@@ -30,9 +31,9 @@
   </script>
   <!-- End Microsoft Clarity -->
 
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S.I.M. — Sistema Inteligente de Mentoria</title>
+<meta name="description" content="S.I.M. — Sistema Inteligente de Mentoria. Três agentes de IA que transformam o que você lê, ouve e assiste em argumentação estruturada, com método e acompanhamento.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -146,9 +147,12 @@
     .transf-titulo{font-size:.9rem;font-weight:600;color:#fff;margin-bottom:.2rem}
     .transf-desc{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.6}
     .depoimentos{background:var(--bg2)}
-    .dep-grid{display:flex;flex-direction:column;gap:1rem}
-    .dep-card{background:var(--white);border:1px solid rgba(11,31,58,.07);border-radius:12px;overflow:hidden}
-    .dep-card img{width:100%;height:auto;display:block}
+    .dep-grid{column-count:1;column-gap:1rem}
+    .dep-card{background:var(--white);border:1px solid rgba(11,31,58,.07);border-radius:12px;padding:8px;box-shadow:0 2px 14px rgba(11,31,58,.06);break-inside:avoid;margin:0 0 1rem}
+    .dep-print{display:block;width:100%;height:auto;border-radius:8px}
+    .dep-cap{padding:.7rem .5rem .2rem;border-top:1px solid rgba(11,31,58,.08);margin-top:.6rem}
+    .dep-nome{display:block;font-size:.85rem;font-weight:700;color:var(--dark)}
+    .dep-papel{display:block;font-size:.75rem;color:var(--muted)}
     .dep-placeholder{padding:2rem;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem}
     .dep-card-body{padding:1.1rem}
     .dep-texto{font-size:.88rem;color:var(--text2);line-height:1.7;font-style:italic;margin-bottom:.6rem}
@@ -237,9 +241,19 @@
       .hero{padding:5rem 3rem 4rem}
       .agentes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
       .transform-cards{display:grid;grid-template-columns:1fr 1fr}
-      .dep-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+      .dep-grid{column-count:2}
       .vertice-card{max-width:520px;margin:0 auto}
     }
+      @media (min-width: 768px) {
+        .demonstracao .reveal > div[style*="flex-direction:column"] {
+          flex-direction: row !important;
+          align-items: flex-start;
+        }
+        .demonstracao .reveal > div > div:first-child {
+          flex-shrink: 0;
+        }
+      }
+.section-label,.agente-tag{font-size:.75rem}
   </style>
 </head>
 <body>
@@ -763,7 +777,7 @@
     </div>
 
     <div class="reveal" style="margin-top:1.5rem;">
-      <img src="assets/Layout Guia Pratica SIM.png"
+      <img src="assets/Layout_Guia_Pratica_SIM.webp"
            alt="Guia de Prática S.I.M."
            width="520" height="400"
            loading="lazy"
@@ -786,7 +800,7 @@
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:10px;padding:1rem;overflow:hidden;">
-      <img src="assets/Livro_crime castigo.jpg"
+      <img src="assets/Livro_crime_castigo.webp"
            alt="Crime e Castigo"
            width="60" height="90"
            loading="lazy"
@@ -819,7 +833,7 @@
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:10px;padding:1rem;overflow:hidden;">
-      <img src="assets/Livro_Na colonia penal.jpg"
+      <img src="assets/Livro_Na_colonia_penal.webp"
            alt="Na Colônia Penal"
            width="60" height="90"
            loading="lazy"
@@ -852,7 +866,7 @@
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:10px;padding:1rem;overflow:hidden;">
-      <img src="assets/Livro_Quincas borba.jpg"
+      <img src="assets/Livro_Quincas_borba.webp"
            alt="Quincas Borba"
            width="60" height="90"
            loading="lazy"
@@ -885,7 +899,7 @@
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:10px;padding:1rem;overflow:hidden;">
-      <img src="assets/Livro_O retrato de dorian gray.jpg"
+      <img src="assets/Livro_O_retrato_de_dorian_gray.webp"
            alt="O Retrato de Dorian Gray"
            width="60" height="90"
            loading="lazy"
@@ -919,7 +933,7 @@
     border:1px solid rgba(255,255,255,0.08);
     border-radius:10px;padding:1rem;overflow:hidden;
     opacity:0.7;">
-      <img src="assets/O apanhador no campo de centeio.jpg"
+      <img src="assets/O_apanhador_no_campo_de_centeio.webp"
            alt="O Apanhador no Campo de Centeio"
            width="60" height="90"
            loading="lazy"
@@ -972,19 +986,19 @@
         <!-- Track -->
         <div id="diario-track" style="display:flex;transition:transform 0.4s ease;will-change:transform;">
           <div style="min-width:100%;padding:0 4px;">
-            <img src="assets/Diario01.png"
+            <img src="assets/Diario01.webp"
                  alt="Diário de Leitura — página 1"
                  loading="lazy"
                  style="width:100%;height:auto;border-radius:10px;display:block;">
           </div>
           <div style="min-width:100%;padding:0 4px;">
-            <img src="assets/Diario02.png"
+            <img src="assets/Diario02.webp"
                  alt="Diário de Leitura — página 2"
                  loading="lazy"
                  style="width:100%;height:auto;border-radius:10px;display:block;">
           </div>
           <div style="min-width:100%;padding:0 4px;">
-            <img src="assets/Diario03.png"
+            <img src="assets/Diario03.webp"
                  alt="Diário de Leitura — página 3"
                  loading="lazy"
                  style="width:100%;height:auto;border-radius:10px;display:block;">
@@ -993,13 +1007,13 @@
 
         <!-- Botão anterior -->
         <button onclick="moverDiario(-1)"
-          style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">
+          style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">
           ‹
         </button>
 
         <!-- Botão próximo -->
         <button onclick="moverDiario(1)"
-          style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">
+          style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">
           ›
         </button>
 
@@ -1019,10 +1033,22 @@
     <div class="section-label reveal">— Resultados reais</div>
     <h2 class="section-title reveal">Veja como o S.I.M. está<br>mudando a forma de aprender</h2>
     <div class="dep-grid reveal">
-      <div class="dep-card"><img src="assets/depoimento-david.webp" alt="Depoimento David" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
-      <div class="dep-card"><img src="assets/depoimento1.jpg" alt="Depoimento Jackson Vulpi" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
-      <div class="dep-card"><img src="assets/depoimento2.jpg" alt="Depoimento Victor" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
-      <div class="dep-card"><img src="assets/depoimento3.jpg" alt="Depoimento Renato Pechinho" width="400" height="300" loading="lazy" style="width:100%;border-radius:12px;display:block;"></div>
+      <div class="dep-card">
+        <img class="dep-print" src="assets/depoimento-victor.webp" alt="Conversa de WhatsApp em que Victor elogia o agente Mentor do S.I.M." width="880" height="1245" loading="lazy" decoding="async">
+        <div class="dep-cap"><span class="dep-nome">Victor</span><span class="dep-papel">CLT e empreendedor</span></div>
+      </div>
+      <div class="dep-card">
+        <img class="dep-print" src="assets/depoimento-jackson.webp" alt="Conversa de WhatsApp em que Jackson conta que usou o Mentor para passar na prova do Detran" width="880" height="846" loading="lazy" decoding="async">
+        <div class="dep-cap"><span class="dep-nome">Jackson</span><span class="dep-papel">Usuário do S.I.M.</span></div>
+      </div>
+      <div class="dep-card">
+        <img class="dep-print" src="assets/depoimento-renato.webp" alt="Conversa de WhatsApp em que Renato elogia o S.I.M. nos estudos da pós-graduação" width="880" height="632" loading="lazy" decoding="async">
+        <div class="dep-cap"><span class="dep-nome">Renato Pechinho</span><span class="dep-papel">Pós-graduando</span></div>
+      </div>
+      <div class="dep-card">
+        <img class="dep-print" src="assets/depoimento-david.webp" alt="Conversa de WhatsApp em que David elogia a qualidade do agente Vértice" width="880" height="1266" loading="lazy" decoding="async">
+        <div class="dep-cap"><span class="dep-nome">David</span><span class="dep-papel">Usuário do S.I.M.</span></div>
+      </div>
     </div>
   </section>
   <section class="preco" id="inscricao">
@@ -1182,18 +1208,6 @@
 
     </div>
 
-    <!-- CSS responsivo para desktop -->
-    <style>
-      @media (min-width: 768px) {
-        .demonstracao .reveal > div[style*="flex-direction:column"] {
-          flex-direction: row !important;
-          align-items: flex-start;
-        }
-        .demonstracao .reveal > div > div:first-child {
-          flex-shrink: 0;
-        }
-      }
-    </style>
   </section>
 
   <section class="faq">
