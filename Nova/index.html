@@ -1,0 +1,4028 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina de vendas. sim-sistema-inteligente-de-mentoria</title>
+<meta name="description" content="Pagina de vendas do produto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===========================================================
+   ESTILOS S.I.M. — organizados por seção
+   =========================================================== */
+
+  /* ============================================
+     PALETA S.I.M. — tokens de cor (edite aqui)
+     ============================================ */
+  :root {
+    --branco: #ffffff;
+    --azul-cta: #2952cc;
+    --azul-cta-hover: #1e3faf;
+    --azul-destaque: #4080f8;
+    --cinza-900: #111827;
+    --cinza-700: #374151;
+    --cinza-500: #6b7280;
+    --azul-escuro: #0b1628;
+    --preto-quente: #0a0806;
+    --cinza-claro: #f3f4fa;
+    --azul-claro: #eef3ff;
+    --cinza-borda: #eaecf5;
+    --creme: #f5f0e8;
+    --vermelho: #cc2200;
+    --verde-whats: #25d366;
+    --verde-escuro: #0d4f35;
+  }
+
+/* Reset minimo pra wrappers nao colidirem com margens do body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+[class^="secao-"] {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* === secao-hero (hero-sim.html) === */
+.secao-hero *,
+.secao-hero *::before,
+.secao-hero *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-hero {
+  background: var(--preto-quente);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── NAV STRIP ── */
+.secao-hero .hero-sim__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 5%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secao-hero .hero-sim__nav-item {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--branco);
+  text-decoration: none;
+}
+
+.secao-hero .hero-sim__nav-item--center {
+  text-align: center;
+}
+
+.secao-hero .hero-sim__nav-item--right {
+  text-align: right;
+}
+
+/* ── SECTION ── */
+.secao-hero .hero-sim {
+  background: var(--preto-quente);
+  width: 100%;
+}
+
+/* ── NAV FOOTER (espelho do topo) ── */
+.secao-hero .hero-sim__nav--footer {
+  border-bottom: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── MAIN CONTENT ── */
+.secao-hero .hero-sim__body {
+  padding: 60px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── HEADLINE BLOCK ── */
+.secao-hero .hero-sim__headline-block {
+  width: 100%;
+  max-width: 900px;
+}
+
+.secao-hero .hero-sim__headline-top {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e8e0d4;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.secao-hero .hero-sim__headline-big {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 900;
+  color: var(--creme);
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.secao-hero .hero-sim__headline-bottom {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--creme);
+  line-height: 1.3;
+}
+
+/* ── SUBHEADLINE ── */
+.secao-hero .hero-sim__subheadline {
+  margin-top: 24px;
+  max-width: 560px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(245, 240, 232, 0.7);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ── BULLETS ── */
+.secao-hero .hero-sim__bullets {
+  margin-top: 32px;
+  max-width: 600px;
+  width: 100%;
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secao-hero .hero-sim__bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #c8c0b8;
+  line-height: 1.6;
+}
+
+.secao-hero .hero-sim__bullet-icon {
+  color: var(--azul-destaque);
+  font-size: 18px;
+  line-height: 1.4;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* ── CTA BUTTON ── */
+.secao-hero .hero-sim__cta-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.secao-hero .hero-sim__cta {
+  display: inline-block;
+  background: var(--azul-cta);
+  color: var(--branco);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 16px 40px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.secao-hero .hero-sim__cta:hover {
+  background: var(--azul-cta-hover);
+}
+
+.secao-hero .hero-sim__cta:focus-visible {
+  outline: 2px solid var(--azul-destaque);
+  outline-offset: 3px;
+}
+
+/* ── PHOTO PLACEHOLDER ── */
+.secao-hero .hero-sim__photo-placeholder {
+  margin-top: 64px;
+  width: 100%;
+  max-width: 300px;
+  height: 360px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secao-hero .hero-sim__photo-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #666666;
+  letter-spacing: 0.03em;
+}
+
+.secao-hero
+/* ── DESKTOP ── */
+@media (min-width: 768px) {
+  .hero-sim__body {
+    padding: 100px 5%;
+  }
+}
+
+/* === secao-dor (dor-sim.html) === */
+.secao-dor *,
+.secao-dor *::before,
+.secao-dor *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-dor {
+  background-color: var(--branco);
+  font-family: 'Inter', sans-serif;
+}
+
+.secao-dor .dor-section {
+  border-top: 4px solid var(--vermelho);
+  background-color: var(--branco);
+  background-image: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 28px,
+      rgba(0, 0, 0, 0.04) 28px,
+      rgba(0, 0, 0, 0.04) 29px);
+  padding: 80px 5%;
+}
+
+.secao-dor .dor-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Headline block */
+.secao-dor .dor-headline-block {
+  position: relative;
+  margin-bottom: 48px;
+  padding-bottom: 8px;
+}
+
+.secao-dor .dor-decorative-num {
+  position: absolute;
+  top: -28px;
+  left: -8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 160px;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-text-stroke: 3px var(--vermelho);
+  color: transparent;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.18;
+  letter-spacing: -0.02em;
+}
+
+.secao-dor .dor-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cinza-900);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.secao-dor .dor-headline-line {
+  position: relative;
+  z-index: 1;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 900;
+  color: var(--cinza-900);
+  line-height: 0.95;
+  display: block;
+}
+
+.secao-dor .dor-headline-line--underlined {
+  text-decoration: underline;
+  text-decoration-color: var(--vermelho);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
+
+/* Content grid */
+.secao-dor .dor-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* Body text */
+.secao-dor .dor-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--cinza-700);
+  line-height: 1.8;
+}
+
+.secao-dor .dor-body p {
+  margin-bottom: 20px;
+}
+
+.secao-dor .dor-body p:last-child {
+  margin-bottom: 0;
+}
+
+.secao-dor .dor-highlight {
+  font-weight: 700;
+  color: var(--azul-cta);
+}
+
+/* Photo placeholder */
+.secao-dor .dor-photo-placeholder {
+  background-color: #f3f3f3;
+  border: 2px dashed #cccccc;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.secao-dor .dor-photo-placeholder span {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #999999;
+  line-height: 1.5;
+}
+
+.secao-dor
+/* Responsive */
+@media (max-width: 720px) {
+  .dor-section {
+    padding: 60px 5%;
+  }
+
+  .secao-dor .dor-content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .secao-dor .dor-photo-placeholder {
+    height: 220px;
+    order: 2;
+  }
+
+  .secao-dor .dor-body {
+    order: 1;
+  }
+
+  .secao-dor .dor-decorative-num {
+    font-size: 110px;
+    top: -16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dor-decorative-num {
+    font-size: 80px;
+    top: -10px;
+  }
+}
+
+/* === secao-paliativo (paliativo-gerada-sim.html) === */
+.secao-paliativo *,
+.secao-paliativo *::before,
+.secao-paliativo *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-paliativo {
+  background: var(--branco);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.secao-paliativo .paliativo-section {
+  background: var(--branco);
+  padding: 80px 5%;
+}
+
+.secao-paliativo .paliativo-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.secao-paliativo .paliativo-eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--azul-cta);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.secao-paliativo .paliativo-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  color: var(--cinza-900);
+  margin-bottom: 16px;
+}
+
+.secao-paliativo .paliativo-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--cinza-700);
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.secao-paliativo .paliativo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.secao-paliativo .paliativo-card {
+  background: var(--cinza-claro);
+  border-radius: 12px;
+  padding: 24px 28px;
+  border-left: 3px solid #cccccc;
+}
+
+.secao-paliativo .paliativo-card--youtube {
+  border-left-color: var(--vermelho);
+}
+
+.secao-paliativo .paliativo-card--livros {
+  border-left-color: #e87c00;
+}
+
+.secao-paliativo .paliativo-card--grupos {
+  border-left-color: #9b59b6;
+}
+
+.secao-paliativo .paliativo-card--oratoria {
+  border-left-color: #27ae60;
+}
+
+.secao-paliativo .paliativo-card--citacoes {
+  border-left-color: var(--azul-cta);
+}
+
+.secao-paliativo .paliativo-card-title {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cinza-900);
+  margin-bottom: 8px;
+}
+
+.secao-paliativo .paliativo-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--cinza-700);
+  line-height: 1.7;
+}
+
+.secao-paliativo .paliativo-closing {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  padding: 24px 32px;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-top: 40px;
+}
+
+@media (max-width: 640px) {
+  .paliativo-section {
+    padding: 60px 20px;
+  }
+
+  .secao-paliativo .paliativo-card {
+    padding: 18px 20px;
+  }
+
+  .secao-paliativo .paliativo-closing {
+    padding: 20px 22px;
+  }
+}
+
+/* === secao-prova1 (prova1-gerada-sim.html) === */
+.secao-prova1 *,
+.secao-prova1 *::before,
+.secao-prova1 *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-prova1 .prova1-section {
+  background-color: var(--cinza-claro);
+  padding: 80px 5%;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.secao-prova1 .prova1-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.secao-prova1 .prova1-headline {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 3.5vw, 40px);
+  color: var(--cinza-900);
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+.secao-prova1 .prova1-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .prova1-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.secao-prova1 .prova1-card {
+  position: relative;
+  background-color: var(--branco);
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 2px 16px rgba(41, 82, 204, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.secao-prova1 .prova1-card::before {
+  content: "\201C";
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--azul-cta);
+  opacity: 0.2;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.secao-prova1 .prova1-quote {
+  font-size: 15px;
+  color: var(--cinza-700);
+  line-height: 1.75;
+  font-style: italic;
+  padding-top: 32px;
+  flex-grow: 1;
+}
+
+.secao-prova1 .prova1-author-block {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cinza-borda);
+}
+
+.secao-prova1 .prova1-author-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cinza-900);
+  font-style: normal;
+}
+
+.secao-prova1 .prova1-author-role {
+  font-size: 13px;
+  color: var(--cinza-500);
+  font-style: normal;
+  margin-top: 2px;
+}
+
+/* === secao-cta (cta-gerada-sim.html) === */
+.secao-cta *,
+.secao-cta *::before,
+.secao-cta *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-cta {
+  background-color: var(--azul-escuro);
+  font-family: 'Inter', sans-serif;
+}
+
+.secao-cta .cta-mid {
+  width: 100%;
+  background-color: var(--azul-escuro);
+  border-top: 2px solid rgba(64, 128, 248, 0.30);
+  border-bottom: 2px solid rgba(64, 128, 248, 0.30);
+  padding: 70px 5%;
+}
+
+.secao-cta .cta-mid__inner {
+  max-width: 600px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secao-cta .cta-mid__headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3.5vw, 40px);
+  line-height: 1.15;
+  color: var(--branco);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.secao-cta .cta-mid__body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.70);
+  text-align: center;
+  margin-top: 16px;
+}
+
+.secao-cta .cta-mid__btn {
+  display: block;
+  background-color: var(--azul-cta);
+  color: var(--branco);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px 44px;
+  margin-top: 32px;
+  max-width: 360px;
+  width: 100%;
+  margin-inline: auto;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.secao-cta .cta-mid__btn:hover,
+.secao-cta .cta-mid__btn:focus-visible {
+  background-color: var(--azul-cta-hover);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.secao-cta .cta-mid__btn:focus-visible {
+  outline: 2px solid rgba(64, 128, 248, 0.80);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .cta-mid {
+    padding: 52px 6%;
+  }
+
+  .secao-cta .cta-mid__btn {
+    padding: 16px 24px;
+    max-width: 100%;
+  }
+}
+
+/* === secao-metodo (metodo-gerada-sim.html) === */
+.secao-metodo .secao-metodo * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-metodo .secao-metodo {
+  background: var(--cinza-claro);
+  padding: 96px clamp(24px, 6vw, 80px);
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  color: var(--cinza-900);
+}
+
+.secao-metodo .secao-metodo .metodo-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.secao-metodo .secao-metodo .metodo-card {
+  background: var(--branco);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(41, 82, 204, 0.08);
+  padding: 48px clamp(24px, 4vw, 52px);
+  margin-bottom: 28px;
+}
+
+.secao-metodo .secao-metodo .metodo-eyebrow {
+  display: inline-block;
+  background: #1a2f52;
+  color: var(--branco);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.secao-metodo .secao-metodo .metodo-headline {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--cinza-900);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.secao-metodo .secao-metodo .metodo-intro {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--cinza-700);
+  max-width: 820px;
+  margin-bottom: 56px;
+}
+
+/* Diagrama sequencial */
+.secao-metodo .secao-metodo .diagrama {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.secao-metodo .secao-metodo .diagrama-node {
+  flex: 1;
+  min-width: 180px;
+  background: var(--branco);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(41, 82, 204, 0.08);
+  padding: 28px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.secao-metodo .secao-metodo .diagrama-node .node-num {
+  width: 36px;
+  height: 36px;
+  background: var(--azul-cta);
+  border-radius: 50%;
+  color: var(--branco);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.secao-metodo .secao-metodo .diagrama-node .node-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--cinza-900);
+  margin-bottom: 4px;
+}
+
+.secao-metodo .secao-metodo .diagrama-node .node-sublabel {
+  font-size: 12px;
+  color: var(--cinza-500);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.secao-metodo .secao-metodo .diagrama-arrow {
+  flex: 0 0 40px;
+  text-align: center;
+  color: var(--azul-destaque);
+  font-size: 22px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .secao-metodo .secao-metodo .diagrama {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-x: visible;
+    min-width: 0;
+    gap: 8px;
+  }
+  .secao-metodo .secao-metodo .diagrama-node {
+    width: 100%;
+    min-width: 0;
+  }
+  .secao-metodo .secao-metodo .diagrama-arrow {
+    flex: 0 0 auto;
+    transform: rotate(90deg);
+    padding: 4px 0;
+  }
+}
+
+/* Cards dos agentes */
+.secao-metodo .secao-metodo .agentes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.secao-metodo .secao-metodo .agente-card {
+  background: var(--branco);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(41, 82, 204, 0.08);
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-left: 4px solid var(--azul-destaque);
+}
+
+.secao-metodo .secao-metodo .agente-card-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.secao-metodo .secao-metodo .agente-card-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.secao-metodo .secao-metodo .agente-badge {
+  display: inline-block;
+  background: rgba(64, 128, 248, 0.10);
+  color: var(--azul-cta);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.secao-metodo .secao-metodo .agente-nome {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--cinza-900);
+}
+
+.secao-metodo .secao-metodo .agente-subtitulo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--azul-destaque);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.secao-metodo .secao-metodo .agente-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--cinza-700);
+  margin-bottom: 16px;
+}
+
+.secao-metodo .secao-metodo .agente-destaque {
+  font-size: 15px;
+  line-height: 1.70;
+  color: var(--cinza-700);
+  border-left: 3px solid var(--azul-destaque);
+  padding-left: 18px;
+  font-style: italic;
+}
+
+/* Legenda do ciclo */
+.secao-metodo .secao-metodo .ciclo-legenda {
+  margin-top: 52px;
+  background: var(--azul-escuro);
+  border-radius: 14px;
+  padding: 36px 44px;
+  color: var(--branco);
+}
+
+.secao-metodo .secao-metodo .ciclo-legenda p {
+  font-size: 16px;
+  line-height: 1.80;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.secao-metodo .secao-metodo .ciclo-legenda strong {
+  color: var(--branco);
+}
+
+@media (max-width: 768px) {
+  .secao-metodo .secao-metodo {
+    padding: 64px 20px;
+  }
+
+  .secao-metodo .secao-metodo .metodo-card {
+    padding: 32px 22px;
+    margin-bottom: 20px;
+  }
+
+  .secao-metodo .secao-metodo .metodo-headline {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .secao-metodo .secao-metodo .metodo-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .secao-metodo .agente-card {
+    padding: 24px 20px;
+    gap: 18px;
+  }
+
+  .secao-metodo .secao-metodo .agente-card-left {
+    gap: 8px 12px;
+    padding-bottom: 16px;
+  }
+
+  .secao-metodo .secao-metodo .agente-nome {
+    font-size: 22px;
+  }
+
+  .secao-metodo .secao-metodo .agente-subtitulo {
+    font-size: 12px;
+  }
+
+  .secao-metodo .secao-metodo .agente-desc {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .secao-metodo .secao-metodo .agente-destaque {
+    font-size: 14px;
+    line-height: 1.65;
+    padding-left: 14px;
+  }
+
+  .secao-metodo .secao-metodo .diagrama {
+    gap: 0;
+  }
+
+  .secao-metodo .secao-metodo .diagrama-node {
+    min-width: 130px;
+    padding: 20px 12px;
+  }
+
+  .secao-metodo .secao-metodo .diagrama-node .node-label {
+    font-size: 14px;
+  }
+
+  .secao-metodo .secao-metodo .ciclo-legenda {
+    padding: 24px 20px;
+    margin-top: 40px;
+  }
+
+  .secao-metodo .secao-metodo .ciclo-legenda p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* === secao-para-quem (para-quem-gerada-sim.html) === */
+.secao-para-quem *,
+.secao-para-quem *::before,
+.secao-para-quem *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-para-quem {
+  background-color: var(--azul-escuro);
+  font-family: 'Inter', sans-serif;
+  color: var(--branco);
+  -webkit-font-smoothing: antialiased;
+}
+
+.secao-para-quem .para-quem {
+  background-color: var(--azul-escuro);
+  padding: 64px 5%;
+}
+
+.secao-para-quem .para-quem__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.secao-para-quem .para-quem__headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 3.5vw, 42px);
+  color: var(--branco);
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 56px;
+  letter-spacing: -0.02em;
+}
+
+.secao-para-quem .para-quem__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Coluna compartilhada */
+.secao-para-quem .para-quem__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.secao-para-quem .para-quem__col-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.secao-para-quem .para-quem__col-label--blue {
+  color: var(--azul-destaque);
+}
+
+.secao-para-quem .para-quem__col-label--red {
+  color: var(--vermelho);
+}
+
+/* Cards "Para Quem É" */
+.secao-para-quem .para-quem__cards-yes {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.secao-para-quem .card-yes {
+  background: rgba(64, 128, 248, 0.08);
+  border-left: 3px solid var(--azul-destaque);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.secao-para-quem .card-yes__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.secao-para-quem .card-yes__icon {
+  color: var(--azul-destaque);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.secao-para-quem .card-yes__name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--branco);
+  line-height: 1.3;
+}
+
+.secao-para-quem .card-yes__desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 1.65;
+  padding-left: 26px;
+}
+
+/* Cards "Não É Para" */
+.secao-para-quem .para-quem__cards-no {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.secao-para-quem .card-no {
+  background: rgba(204, 34, 0, 0.08);
+  border-left: 3px solid var(--vermelho);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.secao-para-quem .card-no__icon {
+  color: var(--vermelho);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.secao-para-quem .card-no__text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.70);
+  line-height: 1.6;
+}
+
+.secao-para-quem
+/* Desktop: duas colunas lado a lado */
+@media (min-width: 720px) {
+  .para-quem {
+    padding: 90px 5%;
+  }
+
+  .secao-para-quem .para-quem__grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .secao-para-quem .para-quem__col--yes {
+    flex: 1.15;
+  }
+
+  .secao-para-quem .para-quem__col--no {
+    flex: 0.85;
+  }
+}
+
+/* === secao-entregaveis (entregaveis-sim.html) === */
+.secao-entregaveis *,
+.secao-entregaveis *::before,
+.secao-entregaveis *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-entregaveis {
+  background-color: var(--azul-escuro);
+  font-family: 'Inter', sans-serif;
+}
+
+.secao-entregaveis .entregaveis-section {
+  background-color: var(--azul-escuro);
+  padding: 80px 24px;
+}
+
+.secao-entregaveis .entregaveis-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.secao-entregaveis .entregaveis-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--branco);
+  text-align: center;
+  margin-bottom: 48px;
+  line-height: 1.2;
+}
+
+.secao-entregaveis .entregaveis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.secao-entregaveis .entregavel-card {
+  background: #1a2744;
+  border-radius: 14px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.secao-entregaveis .card-number-circle {
+  width: 36px;
+  height: 36px;
+  background: var(--azul-cta);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.secao-entregaveis .card-number-circle span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--branco);
+  line-height: 1;
+}
+
+.secao-entregaveis .card-agent-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--branco);
+  margin-top: 16px;
+  margin-bottom: 2px;
+}
+
+.secao-entregaveis .card-sub-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--azul-destaque);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.secao-entregaveis .card-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+.secao-entregaveis .card-checklist {
+  list-style: none;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.secao-entregaveis .card-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+.secao-entregaveis .card-checklist li .check-icon {
+  color: var(--azul-destaque);
+  font-style: normal;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.secao-entregaveis .card-value-badge {
+  display: inline-block;
+  background: rgba(64, 128, 248, 0.15);
+  color: var(--azul-destaque);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+.secao-entregaveis .entregaveis-footer {
+  margin-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+  text-align: center;
+}
+
+.secao-entregaveis .footer-total-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.secao-entregaveis .footer-price-highlight {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--branco);
+  margin-bottom: 0;
+}
+
+.secao-entregaveis .entregaveis-cta {
+  display: block;
+  background: var(--azul-cta);
+  color: var(--branco);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 40px;
+  margin: 40px auto 0 auto;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.secao-entregaveis .entregaveis-cta:hover {
+  background: #1e3fa8;
+}
+
+.secao-entregaveis .entregaveis-cta:focus-visible {
+  outline: 2px solid var(--azul-destaque);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .entregaveis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .entregaveis-section {
+    padding: 60px 20px;
+  }
+
+  .secao-entregaveis .entregavel-card {
+    padding: 24px;
+  }
+
+  .secao-entregaveis .footer-price-highlight {
+    font-size: 24px;
+  }
+}
+
+/* === secao-bonus (bonus-sim.html) === */
+.secao-bonus *,
+.secao-bonus *::before,
+.secao-bonus *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-bonus {
+  font-family: 'Inter', sans-serif;
+  background: var(--verde-escuro);
+}
+
+.secao-bonus .bonus-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 20% 20%, var(--verde-escuro) 0%, #1a7a50 40%, #2db87a 70%, #3dd68c 100%);
+  padding: 90px 5%;
+}
+
+.secao-bonus .bonus-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.secao-bonus .bonus-ring--sm {
+  width: 600px;
+  height: 600px;
+}
+
+.secao-bonus .bonus-ring--lg {
+  width: 900px;
+  height: 900px;
+}
+
+.secao-bonus .bonus-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.secao-bonus .bonus-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 800;
+  color: var(--branco);
+  line-height: 1.3;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.secao-bonus .bonus-headline em {
+  font-style: italic;
+}
+
+.secao-bonus .bonus-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── GALERIA DE LIVROS DO CLUBE ── */
+.secao-bonus .clube-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 28px 0 22px;
+}
+
+.secao-bonus .clube-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 16px;
+}
+
+.secao-bonus .clube-livro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 110px;
+}
+
+.secao-bonus .clube-livro-capa-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  margin-bottom: 12px;
+}
+
+.secao-bonus .clube-livro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.secao-bonus .clube-livro--embreve img {
+  filter: grayscale(50%);
+  opacity: 0.65;
+}
+
+.secao-bonus .clube-quadro {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 30px 20px 22px;
+  margin-bottom: 18px;
+}
+
+.secao-bonus .clube-quadro--disp {
+  background: rgba(15, 43, 163, 0.10);
+}
+
+.secao-bonus .clube-quadro--breve {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.secao-bonus .clube-quadro-label {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.secao-bonus .clube-quadro-label--disp { background: #0f2ba3; }
+.secao-bonus .clube-quadro-label--breve { background: #EA580C; }
+
+.secao-bonus .clube-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.secao-bonus .clube-autor {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.secao-bonus .bonus-card {
+  background: rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 28px 32px;
+}
+
+.secao-bonus .bonus-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.20);
+  color: var(--branco);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+}
+
+.secao-bonus .bonus-card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.secao-bonus .bonus-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+}
+
+.secao-bonus .bonus-card-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.60);
+  font-style: italic;
+  margin-top: 12px;
+}
+
+.secao-bonus .bonus-footer {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.secao-bonus .bonus-footer-badge {
+  display: inline-block;
+  background: var(--branco);
+  color: var(--verde-escuro);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 10px 28px;
+}
+
+@media (max-width: 600px) {
+  .bonus-section {
+    padding: 60px 6%;
+  }
+
+  .secao-bonus .bonus-card {
+    padding: 22px 20px;
+  }
+
+  .secao-bonus .bonus-ring--sm {
+    width: 320px;
+    height: 320px;
+  }
+
+  .secao-bonus .bonus-ring--lg {
+    width: 520px;
+    height: 520px;
+  }
+
+  .secao-bonus .bonus-footer-badge {
+    font-size: 13px;
+    padding: 9px 20px;
+  }
+}
+
+/* === secao-stack (stack-gerada-sim.html) === */
+.secao-stack *,
+.secao-stack *::before,
+.secao-stack *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-stack {
+  background-color: var(--cinza-claro);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.secao-stack .stack-valor {
+  background-color: var(--cinza-claro);
+  padding: 90px 5%;
+}
+
+.secao-stack .stack-valor__inner {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.secao-stack .stack-valor__headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--cinza-900);
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.secao-stack .stack-valor__intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--cinza-700);
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: 48px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.secao-stack .stack-valor__card {
+  background-color: var(--branco);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 32px rgba(41, 82, 204, 0.10);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.secao-stack .stack-valor__label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--azul-cta);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+}
+
+.secao-stack .stack-valor__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--cinza-borda);
+}
+
+.secao-stack .stack-valor__item-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--cinza-700);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.secao-stack .stack-valor__bonus-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--azul-cta);
+  background-color: var(--azul-claro);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-right: 6px;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+.secao-stack .stack-valor__item-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--azul-cta);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.secao-stack .stack-valor__separator {
+  border: none;
+  border-top: 2px solid #d1d5db;
+  margin: 4px 0 0;
+}
+
+.secao-stack .stack-valor__totals {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.secao-stack .stack-valor__reference-total {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #9ca3af;
+  text-decoration: line-through;
+  line-height: 1.5;
+}
+
+.secao-stack .stack-valor__price {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 900;
+  color: var(--cinza-900);
+  margin-top: 8px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.secao-stack .stack-valor__badge {
+  display: inline-block;
+  background-color: var(--azul-claro);
+  color: var(--azul-cta);
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.secao-stack .stack-valor__cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.secao-stack .stack-valor__cta {
+  display: inline-block;
+  background-color: var(--azul-cta);
+  color: var(--branco);
+  border-radius: 10px;
+  padding: 18px 48px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+}
+
+.secao-stack .stack-valor__cta:hover {
+  opacity: 0.85;
+}
+
+.secao-stack .stack-valor__closing {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--cinza-500);
+  text-align: center;
+  margin-top: 24px;
+  max-width: 560px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .stack-valor {
+    padding: 60px 5%;
+  }
+
+  .secao-stack .stack-valor__card {
+    padding: 28px 20px;
+  }
+
+  .secao-stack .stack-valor__cta {
+    padding: 16px 32px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .secao-stack .stack-valor__cta-wrap {
+    display: block;
+  }
+
+  .secao-stack .stack-valor__row {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+
+  .secao-stack .stack-valor__item-price {
+    font-size: 14px;
+  }
+}
+
+/* === secao-prova2 (prova2-gerada-sim.html) === */
+.secao-prova2 *,
+.secao-prova2 *::before,
+.secao-prova2 *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-prova2 {
+  background-color: var(--azul-escuro);
+}
+
+.secao-prova2 .prova2 {
+  background-color: var(--azul-escuro);
+  padding: 90px 5%;
+  font-family: 'Inter', sans-serif;
+}
+
+.secao-prova2 .prova2__inner {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.secao-prova2 .prova2__headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 36px);
+  color: var(--branco);
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+  margin-bottom: 48px;
+  line-height: 1.25;
+}
+
+.secao-prova2 .prova2__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 700px) {
+  .prova2__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.secao-prova2 .prova2__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.secao-prova2 .prova2__context {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--azul-destaque);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.secao-prova2 .prova2__quote {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.75;
+  font-style: italic;
+  flex: 1;
+}
+
+.secao-prova2 .prova2__quote strong {
+  color: var(--branco);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.secao-prova2 .prova2__sep {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  margin: 20px 0;
+}
+
+.secao-prova2 .prova2__author {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--branco);
+}
+
+/* === secao-suporte (suporte-gerada-sim.html) === */
+.secao-suporte *,
+.secao-suporte *::before,
+.secao-suporte *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-suporte {
+  background: var(--cinza-claro);
+}
+
+.secao-suporte .suporte-sim {
+  background-color: var(--cinza-claro);
+  padding: 80px 5%;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.secao-suporte .suporte-sim__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.secao-suporte .suporte-sim__headline {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.15;
+  color: var(--cinza-900);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.secao-suporte .suporte-sim__intro {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cinza-700);
+  max-width: 640px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.secao-suporte .suporte-sim__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.secao-suporte .suporte-sim__card {
+  background-color: var(--branco);
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 2px 16px rgba(41, 82, 204, 0.08);
+  flex: 1;
+}
+
+.secao-suporte .suporte-sim__card--whatsapp {
+  border-left: 4px solid var(--verde-whats);
+}
+
+.secao-suporte .suporte-sim__card--grupo {
+  border-left: 4px solid var(--azul-cta);
+}
+
+.secao-suporte .suporte-sim__card-icon {
+  display: block;
+  margin-bottom: 16px;
+  width: 40px;
+  height: 40px;
+}
+
+.secao-suporte .suporte-sim__card-title {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--cinza-900);
+  margin-bottom: 12px;
+}
+
+.secao-suporte .suporte-sim__card-text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cinza-700);
+}
+
+@media (min-width: 680px) {
+  .suporte-sim__cards {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+/* === secao-garantia (garantia-gerada-sim.html) === */
+.secao-garantia *,
+.secao-garantia *::before,
+.secao-garantia *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-garantia .garantia-section {
+  background-color: var(--azul-escuro);
+  padding: 60px 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .garantia-section {
+    padding: 90px 5%;
+  }
+}
+
+.secao-garantia .garantia-inner {
+  max-width: 760px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.secao-garantia .garantia-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3.5vw, 40px);
+  line-height: 1.18;
+  color: var(--branco);
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+.secao-garantia .garantia-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+  text-align: center;
+  max-width: 660px;
+}
+
+.secao-garantia .garantia-body p {
+  margin-bottom: 20px;
+}
+
+.secao-garantia .garantia-body p:last-child {
+  margin-bottom: 0;
+}
+
+.secao-garantia .garantia-seal {
+  width: 200px;
+  height: 200px;
+  border: 3px solid var(--azul-destaque);
+  background-color: rgba(64, 128, 248, 0.08);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.secao-garantia .garantia-seal:hover {
+  box-shadow: 0 0 32px rgba(64, 128, 248, 0.25);
+}
+
+.secao-garantia .garantia-seal-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  color: var(--branco);
+  line-height: 1;
+}
+
+.secao-garantia .garantia-seal-days {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--azul-destaque);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.secao-garantia .garantia-seal-divider {
+  width: 40px;
+  border: none;
+  border-top: 1px solid rgba(64, 128, 248, 0.4);
+  margin: 6px auto;
+}
+
+.secao-garantia .garantia-seal-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.60);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.secao-garantia .garantia-seal-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--azul-destaque);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.secao-garantia .garantia-bullets {
+  list-style: none;
+  padding: 0;
+  max-width: 380px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.secao-garantia .garantia-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.secao-garantia .garantia-bullet-check {
+  color: var(--azul-destaque);
+  font-size: 16px;
+  line-height: 1.5;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.secao-garantia .garantia-closing {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* === secao-autoridade (autoridade-sim.html) === */
+.secao-autoridade *,
+.secao-autoridade *::before,
+.secao-autoridade *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-autoridade {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.secao-autoridade .autoridade-sim {
+  background: linear-gradient(135deg, #8a9ab8 0%, #7a8aa8 100%);
+  padding: 90px 5%;
+}
+
+.secao-autoridade .autoridade-sim__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ── Card branco ── */
+.secao-autoridade .autoridade-sim__card {
+  background: var(--branco);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+}
+
+.secao-autoridade .autoridade-sim__label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--azul-cta);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.secao-autoridade .autoridade-sim__headline {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--cinza-900);
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+
+.secao-autoridade .autoridade-sim__body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--cinza-700);
+  line-height: 1.75;
+}
+
+.secao-autoridade .autoridade-sim__body p {
+  margin-bottom: 14px;
+}
+
+.secao-autoridade .autoridade-sim__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Separador ── */
+.secao-autoridade .autoridade-sim__separator {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 24px 0;
+}
+
+/* ── Credenciais ── */
+.secao-autoridade .autoridade-sim__credentials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.secao-autoridade .autoridade-sim__credentials li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--cinza-700);
+  line-height: 1.5;
+}
+
+.secao-autoridade .autoridade-sim__credentials li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Badge rodapé ── */
+.secao-autoridade .autoridade-sim__badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.secao-autoridade .autoridade-sim__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--azul-claro);
+  color: var(--azul-cta);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.secao-autoridade .autoridade-sim__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--azul-cta);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ── Foto mini do Felipe ── */
+.secao-autoridade .autoridade-sim__foto-mini {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.secao-autoridade .autoridade-sim__foto-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.secao-autoridade
+/* ── Responsivo ── */
+@media (max-width: 768px) {
+  .autoridade-sim {
+    padding: 60px 5%;
+  }
+
+  .secao-autoridade .autoridade-sim__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .secao-autoridade .autoridade-sim__card {
+    padding: 28px 22px;
+  }
+
+  .secao-autoridade .autoridade-sim__photo {
+    height: 280px;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .autoridade-sim__card {
+    padding: 22px 18px;
+  }
+
+  .secao-autoridade .autoridade-sim__photo {
+    height: 220px;
+  }
+}
+
+/* === secao-faq (faq-gerada-sim.html) === */
+.secao-faq .faq-sim {
+  background-color: var(--cinza-claro);
+  padding: 90px 5%;
+  font-family: 'Inter', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+.secao-faq .faq-sim *,
+.secao-faq .faq-sim *::before,
+.secao-faq .faq-sim *::after {
+  box-sizing: border-box;
+}
+
+.secao-faq .faq-sim__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.secao-faq .faq-sim__headline {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 800;
+  color: var(--cinza-900);
+  text-align: center;
+  margin: 0 0 48px 0;
+  line-height: 1.2;
+}
+
+.secao-faq .faq-sim__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-faq .faq-sim__item {
+  margin-bottom: 8px;
+}
+
+.secao-faq .faq-sim__item details {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.secao-faq .faq-sim__item summary {
+  background-color: var(--branco);
+  border-radius: 12px;
+  padding: 20px 24px;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cinza-900);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 2px 12px rgba(41, 82, 204, 0.07);
+  transition: border-radius 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.secao-faq .faq-sim__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.secao-faq .faq-sim__item summary::after {
+  content: '+';
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--azul-cta);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.2s ease, opacity 0.15s ease;
+}
+
+.secao-faq .faq-sim__item details[open]>summary {
+  border-bottom: 1px solid var(--cinza-borda);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.secao-faq .faq-sim__item details[open]>summary::after {
+  content: '×';
+  color: var(--azul-cta);
+}
+
+.secao-faq .faq-sim__answer {
+  background-color: var(--branco);
+  padding: 20px 24px 24px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  color: var(--cinza-700);
+  line-height: 1.75;
+  border-radius: 0 0 12px 12px;
+}
+
+@media (max-width: 600px) {
+  .faq-sim {
+    padding: 60px 5%;
+  }
+
+  .secao-faq .faq-sim__headline {
+    margin-bottom: 32px;
+  }
+
+  .secao-faq .faq-sim__item summary {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .secao-faq .faq-sim__answer {
+    padding: 16px 20px 20px;
+    font-size: 14px;
+  }
+}
+
+/* === secao-oferta-final (oferta-final-gerada-sim.html) === */
+.secao-oferta-final *,
+.secao-oferta-final *::before,
+.secao-oferta-final *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.secao-oferta-final {
+  background-color: var(--azul-escuro);
+  font-family: 'Inter', sans-serif;
+  color: var(--branco);
+  -webkit-font-smoothing: antialiased;
+}
+
+.secao-oferta-final .oferta-section {
+  background-color: var(--azul-escuro);
+  padding: 100px 5%;
+}
+
+.secao-oferta-final .oferta-inner {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.secao-oferta-final .oferta-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--branco);
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.secao-oferta-final .oferta-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.70);
+  text-align: center;
+  line-height: 1.65;
+  max-width: 580px;
+  margin-inline: auto;
+  margin-bottom: 48px;
+}
+
+.secao-oferta-final .oferta-stack-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  padding: 36px;
+  margin-bottom: 40px;
+}
+
+.secao-oferta-final .stack-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.secao-oferta-final .stack-row:last-of-type {
+  border-bottom: none;
+}
+
+.secao-oferta-final .stack-row-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.secao-oferta-final .stack-row-label strong {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
+  display: block;
+}
+
+.secao-oferta-final .stack-row-label .row-desc {
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 2px;
+}
+
+.secao-oferta-final .stack-row-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--azul-destaque);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.secao-oferta-final .stack-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 4px;
+}
+
+.secao-oferta-final .stack-total-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.40);
+  text-decoration: line-through;
+}
+
+.secao-oferta-final .stack-total-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.40);
+  text-decoration: line-through;
+}
+
+.secao-oferta-final .stack-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+.secao-oferta-final .stack-price-main {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--branco);
+  text-align: center;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.secao-oferta-final .stack-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(64, 128, 248, 0.15);
+  color: var(--azul-destaque);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 6px 16px;
+  letter-spacing: 0.01em;
+}
+
+.secao-oferta-final .oferta-cta-btn {
+  display: block;
+  background-color: var(--azul-cta);
+  color: var(--branco);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 20px 56px;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.secao-oferta-final .oferta-cta-btn:hover {
+  background-color: var(--azul-cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(41, 82, 204, 0.35);
+}
+
+.secao-oferta-final .oferta-cta-btn:focus-visible {
+  outline: 2px solid var(--azul-destaque);
+  outline-offset: 3px;
+  background-color: var(--azul-cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(41, 82, 204, 0.35);
+}
+
+.secao-oferta-final .oferta-footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 16px;
+  max-width: 480px;
+}
+
+.secao-oferta-final .oferta-footer-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  margin-top: 8px;
+}
+
+.secao-oferta-final .oferta-footer-links a {
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.secao-oferta-final .oferta-footer-links a:hover {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.secao-oferta-final .oferta-footer-links .sep {
+  margin: 0 6px;
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .oferta-section {
+    padding: 72px 5%;
+  }
+
+  .secao-oferta-final .oferta-stack-card {
+    padding: 24px 20px;
+  }
+
+  .secao-oferta-final .stack-price-main {
+    font-size: 42px;
+  }
+
+  .secao-oferta-final .oferta-cta-btn {
+    padding: 18px 32px;
+    font-size: 16px;
+  }
+
+  .secao-oferta-final .stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .secao-oferta-final .stack-row-value {
+    font-size: 13px;
+    padding-top: 0;
+  }
+
+  .secao-oferta-final .stack-total-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+  }
+}
+
+/* ── BOTÃO FLUTUANTE DE WHATSAPP ── */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wa-balao {
+  background: #fff;
+  color: #0a1228;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 14px 14px 4px 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  position: relative;
+  animation: waPulse 5s ease-in-out infinite;
+}
+.wa-balao::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid #fff;
+  border-top: 8px solid transparent;
+  border-bottom: 0;
+}
+.wa-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  flex-shrink: 0;
+  text-decoration: none;
+  animation: waBob 5s ease-in-out infinite;
+}
+.wa-btn svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
+}
+@keyframes waPulse {
+  0%, 15%   { opacity: 0; transform: translateX(10px); }
+  25%, 75%  { opacity: 1; transform: translateX(0); }
+  85%, 100% { opacity: 0; transform: translateX(10px); }
+}
+@keyframes waBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@media (max-width: 600px) {
+  .wa-float { bottom: 16px; right: 16px; gap: 10px; }
+  .wa-btn { width: 54px; height: 54px; }
+  .wa-btn svg { width: 30px; height: 30px; }
+  .wa-balao { font-size: 0.78rem; padding: 8px 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Botão flutuante de WhatsApp -->
+<div class="wa-float">
+  <div class="wa-balao">Ainda com dúvidas? Manda um WhatsApp</div>
+  <a class="wa-btn"
+     href="https://wa.me/5527999507096?text=Oi%20Felipe%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20o%20S.I.M."
+     target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+</div>
+
+<div class="secao-hero">
+<section class="hero-sim" aria-label="Seção hero S.I.M.">
+
+  <!-- Nav strip topo -->
+  <nav class="hero-sim__nav" aria-label="Identificação S.I.M.">
+    <span class="hero-sim__nav-item">S.I.M.</span>
+    <span class="hero-sim__nav-item hero-sim__nav-item--center">leiturasim.com</span>
+    <span class="hero-sim__nav-item hero-sim__nav-item--right">Mentoria IA</span>
+  </nav>
+
+  <!-- Corpo principal -->
+  <div class="hero-sim__body">
+
+    <!-- Headline em 3 camadas tipográficas -->
+    <hgroup class="hero-sim__headline-block">
+      <span class="hero-sim__headline-top" aria-hidden="true">Você lê. Você ouve. Você assiste.</span>
+      <h1 class="hero-sim__headline-big">E o argumento some.</h1>
+      <span class="hero-sim__headline-bottom" aria-hidden="true">Na hora em que alguém questiona sua posição.</span>
+    </hgroup>
+
+    <!-- Subheadline -->
+    <p class="hero-sim__subheadline">
+      Consumir e analisar conteúdo são habilidades diferentes. Uma delas você já pratica há anos. A outra nunca foi treinada com método.
+    </p>
+
+    <!-- Bullets -->
+    <ul class="hero-sim__bullets" aria-label="O que você vai entender">
+      <li class="hero-sim__bullet">
+        <span class="hero-sim__bullet-icon" aria-hidden="true">›</span>
+        <span>Por que consumir muito conteúdo pode tornar mais difícil, não mais fácil, sustentar uma posição quando alguém questiona você em reunião ou debate.</span>
+      </li>
+      <li class="hero-sim__bullet">
+        <span class="hero-sim__bullet-icon" aria-hidden="true">›</span>
+        <span>A diferença entre mudar de opinião por argumento e mudar por pressão social, e como identificar os dois no momento em que acontecem.</span>
+      </li>
+      <li class="hero-sim__bullet">
+        <span class="hero-sim__bullet-icon" aria-hidden="true">›</span>
+        <span>Como um protocolo de 6 campos calibrado para o seu perfil transforma o que a análise revelou em habilidade desenvolvida, com acompanhamento e feedback, em vez de mais um insight esquecido até a próxima semana.</span>
+      </li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="hero-sim__cta-wrapper">
+      <a href="https://pay.hotmart.com/Y102564448I" target="_blank" rel="noopener" class="hero-sim__cta" role="button">
+        Quero argumentar de forma profunda
+      </a>
+    </div>
+
+
+  </div>
+
+  <!-- Nav strip rodapé (espelho do topo) -->
+  <nav class="hero-sim__nav hero-sim__nav--footer" aria-label="Rodapé S.I.M.">
+    <span class="hero-sim__nav-item">S.I.M.</span>
+    <span class="hero-sim__nav-item hero-sim__nav-item--center">leiturasim.com</span>
+    <span class="hero-sim__nav-item hero-sim__nav-item--right">Mentoria IA</span>
+  </nav>
+
+</section>
+</div>
+
+<div class="secao-dor">
+<section class="dor-section" aria-label="Seção: A dor do argumento que desaparece">
+    <div class="dor-inner">
+
+      <!-- Headline block -->
+      <div class="dor-headline-block">
+        <span class="dor-decorative-num" aria-hidden="true">1</span>
+        <span class="dor-eyebrow">O momento em que</span>
+        <span class="dor-headline-line">O ARGUMENTO</span>
+        <span class="dor-headline-line dor-headline-line--underlined">DESAPARECE</span>
+      </div>
+
+      <!-- Content grid: texto -->
+      <div class="dor-content-grid">
+
+        <!-- Coluna de texto -->
+        <div class="dor-body" role="main">
+          <p>A reunião estava indo bem. Você sabia do assunto. Tinha lido sobre o tema na semana anterior, ouvido um podcast no caminho, acompanhado o debate online. Aí alguém fez uma pergunta específica. Não era uma pergunta difícil. Era só um nível mais fundo do que você estava pronto para responder.</p>
+
+          <p>E o argumento sumiu. Você se ouviu dizer algo genérico. Concordou com um ponto que, na verdade, não concordava. Ou ficou em silêncio, esperando o momento passar.</p>
+
+          <p>Isso não tem nada a ver com inteligência. Tem a ver com a diferença entre reconhecer uma informação e conseguir mobilizá-la quando alguém questiona.</p>
+
+          <p>Reconhecimento é o que acontece quando você lê ou ouve algo e pensa: "faz sentido". É rápido, passivo, não exige esforço real. Análise é diferente. É formular uma posição, testá-la contra contra-argumentos, identificar onde ela sustenta e onde ela cede. Isso não acontece automaticamente ao consumir conteúdo. Precisa ser praticado, de forma estruturada.</p>
+
+          <p>A maioria de quem consome conteúdo intelectual com frequência, leitores, ouvintes de podcast, seguidores de canais de filosofia e ciência, desenvolveu um repertório amplo de reconhecimentos. Não de análises. Por isso a reunião foi assim. Por isso o debate foi assim. Por isso a leitura de ontem não ajudou quando precisou hoje.</p>
+
+          <p>Existe um nome para esse padrão: <span class="dor-highlight">Acúmulo Passivo</span>. Quanto mais conteúdo você consome sem método de extração, mais amplo fica o repertório e mais difícil fica mobilizá-lo sob pressão.</p>
+
+          <p>O problema não é a quantidade de conteúdo consumido. É a ausência de um protocolo que transforme consumo em análise antes que o momento de usar chegue.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="secao-paliativo">
+<section class="paliativo-section" aria-labelledby="paliativo-headline">
+  <div class="paliativo-inner">
+
+    <span class="paliativo-eyebrow">O que já tentou</span>
+
+    <h2 class="paliativo-headline" id="paliativo-headline">
+      Por que o Cortella, os livros de lógica<br>
+      e os grupos de debate não resolveram
+    </h2>
+
+    <p class="paliativo-intro">
+      Antes de chegar até aqui, você provavelmente já tentou algumas dessas coisas.
+    </p>
+
+    <ul class="paliativo-list" role="list">
+
+      <li class="paliativo-card paliativo-card--youtube">
+        <strong class="paliativo-card-title">YouTube de qualidade: Cortella, Karnal, Pirula, Nerdologia</strong>
+        <p class="paliativo-card-desc">
+          O canal entrega o raciocínio pronto. Você assiste, concorda, acha interessante.
+          E na próxima vez que precisar mobilizar aquele raciocínio em um contexto real,
+          o mecanismo não está lá, porque nunca foi treinado como seu.
+        </p>
+      </li>
+
+      <li class="paliativo-card paliativo-card--livros">
+        <strong class="paliativo-card-title">Livros de lógica e argumentação</strong>
+        <p class="paliativo-card-desc">
+          Comprados com intenção genuína. Alguns com grifos nas primeiras trinta páginas.
+          A maioria com o marcador parado no mesmo lugar há meses. Identificar falácias
+          lendo sobre elas é diferente de identificá-las quando aparecem em tempo real,
+          na fala de alguém que está tentando te convencer.
+        </p>
+      </li>
+
+      <li class="paliativo-card paliativo-card--grupos">
+        <strong class="paliativo-card-title">Grupos de discussão e fóruns online</strong>
+        <p class="paliativo-card-desc">
+          A premissa faz sentido: debate frequente desenvolveria o argumento.
+          Na prática, grupos de discussão reforçam posições, não as testam.
+          Todo mundo concorda com quem já concorda e ignora quem discorda.
+        </p>
+      </li>
+
+      <li class="paliativo-card paliativo-card--oratoria">
+        <strong class="paliativo-card-title">Cursos de oratória e comunicação</strong>
+        <p class="paliativo-card-desc">
+          Melhoram a performance. Não atacam a raiz. Você aprende a apresentar melhor
+          uma posição que ainda não foi construída com rigor.
+        </p>
+      </li>
+
+      <li class="paliativo-card paliativo-card--citacoes">
+        <strong class="paliativo-card-title">Colecionar citações e frases de filósofos</strong>
+        <p class="paliativo-card-desc">
+          Anotadas no caderno, salvas no celular, usadas nas conversas.
+          O argumento de autoridade substitui o argumento próprio por um tempo.
+          Até alguém perguntar o que você pensa, e não o que Schopenhauer pensou.
+        </p>
+      </li>
+
+    </ul>
+
+    <div class="paliativo-closing" role="note">
+      O padrão é o mesmo em todos os casos: mais conteúdo de qualidade adicionado
+      a um processo sem método de extração. A lacuna não é de informação. É de protocolo.
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="secao-prova1">
+<section class="prova1-section" aria-label="Depoimentos de primeiros usuários do S.I.M.">
+    <div class="prova1-inner">
+      <h2 class="prova1-headline">
+        Primeiras sessões. Percepções que não estavam no roteiro.
+      </h2>
+      <div class="prova1-grid">
+
+        <article class="prova1-card" aria-label="Depoimento de Victor">
+          <p class="prova1-quote">
+            "Usei muito o Mentor para aprender automação e inteligência artificial. Não tinha ideia por onde começar. O melhor: programou exatamente o tempo que tenho disponível para o aprendizado. É absurdo."
+          </p>
+          <div class="prova1-author-block">
+            <div class="prova1-author-name">Victor</div>
+            <div class="prova1-author-role">CLT e empreendedor</div>
+          </div>
+        </article>
+
+        <article class="prova1-card" aria-label="Depoimento de Renato Pechinho">
+          <p class="prova1-quote">
+            "O S.I.M. tem me ajudado muito com os estudos da pós-graduação. Otimiza e facilita o aprendizado com as aulas e disciplinas."
+          </p>
+          <div class="prova1-author-block">
+            <div class="prova1-author-name">Renato Pechinho</div>
+            <div class="prova1-author-role">Pós-graduando</div>
+          </div>
+        </article>
+
+        <article class="prova1-card" aria-label="Depoimento de David">
+          <p class="prova1-quote">
+            "Com 20 minutos usando o Vértice já deu para perceber a qualidade do sistema."
+          </p>
+          <div class="prova1-author-block">
+            <div class="prova1-author-name">David</div>
+            <div class="prova1-author-role">Usuário do S.I.M.</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="secao-cta">
+<section class="cta-mid" aria-label="Chamada para ação intermediária">
+    <div class="cta-mid__inner">
+      <h2 class="cta-mid__headline">
+        O padrão tem solução.<br>Ela não está em mais conteúdo.
+      </h2>
+      <p class="cta-mid__body">
+        Você identificou o padrão. O próximo passo é ver o que o quebra.
+      </p>
+      <a
+        href="https://pay.hotmart.com/Y102564448I"
+        class="cta-mid__btn"
+        role="button"
+        aria-label="Quero argumentar de forma profunda"
+      >
+        Quero argumentar de forma profunda
+      </a>
+    </div>
+  </section>
+</div>
+
+<div class="secao-metodo">
+<section class="secao-metodo">
+  <div class="metodo-inner">
+
+    <div class="metodo-card">
+
+    <span class="metodo-eyebrow">O Método</span>
+
+    <h2 class="metodo-headline">O protocolo que o Acúmulo Passivo não tem</h2>
+
+    <p class="metodo-intro">
+      O <strong>S.I.M. (Sistema Inteligente de Mentoria)</strong> é um sistema de três agentes de inteligência artificial sequenciais, cada um responsável por uma etapa distinta do processo de análise crítica. A sequência não é arbitrária. Cada agente só faz sentido depois que o anterior foi concluído. O ciclo replica o que a neurociência chama de aprendizagem significativa: compreensão, internalização e aplicação. Os três gargalos que todo processo de consumo passivo deixa em aberto, resolvidos em ordem.
+    </p>
+
+    <!-- Diagrama sequencial -->
+    <div class="diagrama">
+      <div class="diagrama-node">
+        <div class="node-num">1</div>
+        <div class="node-label">Vértice</div>
+        <div class="node-sublabel">Análise Crítica</div>
+      </div>
+      <div class="diagrama-arrow">→</div>
+      <div class="diagrama-node">
+        <div class="node-num">2</div>
+        <div class="node-label">Aurora</div>
+        <div class="node-sublabel">Diagnóstico Pessoal</div>
+      </div>
+      <div class="diagrama-arrow">→</div>
+      <div class="diagrama-node">
+        <div class="node-num">3</div>
+        <div class="node-label">Mentor</div>
+        <div class="node-sublabel">Protocolo de Ação</div>
+      </div>
+    </div>
+
+    </div><!-- /metodo-card -->
+
+    <!-- Cards dos agentes -->
+    <div class="agentes-lista">
+
+      <!-- Vértice -->
+      <div class="agente-card">
+        <div class="agente-card-left">
+          <span class="agente-badge">Agente 1</span>
+          <div class="agente-nome">Vértice</div>
+          <div class="agente-subtitulo">Análise Crítica</div>
+        </div>
+        <div class="agente-card-right">
+          <p class="agente-desc">
+            Você cola o texto, artigo, argumento ou trecho que quer analisar. O Vértice não entrega a análise pronta. Ele percorre 5 etapas com você: Provocação, Conceitos-Base, Confronto de Contradições, Ampliação de Perspectiva e Aplicação Prática. A compreensão é conquistada pelo aluno, não transferida pelo sistema. Você sai com uma ficha crítica e um mapa conceitual do texto, produzidos pelo seu próprio raciocínio, estruturado pelo protocolo.
+          </p>
+          <p class="agente-destaque">
+            A diferença em relação a ler e tomar notas sozinho está na etapa de Confronto de Contradições. É ali que aparecem as premissas que você aceitou sem verificar, os pontos onde o argumento do texto cede e onde ele sustenta. É a etapa que a maioria pula quando lê sozinha porque o cérebro experiente antecipa e aprova automaticamente o que confirma o que já acredita.
+          </p>
+        </div>
+      </div>
+
+      <!-- Aurora -->
+      <div class="agente-card">
+        <div class="agente-card-left">
+          <span class="agente-badge">Agente 2</span>
+          <div class="agente-nome">Aurora</div>
+          <div class="agente-subtitulo">Diagnóstico Pessoal</div>
+        </div>
+        <div class="agente-card-right">
+          <p class="agente-desc">
+            Depois da análise intelectual, a Aurora confronta o aluno com o que o conteúdo ativou nele. Uma pergunta por vez, sem pressa, sem conclusão antecipada. A análise que ficou no texto passa a ter endereço na vida do aluno. O que aquilo ativa. Qual padrão ele reconheceu. O que ficou difícil de admitir.
+          </p>
+          <p class="agente-destaque">
+            A maioria dos processos de aprendizagem pula essa etapa porque ela é desconfortável. Ela não pede que você concorde com o que leu. Pede que você perceba o que em você reagiu ao texto, e por quê. Sem essa camada, a análise crítica do Vértice vira teoria acumulada. Com ela, vira autoconhecimento aplicado.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mentor -->
+      <div class="agente-card">
+        <div class="agente-card-left">
+          <span class="agente-badge">Agente 3</span>
+          <div class="agente-nome">Mentor</div>
+          <div class="agente-subtitulo">Protocolo de Ação</div>
+        </div>
+        <div class="agente-card-right">
+          <p class="agente-desc">
+            O Mentor encerra a sessão de uma forma específica: você não avança sem preencher 6 campos. Situação. Papel. Escolha. Ação mínima. Prazo. Critério observável.
+          </p>
+          <p class="agente-destaque">
+            Esses 6 campos fecham o maior gap dos produtos de desenvolvimento intelectual: o gap entre "entendi" e "fiz". Você sai da sessão com um compromisso concreto, verificável, calibrado para o seu contexto real. O Mentor existe porque insight sem protocolo de ação é a forma mais sofisticada de Acúmulo Passivo que existe.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Legenda do ciclo -->
+    <div class="ciclo-legenda">
+      <p>
+        O ciclo <strong>Vértice, Aurora e Mentor</strong> foi construído nessa sequência porque análise sem internalização vira teoria, e internalização sem protocolo de ação vira acúmulo com rótulo diferente. Os três gargalos precisam ser resolvidos na ordem em que aparecem.
+      </p>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="secao-para-quem">
+<section class="para-quem" aria-label="Para quem é o S.I.M.">
+    <div class="para-quem__container">
+
+      <h2 class="para-quem__headline">
+        Cinco situações em que o sistema funciona.<br>
+        E quatro em que não funciona.
+      </h2>
+
+      <div class="para-quem__grid">
+
+        <!-- Coluna esquerda: Para quem é -->
+        <div class="para-quem__col para-quem__col--yes">
+          <span class="para-quem__col-label para-quem__col-label--blue" aria-label="Para quem é">Para quem é</span>
+
+          <div class="para-quem__cards-yes">
+
+            <article class="card-yes">
+              <div class="card-yes__header">
+                <span class="card-yes__icon" aria-hidden="true">✓</span>
+                <span class="card-yes__name">O profissional que perde terreno em reuniões</span>
+              </div>
+              <p class="card-yes__desc">
+                Gestor, advogado, engenheiro, consultor. Inteligente, bem informado, com décadas de leitura. Na hora de sustentar uma posição quando alguém questiona, o argumento some. O problema não é falta de conhecimento. É falta de estrutura argumentativa no momento em que ela é exigida.
+              </p>
+            </article>
+
+            <article class="card-yes">
+              <div class="card-yes__header">
+                <span class="card-yes__icon" aria-hidden="true">✓</span>
+                <span class="card-yes__name">O leitor que consome mas não processa</span>
+              </div>
+              <p class="card-yes__desc">
+                Alto volume de livros, podcasts, vídeos. A sensação crônica de que aprende muito mas não acumula nada que mude o comportamento. Consegue repetir o que leu, não consegue aplicar com as próprias palavras quando o contexto real aparece.
+              </p>
+            </article>
+
+            <article class="card-yes">
+              <div class="card-yes__header">
+                <span class="card-yes__icon" aria-hidden="true">✓</span>
+                <span class="card-yes__name">O cético da IA que quer resultado concreto</span>
+              </div>
+              <p class="card-yes__desc">
+                Desconfia do rótulo de inteligência artificial por princípio ou por experiências anteriores frustradas. Está aberto a mudar de posição se a demonstração for concreta. Precisa ver o protocolo funcionando antes de acreditar na promessa.
+              </p>
+            </article>
+
+            <article class="card-yes">
+              <div class="card-yes__header">
+                <span class="card-yes__icon" aria-hidden="true">✓</span>
+                <span class="card-yes__name">O escritor em potencial que trava na análise</span>
+              </div>
+              <p class="card-yes__desc">
+                Lê clássicos, quer escrever artigos ou ensaios, tem o desejo há anos. O travamento não é de vocabulário nem de estilo. É de método para transformar o que leu em análise própria que resiste ao questionamento.
+              </p>
+            </article>
+
+            <article class="card-yes">
+              <div class="card-yes__header">
+                <span class="card-yes__icon" aria-hidden="true">✓</span>
+                <span class="card-yes__name">Quem tem histórico de cursos não concluídos</span>
+              </div>
+              <p class="card-yes__desc">
+                Não por preguiça. Por estrutura errada de produto. Cursos que exigem agenda reservada para consumo passivo são abandonados quando a rotina não abre espaço. O S.I.M. entra em uso quando o problema aparece, não quando a agenda permite.
+              </p>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Coluna direita: Não é para -->
+        <div class="para-quem__col para-quem__col--no">
+          <span class="para-quem__col-label para-quem__col-label--red" aria-label="Não é para">Não é para</span>
+
+          <div class="para-quem__cards-no">
+
+            <article class="card-no">
+              <span class="card-no__icon" aria-hidden="true">✗</span>
+              <p class="card-no__text">Quem quer mais vídeos para assistir sem compromisso de participar ativamente das sessões.</p>
+            </article>
+
+            <article class="card-no">
+              <span class="card-no__icon" aria-hidden="true">✗</span>
+              <p class="card-no__text">Quem busca validação de crenças já formadas, não revisão delas com protocolo estruturado.</p>
+            </article>
+
+            <article class="card-no">
+              <span class="card-no__icon" aria-hidden="true">✗</span>
+              <p class="card-no__text">Quem acredita que já pensa de forma crítica e não precisa de método de verificação.</p>
+            </article>
+
+            <article class="card-no">
+              <span class="card-no__icon" aria-hidden="true">✗</span>
+              <p class="card-no__text">Quem espera resultado sem nenhuma interação com o sistema. Os três agentes exigem participação ativa em cada etapa.</p>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="secao-entregaveis">
+<section class="entregaveis-section" aria-labelledby="entregaveis-titulo">
+    <div class="entregaveis-inner">
+
+      <h2 class="entregaveis-headline" id="entregaveis-titulo">
+        O que você recebe e o que cada parte resolve
+      </h2>
+
+      <div class="entregaveis-grid" role="list">
+
+        <!-- Card 1: Agente Vértice -->
+        <article class="entregavel-card" role="listitem">
+          <div class="card-number-circle" aria-hidden="true">
+            <span>1</span>
+          </div>
+          <h3 class="card-agent-name">Agente Vértice</h3>
+          <p class="card-sub-label">Análise Crítica</p>
+          <p class="card-description">
+            Protocolo de 5 etapas aplicado ao texto, artigo, argumento ou trecho que você quer analisar. O Vértice não entrega a análise pronta: conduz a sessão estruturada para que você gere a ficha crítica e o mapa conceitual pelo seu próprio raciocínio. Aceita texto colado, link ou imagem do material. Uso irrestrito.
+          </p>
+          <ul class="card-checklist" aria-label="Etapas do protocolo Vértice">
+            <li><em class="check-icon" aria-hidden="true">✓</em> <span>Provocação</span></li>
+            <li><em class="check-icon" aria-hidden="true">✓</em> <span>Conceitos-Base</span></li>
+            <li><em class="check-icon" aria-hidden="true">✓</em> <span>Confronto de Contradições</span></li>
+            <li><em class="check-icon" aria-hidden="true">✓</em> <span>Ampliação de Perspectiva</span></li>
+            <li><em class="check-icon" aria-hidden="true">✓</em> <span>Aplicação Prática</span></li>
+          </ul>
+          <span class="card-value-badge">Valor de referência: R$197</span>
+        </article>
+
+        <!-- Card 2: Agente Aurora -->
+        <article class="entregavel-card" role="listitem">
+          <div class="card-number-circle" aria-hidden="true">
+            <span>2</span>
+          </div>
+          <h3 class="card-agent-name">Agente Aurora</h3>
+          <p class="card-sub-label">Diagnóstico Pessoal</p>
+          <p class="card-description">
+            Sessão de internalização que conecta o que o Vértice analisou com algo real na sua vida. Uma pergunta por vez, sem pressa, sem conclusão antecipada. Transforma a análise intelectual em autoconhecimento aplicado e prepara o terreno para o protocolo de ação do Mentor. Uso irrestrito.
+          </p>
+          <span class="card-value-badge">Valor de referência: R$147</span>
+        </article>
+
+        <!-- Card 3: Agente Mentor -->
+        <article class="entregavel-card" role="listitem">
+          <div class="card-number-circle" aria-hidden="true">
+            <span>3</span>
+          </div>
+          <h3 class="card-agent-name">Agente Mentor</h3>
+          <p class="card-sub-label">Protocolo de Ação</p>
+          <p class="card-description">
+            Encerra cada sessão com os 6 campos preenchidos: situação, papel, escolha, ação mínima, prazo e critério observável. Nenhuma sessão encerra sem compromisso concreto e verificável. O Mentor calibra o plano ao tempo real disponível do aluno, não a um cronograma padrão. Uso irrestrito.
+          </p>
+          <span class="card-value-badge">Valor de referência: R$147</span>
+        </article>
+
+      </div>
+
+      <footer class="entregaveis-footer">
+        <p class="footer-total-label">Total de valor de referência: R$491</p>
+        <p class="footer-price-highlight">Valor do S.I.M.: R$74,90</p>
+        <a href="https://pay.hotmart.com/Y102564448I" target="_blank" rel="noopener" class="entregaveis-cta" role="button">
+          Quero o S.I.M. por R$74,90
+        </a>
+      </footer>
+
+    </div>
+  </section>
+</div>
+
+<div class="secao-bonus">
+<section class="bonus-section" aria-label="Bônus incluídos">
+
+    <div class="bonus-ring bonus-ring--sm" aria-hidden="true"></div>
+    <div class="bonus-ring bonus-ring--lg" aria-hidden="true"></div>
+
+    <div class="bonus-inner">
+
+      <h2 class="bonus-headline">
+        O que você recebe além dos três agentes:<br>
+        <em>acesso ao Clube do Livro S.I.M.,</em><br>
+        com vídeo-aulas de clássicos da literatura e metodologia completa para analisar com o sistema
+      </h2>
+
+      <div class="bonus-cards">
+
+        <article class="bonus-card">
+          <span class="bonus-badge">Bônus 1</span>
+          <h3 class="bonus-card-title">Clube do Livro S.I.M.: Vídeo-análises dos livros propostos</h3>
+          <p class="bonus-card-desc">
+            Todo mês um clássico da literatura mundial é escolhido para o Clube. Você terá acesso a um vídeo-análise do livro do mês: uma imersão profunda no contexto histórico, análise dos personagens, princípios centrais e o que aquele texto ainda diz sobre o leitor hoje. O vídeo não substitui a leitura. Ele transforma o livro que você já leu em ponto de partida para a sessão com os agentes. O livro físico ou digital não está incluído no Clube: você adquire por conta própria, em qualquer livraria ou plataforma.
+          </p>
+
+          <!-- Galeria de livros do Clube -->
+          <p class="clube-eyebrow">Livros do clube</p>
+
+          <!-- Quadro: Disponível -->
+          <div class="clube-quadro clube-quadro--disp">
+            <span class="clube-quadro-label clube-quadro-label--disp">Disponível</span>
+            <div class="clube-galeria">
+
+              <div class="clube-livro">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_crime castigo.jpg" alt="Crime e Castigo" loading="lazy">
+                </div>
+                <div class="clube-titulo">Crime e Castigo</div>
+                <p class="clube-autor">Fiódor Dostoiévski</p>
+              </div>
+
+              <div class="clube-livro">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_Na colonia penal.jpg" alt="Na Colônia Penal" loading="lazy">
+                </div>
+                <div class="clube-titulo">Na Colônia Penal</div>
+                <p class="clube-autor">Franz Kafka</p>
+              </div>
+
+              <div class="clube-livro">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_Quincas borba.jpg" alt="Quincas Borba" loading="lazy">
+                </div>
+                <div class="clube-titulo">Quincas Borba</div>
+                <p class="clube-autor">Machado de Assis</p>
+              </div>
+
+              <div class="clube-livro">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_O retrato de dorian gray.jpg" alt="O Retrato de Dorian Gray" loading="lazy">
+                </div>
+                <div class="clube-titulo">O Retrato de Dorian Gray</div>
+                <p class="clube-autor">Oscar Wilde</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Quadro: Em breve -->
+          <div class="clube-quadro clube-quadro--breve">
+            <span class="clube-quadro-label clube-quadro-label--breve">Em breve</span>
+            <div class="clube-galeria">
+
+              <div class="clube-livro clube-livro--embreve">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/O apanhador no campo de centeio.jpg" alt="O Apanhador no Campo de Centeio" loading="lazy">
+                </div>
+                <div class="clube-titulo">O Apanhador no Campo de Centeio</div>
+                <p class="clube-autor">J.D. Salinger</p>
+              </div>
+
+              <div class="clube-livro clube-livro--embreve">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_Cabeca de santo.jpg" alt="A Cabeça do Santo" loading="lazy">
+                </div>
+                <div class="clube-titulo">A Cabeça do Santo</div>
+                <p class="clube-autor">Socorro Acioli</p>
+              </div>
+
+              <div class="clube-livro clube-livro--embreve">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_O estrangeiro.jpg" alt="O Estrangeiro" loading="lazy">
+                </div>
+                <div class="clube-titulo">O Estrangeiro</div>
+                <p class="clube-autor">Albert Camus</p>
+              </div>
+
+            </div>
+          </div>
+
+          <p class="bonus-card-value">Valor de referência: R$97 por mês</p>
+        </article>
+
+        <article class="bonus-card">
+          <span class="bonus-badge">Bônus 2</span>
+          <h3 class="bonus-card-title">Diário de Leitura</h3>
+          <p class="bonus-card-desc">
+            Documento interativo que acompanha cada livro do Clube, dividido por partes do texto. A cada seção, você registra suas impressões, posições e interpretações conforme avança na leitura. No fechamento, compara quem você era na primeira página com quem chegou na última. O Diário não é um resumo. É o registro do seu raciocínio em movimento ao longo da leitura. Pode ser usado no lugar do Guia de Prática do Vértice.
+          </p>
+          <p class="bonus-card-value">Valor de referência: R$47</p>
+        </article>
+
+        <article class="bonus-card">
+          <span class="bonus-badge">Bônus 3</span>
+          <h3 class="bonus-card-title">Guias de Prática do Clube (Vértice + Aurora + Mentor)</h3>
+          <p class="bonus-card-desc">
+            Para cada livro do Clube, três guias prontos para integrar a leitura ao sistema. O Guia Vértice conduz a análise crítica do livro com o protocolo de 5 etapas. O Guia Aurora mapeia o impacto emocional da leitura. O Guia Mentor transforma o que você descobriu em protocolo de ação concreto. Três guias por livro, todo mês.
+          </p>
+          <p class="bonus-card-value">Valor de referência: R$97 por mês</p>
+        </article>
+
+      </div>
+
+      <div class="bonus-footer">
+        <span class="bonus-footer-badge">Total: R$241/mês incluídos sem custo adicional</span>
+      </div>
+
+    </div>
+
+  </section>
+</div>
+
+<div class="secao-stack">
+<section class="stack-valor" aria-labelledby="stack-headline">
+    <div class="stack-valor__inner">
+
+      <h2 class="stack-valor__headline" id="stack-headline">
+        O que custa montar isso de outra forma,<br>
+        e o que você paga pelo sistema
+      </h2>
+
+      <p class="stack-valor__intro">
+        O equivalente mais próximo ao S.I.M. no mercado é uma mentoria individual de desenvolvimento cognitivo, com sessões semanais. O custo médio no Brasil: entre R$500 e R$1.500 por mês. Isso cobre uma hora por semana com um profissional. Sem ficha crítica documentada, sem protocolo de 6 campos por sessão, sem material calibrado para o livro que você está lendo naquele mês.
+      </p>
+
+      <div class="stack-valor__card" role="region" aria-label="Composição de valor do sistema">
+
+        <p class="stack-valor__label">Composição do sistema</p>
+
+        <div class="stack-valor__row">
+          <span class="stack-valor__item-name">Agente Vértice, uso irrestrito</span>
+          <span class="stack-valor__item-price">R$197</span>
+        </div>
+
+        <div class="stack-valor__row">
+          <span class="stack-valor__item-name">Agente Aurora, uso irrestrito</span>
+          <span class="stack-valor__item-price">R$147</span>
+        </div>
+
+        <div class="stack-valor__row">
+          <span class="stack-valor__item-name">Agente Mentor, uso irrestrito</span>
+          <span class="stack-valor__item-price">R$147</span>
+        </div>
+
+        <div class="stack-valor__row">
+          <span class="stack-valor__item-name">
+            <span class="stack-valor__bonus-tag">Bônus 1</span>Clube do Livro S.I.M.: vídeo-análises dos livros propostos
+          </span>
+          <span class="stack-valor__item-price">R$97/mês</span>
+        </div>
+
+        <div class="stack-valor__row">
+          <span class="stack-valor__item-name">
+            <span class="stack-valor__bonus-tag">Bônus 2</span>Diário de Leitura
+          </span>
+          <span class="stack-valor__item-price">R$47</span>
+        </div>
+
+        <div class="stack-valor__row">
+          <span class="stack-valor__item-name">
+            <span class="stack-valor__bonus-tag">Bônus 3</span>Guias de Prática do Clube (Vértice, Aurora, Mentor)
+          </span>
+          <span class="stack-valor__item-price">R$97/mês</span>
+        </div>
+
+        <hr class="stack-valor__separator" aria-hidden="true">
+
+        <div class="stack-valor__totals">
+          <span class="stack-valor__reference-total">Total de referência: R$732 no primeiro mês</span>
+          <span class="stack-valor__price">R$74,90</span>
+          <span class="stack-valor__badge">Menos de R$2,50 por dia</span>
+        </div>
+
+      </div>
+
+      <div class="stack-valor__cta-wrap">
+        <a href="https://pay.hotmart.com/Y102564448I" target="_blank" rel="noopener" class="stack-valor__cta" role="button">
+          Quero argumentar de forma profunda
+        </a>
+      </div>
+
+      <p class="stack-valor__closing">
+        R$74,90 representa menos de 1,5% de uma semana de renda para quem está no perfil do produto. O retorno não precisa ser calculado em porcentagem. Precisa ser calculado em quantas vezes o sistema vai ser usado antes de pagar o equivalente a uma única sessão de mentoria individual.
+      </p>
+
+    </div>
+  </section>
+</div>
+
+<div class="secao-prova2">
+<section class="prova2" aria-label="Depoimentos de alunos">
+    <div class="prova2__inner">
+
+      <h2 class="prova2__headline">
+        Da prova do Detran à pós-graduação. O sistema não escolhe o contexto: entra em uso quando o aluno tem algo real para analisar.
+      </h2>
+
+      <div class="prova2__grid">
+
+        <!-- Card 1 — Jackson -->
+        <article class="prova2__card" aria-label="Depoimento de Jackson">
+          <p class="prova2__context">Prova de reciclagem do Detran</p>
+          <blockquote class="prova2__quote">
+            "Eu o usei para fazer a prova de Reciclagem do Detran ontem. Ele me apresentou várias questões, me deixou mais seguro e me ajudou a relembrar o que precisava. <strong>Passei, errando só 3 questões.</strong>"
+          </blockquote>
+          <hr class="prova2__sep" aria-hidden="true">
+          <p class="prova2__author">Jackson</p>
+        </article>
+
+        <!-- Card 2 — Victor -->
+        <article class="prova2__card" aria-label="Depoimento de Victor">
+          <p class="prova2__context">CLT e empreendedor, aprendendo IA com rotina dividida</p>
+          <blockquote class="prova2__quote">
+            "Usei muito o Mentor para aprender automação e inteligência artificial. Não tinha ideia por onde começar. O melhor: <strong>ele programou exatamente o tempo que tenho disponível</strong> com o aprendizado. O Mentor é absurdo."
+          </blockquote>
+          <hr class="prova2__sep" aria-hidden="true">
+          <p class="prova2__author">Victor</p>
+        </article>
+
+        <!-- Card 3 — Renato Pechinho -->
+        <article class="prova2__card" aria-label="Depoimento de Renato Pechinho">
+          <p class="prova2__context">Pós-graduação</p>
+          <blockquote class="prova2__quote">
+            "O S.I.M. tem me ajudado muito com os estudos da pós-graduação, principalmente o Mentor. <strong>Otimiza e facilita meu aprendizado</strong> com as aulas e disciplinas."
+          </blockquote>
+          <hr class="prova2__sep" aria-hidden="true">
+          <p class="prova2__author">Renato Pechinho</p>
+        </article>
+
+        <!-- Card 4 — David -->
+        <article class="prova2__card" aria-label="Depoimento de David">
+          <p class="prova2__context">Primeiro acesso ao Vértice</p>
+          <blockquote class="prova2__quote">
+            "<strong>Com 20 minutos usando o Vértice</strong> já deu para perceber a qualidade do sistema."
+          </blockquote>
+          <hr class="prova2__sep" aria-hidden="true">
+          <p class="prova2__author">David</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="secao-suporte">
+<section class="suporte-sim" aria-labelledby="suporte-sim-headline">
+    <div class="suporte-sim__inner">
+
+      <h2 class="suporte-sim__headline" id="suporte-sim-headline">
+        O que acontece depois que você acessa o sistema
+      </h2>
+
+      <p class="suporte-sim__intro">
+        O S.I.M. funciona de forma autônoma: você abre o agente quando tem algo real para analisar e segue o protocolo no seu ritmo, sem agenda reservada ou dependência de horário.
+      </p>
+
+      <div class="suporte-sim__cards">
+
+        <!-- Card 1: Suporte direto -->
+        <article class="suporte-sim__card suporte-sim__card--whatsapp" aria-label="Suporte direto com Felipe">
+          <svg class="suporte-sim__card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect width="40" height="40" rx="10" fill="#25d366" fill-opacity="0.12"/>
+            <path d="M20 8C13.373 8 8 13.373 8 20c0 2.144.562 4.155 1.543 5.9L8 32l6.313-1.52A11.94 11.94 0 0020 32c6.627 0 12-5.373 12-12S26.627 8 20 8z" fill="#25d366"/>
+            <path d="M25.79 22.79c-.28-.14-1.65-.81-1.905-.903-.256-.093-.442-.14-.628.14-.186.28-.72.903-.883 1.09-.163.186-.325.21-.605.07-.28-.14-1.18-.435-2.248-1.387-.83-.742-1.39-1.658-1.554-1.938-.163-.28-.017-.432.123-.571.126-.126.28-.326.42-.49.14-.163.186-.28.28-.466.093-.186.046-.35-.024-.49-.07-.14-.627-1.513-.86-2.073-.226-.544-.456-.47-.628-.479l-.535-.009c-.186 0-.49.07-.746.35-.256.28-.977.956-.977 2.33 0 1.374.999 2.702 1.139 2.888.14.186 1.966 3.001 4.762 4.209.666.287 1.185.459 1.59.588.668.213 1.276.183 1.757.111.536-.08 1.65-.674 1.883-1.326.233-.651.233-1.21.163-1.326-.07-.117-.256-.186-.535-.326z" fill="#fff"/>
+          </svg>
+          <h3 class="suporte-sim__card-title">Suporte direto com Felipe</h3>
+          <p class="suporte-sim__card-text">
+            Para dúvidas sobre acesso, uso dos agentes ou qualquer outra questão, o suporte é direto com Felipe pelo WhatsApp. Ele acompanha de perto as mensagens dos alunos e responde com rapidez.
+          </p>
+        </article>
+
+        <!-- Card 2: Grupo Jornada S.I.M. -->
+        <article class="suporte-sim__card suporte-sim__card--grupo" aria-label="Grupo Jornada S.I.M.">
+          <svg class="suporte-sim__card-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect width="40" height="40" rx="10" fill="#2952cc" fill-opacity="0.10"/>
+            <circle cx="16" cy="16" r="4" fill="#2952cc"/>
+            <circle cx="26" cy="16" r="3.2" fill="#2952cc" fill-opacity="0.6"/>
+            <path d="M8 28c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#2952cc" stroke-width="2" stroke-linecap="round"/>
+            <path d="M26 22c2.761 0 5 2.239 5 5" stroke="#2952cc" stroke-width="2" stroke-linecap="round" fill-opacity="0.6" stroke-opacity="0.6"/>
+          </svg>
+          <h3 class="suporte-sim__card-title">Grupo Jornada S.I.M.</h3>
+          <p class="suporte-sim__card-text">
+            Você entra no grupo de WhatsApp Jornada S.I.M., onde Felipe compartilha atualizações da plataforma, videoaulas e materiais novos assim que saem. O grupo também funciona como canal de sugestões e dúvidas de uso do sistema.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="secao-garantia">
+<section class="garantia-section" aria-label="Seção de garantia">
+    <div class="garantia-inner">
+
+      <h2 class="garantia-headline">
+        7 dias para testar o sistema completo,<br>
+        porque a primeira sessão fala por si.
+      </h2>
+
+      <div class="garantia-body">
+        <p>
+          Os agentes do S.I.M. foram programados com técnicas de aprendizagem e comportamentais.
+          Eles não entregam respostas prontas: desafiam você a ir mais fundo, mas reconhecem quando
+          o ritmo precisa ceder. Quem usa pela primeira vez costuma descrever a experiência como
+          contratar uma mentoria individual, não como abrir um aplicativo de IA.
+        </p>
+        <p>
+          A garantia de 7 dias existe porque a confiança no valor percebido é alta. Uma sessão com
+          o Vértice já é suficiente para avaliar se o protocolo entrega o que promete: sete dias,
+          acesso completo aos três agentes, ao Clube do Livro e ao grupo Jornada S.I.M.
+        </p>
+      </div>
+
+      <div class="garantia-seal" role="img" aria-label="Garantia de 7 dias com reembolso integral">
+        <span class="garantia-seal-number">7</span>
+        <span class="garantia-seal-days">Dias</span>
+        <hr class="garantia-seal-divider">
+        <span class="garantia-seal-label">Garantia</span>
+        <span class="garantia-seal-subtitle">Reembolso Integral</span>
+      </div>
+
+      <ul class="garantia-bullets" aria-label="O que está incluído na garantia">
+        <li>
+          <span class="garantia-bullet-check" aria-hidden="true">✓</span>
+          <span>Acesso completo aos 3 agentes</span>
+        </li>
+        <li>
+          <span class="garantia-bullet-check" aria-hidden="true">✓</span>
+          <span>Clube do Livro e grupo Jornada S.I.M.</span>
+        </li>
+        <li>
+          <span class="garantia-bullet-check" aria-hidden="true">✓</span>
+          <span>Reembolso sem burocracia, sem perguntas</span>
+        </li>
+      </ul>
+
+      <p class="garantia-closing">
+        Se dentro desse período o sistema não fizer sentido para o seu contexto, basta entrar em contato.
+      </p>
+
+    </div>
+  </section>
+</div>
+
+<div class="secao-autoridade">
+<section class="autoridade-sim" aria-labelledby="autoridade-headline">
+  <div class="autoridade-sim__inner">
+
+    <!-- Coluna esquerda: card branco -->
+    <div class="autoridade-sim__card">
+
+      <span class="autoridade-sim__label">Felipe Pezzin</span>
+
+      <div class="autoridade-sim__foto-mini">
+        <img src="assets/Felipe.jpg" alt="Felipe Pezzin, criador do S.I.M.">
+      </div>
+
+      <h2 class="autoridade-sim__headline" id="autoridade-headline">
+        A origem do sistema começa com o mesmo problema descrito no início desta página
+      </h2>
+
+      <div class="autoridade-sim__body">
+        <p>Felipe Pezzin construiu o S.I.M. porque enfrentou o problema que você acaba de ler. Sempre gostou de ler, mas percebia que para fixar o conteúdo precisava conversar sobre o tema com outra pessoa. O problema era encontrar alguém com disponibilidade e interesse real para um debate de ideias, o tipo de conversa que obriga os dois lados a pensar, não apenas a concordar.</p>
+        <p>Foi dessa necessidade que nasceu o Vértice. A IA tem disponibilidade integral e conhecimento para ouvir, questionar e apontar perspectivas que a leitura solitária não revela. O protocolo do Vértice foi construído a partir de meses testando como extrair profundidade de análise de uma conversa com IA, sem cair no padrão de perguntas rasas e respostas genéricas.</p>
+        <p>O Mentor teve outra origem. Durante o MBA em Liderança pela PUC-RS, Felipe estudou o Plano de Desenvolvimento Individual, ferramenta consolidada no mundo corporativo para crescimento intencional de carreira. A principal barreira na aplicação de um bom PDI é encontrar um mentor de qualidade com disposição de acompanhar alguém com consistência. A IA resolve esse gargalo: mentor disponível a qualquer hora, com capacidade de adaptar o ritmo ao perfil de quem aprende.</p>
+        <p>A Aurora foi criada para fechar a base. Antes de desenvolver qualquer habilidade, é preciso saber por que aquela habilidade importa para você. A Aurora constrói esse propósito, o ponto de partida que torna o desenvolvimento real.</p>
+        <p>Hoje o sistema tem mais de 50 usuários que aplicam o protocolo em contextos que vão da preparação para provas a estudos de pós-graduação, de aprendizado de novas áreas a análise crítica de decisões profissionais.</p>
+      </div>
+
+      <hr class="autoridade-sim__separator" aria-hidden="true">
+
+      <ul class="autoridade-sim__credentials" aria-label="Credenciais de Felipe Pezzin">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="8" fill="#eef3ff"/>
+            <path d="M4.5 8.25L6.75 10.5L11.5 5.5" stroke="#2952cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Matemática e Ciências Contábeis
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="8" fill="#eef3ff"/>
+            <path d="M4.5 8.25L6.75 10.5L11.5 5.5" stroke="#2952cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          MBA em Marketing pela FGV
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="8" fill="#eef3ff"/>
+            <path d="M4.5 8.25L6.75 10.5L11.5 5.5" stroke="#2952cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          MBA em Liderança pela PUC-RS
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="8" fill="#eef3ff"/>
+            <path d="M4.5 8.25L6.75 10.5L11.5 5.5" stroke="#2952cc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          20 anos no TRE, com foco em desenvolvimento de pessoas
+        </li>
+      </ul>
+
+      <div class="autoridade-sim__badge-row">
+        <span class="autoridade-sim__badge" role="status">
+          <span class="autoridade-sim__badge-dot" aria-hidden="true"></span>
+          50+ usuários ativos
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="secao-faq">
+<section class="faq-sim" aria-labelledby="faq-sim-titulo">
+    <div class="faq-sim__inner">
+      <h2 class="faq-sim__headline" id="faq-sim-titulo">
+        O que as pessoas perguntam antes de entrar no sistema
+      </h2>
+
+      <ul class="faq-sim__list" role="list">
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>O S.I.M. é diferente de qualquer IA que eu já usei?</summary>
+            <div class="faq-sim__answer">
+              Sim, e a diferença não está na tecnologia. Está no protocolo. O Vértice, a Aurora e o Mentor foram programados com técnicas de aprendizagem e desenvolvimento comportamental. Eles não respondem perguntas genéricas. Eles fazem perguntas que obrigam o aluno a formular, defender e revisar uma posição antes de avançar para a próxima etapa. É a diferença entre um chat de IA e um interlocutor socrático com método.
+            </div>
+          </details>
+        </li>
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>Já assisto Cortella, Karnal e Pirula todo dia. O que o S.I.M. acrescenta?</summary>
+            <div class="faq-sim__answer">
+              Conteúdo de YouTube de filosofia ativa reconhecimento: você concorda, acha interessante, sente que aprendeu. O S.I.M. ativa elaboração: você é obrigado a formular uma posição, defendê-la e revisá-la antes de sair da sessão. Quem assiste a esses canais há anos continua mudando de posição em debates quando alguém questiona com firmeza. O conteúdo existe. O resultado ainda não aconteceu. A diferença está em onde o aprendizado real ocorre.
+            </div>
+          </details>
+        </li>
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>Tenho mais de 40 anos e já desenvolvi meu jeito de pensar. O S.I.M. é para quem está começando?</summary>
+            <div class="faq-sim__answer">
+              É o contrário. Quem tem mais experiência vivida tem mais material para conectar nas sessões com a Aurora. O S.I.M. não propõe substituir o jeito próprio de pensar. Propõe mapear onde ele funciona e onde ele distorce, o que só é possível com um protocolo externo que force a explicitação do raciocínio que normalmente fica implícito. O cirurgião com 20 anos de experiência ainda usa checklist antes de cada cirurgia, não porque esqueceu o procedimento, mas porque o checklist captura os erros que a experiência torna invisíveis.
+            </div>
+          </details>
+        </li>
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>Preciso saber usar IA para acessar o sistema?</summary>
+            <div class="faq-sim__answer">
+              Não. O S.I.M. funciona como uma conversa por texto: você digita o que quer analisar e responde às perguntas do agente uma de cada vez. Sem instalação, sem configuração, sem interface técnica para aprender. Quem usa WhatsApp tem toda a habilidade necessária para usar o S.I.M. A primeira sessão tende a levar entre 40 e 50 minutos porque o aluno está aprendendo o ritmo do protocolo. A partir da segunda, o processo já é natural.
+            </div>
+          </details>
+        </li>
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>Já comprei cursos que nunca abri. Como sei que esse vai ser diferente?</summary>
+            <div class="faq-sim__answer">
+              A estrutura é diferente. Cursos que ficam sem abrir foram comprados com a intenção de "criar tempo para estudar". O S.I.M. não exige tempo criado artificialmente. O gatilho de uso não é "preciso abrir o módulo". É "tenho um texto, um argumento ou uma decisão que quero analisar agora", e isso aparece em qualquer semana de vida adulta. O sistema entra em uso quando o problema aparece, não quando o currículo manda.
+            </div>
+          </details>
+        </li>
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>Como funciona o acesso depois da compra?</summary>
+            <div class="faq-sim__answer">
+              Após a confirmação de pagamento, você recebe o link de acesso à plataforma do S.I.M. na Hotmart. O sistema está disponível imediatamente, sem prazo de expiração. Você pode usar as sessões quantas vezes quiser, com qualquer texto ou tema, no seu ritmo.
+            </div>
+          </details>
+        </li>
+
+        <li class="faq-sim__item">
+          <details>
+            <summary>A garantia de 7 dias cobre o quê, exatamente?</summary>
+            <div class="faq-sim__answer">
+              Cobre o acesso completo ao sistema: os três agentes (Vértice, Aurora e Mentor), o Clube do Livro S.I.M. e o grupo de WhatsApp Jornada S.I.M. Se dentro desses 7 dias você decidir que o sistema não faz sentido para o seu contexto, o reembolso é integral. Basta entrar em contato. Sem perguntas, sem burocracia.
+            </div>
+          </details>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="secao-oferta-final">
+<section class="oferta-section" aria-labelledby="oferta-headline">
+  <div class="oferta-inner">
+
+    <h2 class="oferta-headline" id="oferta-headline">
+      O que entra na sua conta<br>quando você acessa o S.I.M. agora
+    </h2>
+
+    <p class="oferta-intro">
+      O Acúmulo Passivo tem uma solução direta: um protocolo que transforma o que você leu, ouviu ou assistiu em posição estruturada, documentada e verificável. Isso é o que os três agentes fazem, um após o outro, toda vez que você tem algo real para analisar.
+    </p>
+
+    <div class="oferta-stack-card" role="list" aria-label="O que está incluído no S.I.M.">
+
+      <div class="stack-row" role="listitem">
+        <span class="stack-row-label">
+          <strong>Agente Vértice</strong>
+          <span class="row-desc">análise crítica em 5 etapas, uso irrestrito</span>
+        </span>
+        <span class="stack-row-value">R$197</span>
+      </div>
+
+      <div class="stack-row" role="listitem">
+        <span class="stack-row-label">
+          <strong>Agente Aurora</strong>
+          <span class="row-desc">diagnóstico pessoal e internalização, uso irrestrito</span>
+        </span>
+        <span class="stack-row-value">R$147</span>
+      </div>
+
+      <div class="stack-row" role="listitem">
+        <span class="stack-row-label">
+          <strong>Agente Mentor</strong>
+          <span class="row-desc">protocolo de ação de 6 campos por sessão, uso irrestrito</span>
+        </span>
+        <span class="stack-row-value">R$147</span>
+      </div>
+
+      <div class="stack-row" role="listitem">
+        <span class="stack-row-label">
+          <strong>Bônus 1 — Clube do Livro S.I.M.</strong>
+          <span class="row-desc">vídeo-análises dos livros propostos mensalmente</span>
+        </span>
+        <span class="stack-row-value">R$97/mês</span>
+      </div>
+
+      <div class="stack-row" role="listitem">
+        <span class="stack-row-label">
+          <strong>Bônus 2 — Diário de Leitura</strong>
+        </span>
+        <span class="stack-row-value">R$47</span>
+      </div>
+
+      <div class="stack-row" role="listitem">
+        <span class="stack-row-label">
+          <strong>Bônus 3 — Guias de Prática do Clube</strong>
+          <span class="row-desc">Vértice, Aurora e Mentor por livro</span>
+        </span>
+        <span class="stack-row-value">R$97/mês</span>
+      </div>
+
+      <div class="stack-total-row" role="listitem" aria-label="Valor de referência total: 732 reais — riscado">
+        <span class="stack-total-label">Valor de referência no primeiro mês</span>
+        <span class="stack-total-value">R$732</span>
+      </div>
+
+      <div class="stack-price-block">
+        <p class="stack-price-main" aria-label="Por apenas 74 reais e 90 centavos">R$74,90</p>
+        <span class="stack-badge" role="note">Acesso imediato &middot; Garantia de 7 dias</span>
+      </div>
+
+    </div>
+
+    <a
+      href="https://pay.hotmart.com/Y102564448I"
+      class="oferta-cta-btn"
+      role="button"
+      aria-label="Acessar o S.I.M. agora e argumentar de forma profunda"
+    >
+      Quero argumentar de forma profunda
+    </a>
+
+    <p class="oferta-footer-text">
+      Acesso imediato à plataforma do S.I.M. na Hotmart. Garantia de 7 dias com reembolso integral, sem burocracia.
+    </p>
+
+    <p class="oferta-footer-links">
+      <a href="#termos">Termos de uso</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="#privacidade">Política de privacidade</a>
+    </p>
+
+  </div>
+</section>
+</div>
+
+
+
+</body>
+</html>
