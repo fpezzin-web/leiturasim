@@ -1900,101 +1900,6 @@ body {
   }
 }
 
-/* === secao-prova2 (prova2-gerada-sim.html) === */
-.secao-prova2 *,
-.secao-prova2 *::before,
-.secao-prova2 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.secao-prova2 {
-  background-color: var(--azul-escuro);
-}
-
-.secao-prova2 .prova2 {
-  background-color: var(--azul-escuro);
-  padding: 90px 5%;
-  font-family: 'Inter', sans-serif;
-}
-
-.secao-prova2 .prova2__inner {
-  max-width: 900px;
-  margin-inline: auto;
-}
-
-.secao-prova2 .prova2__headline {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: clamp(22px, 3vw, 36px);
-  color: var(--branco);
-  text-align: center;
-  max-width: 700px;
-  margin-inline: auto;
-  margin-bottom: 48px;
-  line-height: 1.25;
-}
-
-.secao-prova2 .prova2__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-@media (min-width: 700px) {
-  .prova2__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.secao-prova2 .prova2__card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-}
-
-.secao-prova2 .prova2__context {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--azul-destaque);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
-}
-
-.secao-prova2 .prova2__quote {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.75;
-  font-style: italic;
-  flex: 1;
-}
-
-.secao-prova2 .prova2__quote strong {
-  color: var(--branco);
-  font-style: normal;
-  font-weight: 700;
-}
-
-.secao-prova2 .prova2__sep {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  margin: 20px 0;
-}
-
-.secao-prova2 .prova2__author {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--branco);
-}
-
 /* === secao-suporte (suporte-gerada-sim.html) === */
 .secao-suporte *,
 .secao-suporte *::before,
@@ -2888,6 +2793,18 @@ body {
   .wa-btn svg { width: 30px; height: 30px; }
   .wa-balao { font-size: 0.78rem; padding: 8px 13px; }
 }
+    /* === Acessibilidade: fontes de leitura maiores === */
+    .section-sub,.hero-sub,.agente-desc,.etapa-desc,.etapa-conclusao,.transf-desc,
+    .transf-titulo,.ciclo-item,.pq-texto span,.para-quem-box,.obj-card,
+    .faq-pergunta,.faq-resposta,.demo-tela-desc,.demo-especialista-texto,
+    .preco-item,.preco-item span,.preco-sub{
+      font-size:1.05rem;
+      line-height:1.7;
+    }
+    .section-label,.agente-tag,.col-header,.stat-label,.preco-label,
+    .hero-badge,.footer-copy,.seg-item span{
+      font-size:.8rem;
+    }
 </style>
 </head>
 <body>
@@ -3478,6 +3395,22 @@ body {
                 <p class="clube-autor">Oscar Wilde</p>
               </div>
 
+              <div class="clube-livro">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/O apanhador no campo de centeio.jpg" alt="O Apanhador no Campo de Centeio" loading="lazy">
+                </div>
+                <div class="clube-titulo">O Apanhador no Campo de Centeio</div>
+                <p class="clube-autor">J.D. Salinger</p>
+              </div>
+
+              <div class="clube-livro">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_Cabeca de santo.jpg" alt="A Cabeça do Santo" loading="lazy">
+                </div>
+                <div class="clube-titulo">A Cabeça do Santo</div>
+                <p class="clube-autor">Socorro Acioli</p>
+              </div>
+
             </div>
           </div>
 
@@ -3488,26 +3421,26 @@ body {
 
               <div class="clube-livro clube-livro--embreve">
                 <div class="clube-livro-capa-wrap">
-                  <img src="assets/O apanhador no campo de centeio.jpg" alt="O Apanhador no Campo de Centeio" loading="lazy">
-                </div>
-                <div class="clube-titulo">O Apanhador no Campo de Centeio</div>
-                <p class="clube-autor">J.D. Salinger</p>
-              </div>
-
-              <div class="clube-livro clube-livro--embreve">
-                <div class="clube-livro-capa-wrap">
-                  <img src="assets/Livro_Cabeca de santo.jpg" alt="A Cabeça do Santo" loading="lazy">
-                </div>
-                <div class="clube-titulo">A Cabeça do Santo</div>
-                <p class="clube-autor">Socorro Acioli</p>
-              </div>
-
-              <div class="clube-livro clube-livro--embreve">
-                <div class="clube-livro-capa-wrap">
                   <img src="assets/Livro_O estrangeiro.jpg" alt="O Estrangeiro" loading="lazy">
                 </div>
                 <div class="clube-titulo">O Estrangeiro</div>
                 <p class="clube-autor">Albert Camus</p>
+              </div>
+
+              <div class="clube-livro clube-livro--embreve">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_Capitaes_de_areia.webp" alt="Capitães de Areia" loading="lazy">
+                </div>
+                <div class="clube-titulo">Capitães de Areia</div>
+                <p class="clube-autor">Jorge Amado</p>
+              </div>
+
+              <div class="clube-livro clube-livro--embreve">
+                <div class="clube-livro-capa-wrap">
+                  <img src="assets/Livro_Laranja_mecanica.webp" alt="Laranja Mecânica" loading="lazy">
+                </div>
+                <div class="clube-titulo">Laranja Mecânica</div>
+                <p class="clube-autor">Anthony Burgess</p>
               </div>
 
             </div>
@@ -3618,61 +3551,6 @@ body {
         R$74,90 representa menos de 1,5% de uma semana de renda para quem está no perfil do produto. O retorno não precisa ser calculado em porcentagem. Precisa ser calculado em quantas vezes o sistema vai ser usado antes de pagar o equivalente a uma única sessão de mentoria individual.
       </p>
 
-    </div>
-  </section>
-</div>
-
-<div class="secao-prova2">
-<section class="prova2" aria-label="Depoimentos de alunos">
-    <div class="prova2__inner">
-
-      <h2 class="prova2__headline">
-        Da prova do Detran à pós-graduação. O sistema não escolhe o contexto: entra em uso quando o aluno tem algo real para analisar.
-      </h2>
-
-      <div class="prova2__grid">
-
-        <!-- Card 1 — Jackson -->
-        <article class="prova2__card" aria-label="Depoimento de Jackson">
-          <p class="prova2__context">Prova de reciclagem do Detran</p>
-          <blockquote class="prova2__quote">
-            "Eu o usei para fazer a prova de Reciclagem do Detran ontem. Ele me apresentou várias questões, me deixou mais seguro e me ajudou a relembrar o que precisava. <strong>Passei, errando só 3 questões.</strong>"
-          </blockquote>
-          <hr class="prova2__sep" aria-hidden="true">
-          <p class="prova2__author">Jackson</p>
-        </article>
-
-        <!-- Card 2 — Victor -->
-        <article class="prova2__card" aria-label="Depoimento de Victor">
-          <p class="prova2__context">CLT e empreendedor, aprendendo IA com rotina dividida</p>
-          <blockquote class="prova2__quote">
-            "Usei muito o Mentor para aprender automação e inteligência artificial. Não tinha ideia por onde começar. O melhor: <strong>ele programou exatamente o tempo que tenho disponível</strong> com o aprendizado. O Mentor é absurdo."
-          </blockquote>
-          <hr class="prova2__sep" aria-hidden="true">
-          <p class="prova2__author">Victor</p>
-        </article>
-
-        <!-- Card 3 — Renato Pechinho -->
-        <article class="prova2__card" aria-label="Depoimento de Renato Pechinho">
-          <p class="prova2__context">Pós-graduação</p>
-          <blockquote class="prova2__quote">
-            "O S.I.M. tem me ajudado muito com os estudos da pós-graduação, principalmente o Mentor. <strong>Otimiza e facilita meu aprendizado</strong> com as aulas e disciplinas."
-          </blockquote>
-          <hr class="prova2__sep" aria-hidden="true">
-          <p class="prova2__author">Renato Pechinho</p>
-        </article>
-
-        <!-- Card 4 — David -->
-        <article class="prova2__card" aria-label="Depoimento de David">
-          <p class="prova2__context">Primeiro acesso ao Vértice</p>
-          <blockquote class="prova2__quote">
-            "<strong>Com 20 minutos usando o Vértice</strong> já deu para perceber a qualidade do sistema."
-          </blockquote>
-          <hr class="prova2__sep" aria-hidden="true">
-          <p class="prova2__author">David</p>
-        </article>
-
-      </div>
     </div>
   </section>
 </div>
