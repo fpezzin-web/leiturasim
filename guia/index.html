@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Jornada · Opinião não é argumento · S.I.M</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --g1:#0d2b1a; --g2:#1a4a2e; --g3:#2e7d47; --g4:#52b06a; --g5:#a8d8b4;
+    --g6:#e8f5ed; --g7:#f4fbf6;
+    --ink:#161a18; --ink2:#333937; --ink3:#5f6b64;
+    --line:#d4e9db; --white:#fff;
+    --ambar:#b8862f; --ambar-cl:#d9a94e; --ambar-bg:#fdf7ec;
+    --lock:#9aa5a0;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:#eaf0ec;color:var(--ink);font-size:18px;line-height:1.7}
+
+  .topbar{background:var(--g1);padding:16px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;flex-wrap:wrap;gap:10px}
+  .topbar-brand{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--g5)}
+  .topbar-prog{font-family:'DM Mono',monospace;font-size:13px;color:var(--g4)}
+
+  .wrap{max-width:940px;margin:0 auto;background:var(--white);min-height:100vh}
+
+  /* ═══ HERO / JORNADA ═══ */
+  header.hero{background:var(--g1);padding:46px 48px 38px;position:relative;overflow:hidden}
+  header.hero::before{content:'';position:absolute;top:-140px;right:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(82,176,106,.09)}
+  .hero-eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--g4);margin-bottom:14px;position:relative}
+  .hero h1{font-family:'EB Garamond',serif;font-size:42px;font-weight:500;line-height:1.12;color:#fff;margin-bottom:8px;position:relative}
+  .hero h1 em{font-style:italic;color:var(--g5)}
+  .hero-nome{font-size:16px;color:var(--g5);opacity:.9;font-weight:300;position:relative;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .btn-nome{background:none;border:1px solid rgba(168,216,180,.35);color:var(--g5);font-family:'DM Sans',sans-serif;font-size:14px;padding:5px 12px;border-radius:4px;cursor:pointer}
+  .btn-nome:hover{background:rgba(168,216,180,.12)}
+  .input-nome{background:rgba(255,255,255,.08);border:1px solid rgba(168,216,180,.4);color:#fff;font-family:'DM Sans',sans-serif;font-size:16px;padding:8px 14px;border-radius:4px;width:230px}
+  .input-nome::placeholder{color:rgba(168,216,180,.5)}
+
+  /* ── ESTATÍSTICAS ── */
+  .stats{display:flex;gap:14px;margin-top:30px;position:relative;flex-wrap:wrap}
+  .stat{background:rgba(255,255,255,.05);border:1px solid rgba(82,176,106,.18);border-radius:6px;padding:14px 18px;flex:1;min-width:132px}
+  .stat-lab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--g4);margin-bottom:5px}
+  .stat-val{font-family:'EB Garamond',serif;font-size:27px;color:#fff;font-weight:500;line-height:1}
+  .stat-val small{font-size:15px;opacity:.6;font-family:'DM Sans',sans-serif;font-weight:300}
+
+  /* ── TRILHA ── */
+  .trilha-wrap{margin-top:30px;padding-top:26px;border-top:1px solid rgba(82,176,106,.2);position:relative}
+  .trilha-lab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;flex-wrap:wrap;gap:8px}
+  .trilha-txt{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--g4)}
+  .trilha-agora{font-size:14px;color:var(--g5);font-weight:300}
+  .trilha-agora strong{color:#fff;font-weight:500}
+
+  .trilha{display:flex;align-items:center;gap:0;overflow-x:auto;padding:16px 2px 6px;scrollbar-width:thin}
+  .trilha::-webkit-scrollbar{height:5px}
+  .trilha::-webkit-scrollbar-thumb{background:rgba(82,176,106,.35);border-radius:3px}
+
+  .no{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;background:none;border:none;padding:0;font-family:inherit}
+  .no-bola{width:34px;height:34px;border-radius:50%;border:2px solid rgba(168,216,180,.3);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'DM Mono',monospace;font-size:12px;color:rgba(168,216,180,.55);
+    background:transparent;transition:all .35s ease}
+  .no-lab{font-family:'DM Mono',monospace;font-size:9px;color:rgba(168,216,180,.4);letter-spacing:.5px}
+  .no.chat .no-bola{width:40px;height:40px;border-width:2px;border-color:rgba(82,176,106,.5)}
+  .no.done .no-bola{background:var(--g4);border-color:var(--g4);color:#08210f;font-weight:500}
+  .no.done .no-lab{color:var(--g5);opacity:.75}
+  .no.atual .no-bola{border-color:#fff;color:#fff;background:rgba(255,255,255,.1);box-shadow:0 0 0 5px rgba(255,255,255,.09)}
+  .no.atual .no-lab{color:#fff;font-weight:500}
+  .no.acendeu .no-bola{animation:acender .9s ease}
+  @keyframes acender{
+    0%{transform:scale(1)} 35%{transform:scale(1.32);box-shadow:0 0 0 12px rgba(82,176,106,.28)}
+    100%{transform:scale(1);box-shadow:0 0 0 5px rgba(255,255,255,.09)}
+  }
+  .conector{flex:1;min-width:14px;height:2px;background:rgba(168,216,180,.2);margin:0 3px;margin-bottom:22px;transition:background .4s}
+  .conector.done{background:var(--g4)}
+
+  /* ── SELOS ── */
+  .selos{display:flex;gap:12px;margin-top:26px;position:relative;flex-wrap:wrap;justify-content:space-between}
+  .selo{flex:1;min-width:96px;text-align:center;opacity:.32;transition:opacity .5s}
+  .selo.ganho{opacity:1}
+  .selo-med{width:52px;height:52px;margin:0 auto 8px;border-radius:50%;border:2px solid rgba(168,216,180,.35);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'EB Garamond',serif;font-size:19px;color:rgba(168,216,180,.5);font-weight:600;transition:all .5s}
+  .selo.ganho .selo-med{background:var(--g4);border-color:var(--g4);color:#08210f}
+  .selo.final .selo-med{border-style:dashed}
+  .selo.final.ganho .selo-med{background:var(--ambar-cl);border-color:var(--ambar-cl);border-style:solid;color:#3d2a08}
+  .selo.novo .selo-med{animation:selo-in .8s cubic-bezier(.2,1.3,.4,1)}
+  @keyframes selo-in{0%{transform:scale(0) rotate(-25deg)}70%{transform:scale(1.18) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+  .selo-nome{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(168,216,180,.6)}
+  .selo.ganho .selo-nome{color:var(--g5)}
+  .selo.final.ganho .selo-nome{color:var(--ambar-cl)}
+
+  main{padding:36px 48px 90px}
+
+  .aviso{background:var(--ambar-bg);border:1px solid #e8d5b0;border-left:4px solid var(--ambar);padding:20px 26px;margin-bottom:22px}
+  .aviso p{font-size:16px;color:var(--ink2);font-weight:300}
+  .aviso strong{color:#8a6224;font-weight:500}
+
+  .troca-faixa{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    background:var(--g7);border:1px solid var(--line);border-radius:6px;padding:18px 24px;margin-bottom:34px}
+  .troca-faixa p{font-size:16px;color:var(--ink2);font-weight:300;margin:0;flex:1;min-width:240px}
+  .troca-faixa strong{color:var(--g2);font-weight:500}
+  .btn-troca{background:var(--g1);color:#fff;white-space:nowrap;margin:0}
+  .btn-troca:hover{background:var(--g2)}
+
+  .etapa-sep{display:flex;align-items:center;gap:16px;margin:38px 0 20px}
+  .etapa-sep-linha{flex:1;height:1px;background:var(--line)}
+  .etapa-sep-txt{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--g3)}
+
+  .card{border:1px solid var(--line);margin-bottom:14px;background:var(--white);transition:opacity .3s}
+  .card.chat{border:2px solid var(--g3)}
+  .card.locked{opacity:.5}
+  .card.done{border-color:var(--g4);background:var(--g7)}
+  .card-head{display:flex;align-items:center;gap:18px;padding:20px 26px;cursor:pointer;user-select:none}
+  .card.locked .card-head{cursor:not-allowed}
+  .dia-badge{min-width:66px;height:66px;border-radius:6px;background:var(--g1);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+  .card.chat .dia-badge{background:var(--g3)}
+  .card.locked .dia-badge{background:var(--lock)}
+  .card.done .dia-badge{background:var(--g4)}
+  .dia-badge small{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;opacity:.75}
+  .dia-badge span{font-family:'EB Garamond',serif;font-size:28px;font-weight:600;line-height:1}
+  .card-info{flex:1;min-width:0}
+  .card-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g3);margin-bottom:4px}
+  .card.locked .card-tag{color:var(--lock)}
+  .card-titulo{font-size:20px;font-weight:500;color:var(--ink);line-height:1.3}
+  .card.locked .card-titulo{color:var(--lock)}
+  .card-sub{font-size:14px;color:var(--ink3);font-weight:300;margin-top:3px}
+  .card-status{flex-shrink:0;display:flex;align-items:center;gap:10px}
+  .status-check{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:16px;color:transparent}
+  .card.done .status-check{background:var(--g4);border-color:var(--g4);color:#fff}
+  .status-txt{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3)}
+  .card.done .status-txt{color:var(--g3);font-weight:500}
+  .card.locked .status-txt{color:var(--lock)}
+  .card-body{display:none;padding:0 26px 26px;border-top:1px solid var(--line);margin-top:-1px}
+  .card.open .card-body{display:block}
+  .card-body-inner{padding-top:22px}
+
+  .passo{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .passo:last-child{border-bottom:none}
+  .passo-n{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#fff;background:var(--g3);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px}
+  .passo-corpo{flex:1;min-width:0}
+  .passo-titulo{font-size:17px;font-weight:500;color:var(--ink);margin-bottom:4px}
+  .passo-desc{font-size:15px;color:var(--ink2);font-weight:300;margin-bottom:12px}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border:none;border-radius:5px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;transition:all .18s;text-decoration:none;margin:4px 8px 4px 0}
+  .btn-copy{background:var(--g3);color:#fff}
+  .btn-copy:hover{background:var(--g2)}
+  .btn-copy.ok{background:var(--g4);color:#08210f}
+  .btn-open{background:var(--g1);color:#fff}
+  .btn-open:hover{background:var(--g2)}
+  .btn-done{background:var(--g4);color:#08210f;font-weight:700;padding:15px 28px;font-size:17px}
+  .btn-done:hover{filter:brightness(1.06)}
+  .btn-done:disabled{background:#dfe6e2;color:#9aa5a0;cursor:not-allowed}
+  .btn-undo{background:transparent;color:var(--ink3);border:1px solid var(--line);font-size:14px;padding:10px 18px}
+
+  textarea{width:100%;min-height:130px;padding:16px;border:1px solid var(--line);border-radius:5px;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;color:var(--ink2);background:var(--white);resize:vertical}
+  textarea:focus{outline:2px solid var(--g4);outline-offset:-1px}
+  textarea::placeholder{color:#a8b3ad}
+  .salvo{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--g3);margin-top:8px;height:16px}
+  .nota-tempo{background:var(--g6);border-radius:5px;padding:14px 18px;font-size:15px;color:var(--ink2);font-weight:300;margin-bottom:18px}
+  .nota-tempo strong{color:var(--g2);font-weight:500}
+  .fechar-etapa{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+
+  /* ── TOAST ── */
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(140%);
+    background:var(--g1);color:#fff;padding:18px 28px;border-radius:8px;z-index:400;
+    box-shadow:0 16px 40px rgba(0,0,0,.28);display:flex;align-items:center;gap:16px;
+    max-width:92vw;transition:transform .45s cubic-bezier(.2,1,.3,1)}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  .toast-med{width:42px;height:42px;border-radius:50%;background:var(--g4);color:#08210f;
+    display:flex;align-items:center;justify-content:center;font-family:'EB Garamond',serif;font-size:17px;font-weight:600;flex-shrink:0}
+  .toast.ouro .toast-med{background:var(--ambar-cl);color:#3d2a08}
+  .toast-lab{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--g4);margin-bottom:2px}
+  .toast.ouro .toast-lab{color:var(--ambar-cl)}
+  .toast-txt{font-size:17px;font-weight:500}
+
+  /* ── FINAL ── */
+  .final{background:var(--g1);padding:44px 48px;margin-top:36px;display:none}
+  .final.show{display:block}
+  .final-selo{width:78px;height:78px;border-radius:50%;background:var(--ambar-cl);color:#3d2a08;
+    display:flex;align-items:center;justify-content:center;font-family:'EB Garamond',serif;font-size:30px;font-weight:600;margin-bottom:22px}
+  .final h2{font-family:'EB Garamond',serif;font-size:32px;color:#fff;margin-bottom:14px;font-weight:500}
+  .final p{color:var(--g5);font-size:17px;font-weight:300;margin-bottom:16px}
+  .final strong{color:#fff;font-weight:500}
+  .final .btn-open{background:var(--ambar-cl);color:#3d2a08;font-weight:700;margin-top:10px}
+
+  footer{padding:26px 48px;border-top:1px solid var(--line);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .btn-reset{background:none;border:none;color:#c08a8a;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:underline}
+
+  /* ── MODAL ── */
+  .modal-bg{position:fixed;inset:0;background:rgba(10,26,17,.72);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:32px 16px;overflow-y:auto}
+  .modal-bg.show{display:flex}
+  .modal{background:var(--white);max-width:720px;width:100%;border-radius:8px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.3);margin:auto}
+  .modal-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:34px;line-height:1;color:var(--g5);cursor:pointer;padding:4px 10px;border-radius:4px}
+  .modal-x:hover{background:rgba(255,255,255,.1)}
+  .modal-head{background:var(--g1);padding:34px 38px 30px;border-radius:8px 8px 0 0}
+  .modal-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--g4);margin-bottom:12px}
+  .modal-head h2{font-family:'EB Garamond',serif;font-size:30px;color:#fff;font-weight:500;line-height:1.2;margin-bottom:10px}
+  .modal-head p{color:var(--g5);font-size:16px;font-weight:300;margin:0}
+  .modal-tabs{display:flex;border-bottom:1px solid var(--line)}
+  .mtab{flex:1;background:var(--g7);border:none;border-bottom:3px solid transparent;padding:18px 14px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--ink3);cursor:pointer;transition:all .18s}
+  .mtab:hover{background:var(--g6)}
+  .mtab.ativo{background:var(--white);color:var(--g1);border-bottom-color:var(--g4)}
+  .mpane{padding:30px 38px 36px}
+  .mpane.hide{display:none}
+  .mstep{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .mstep:last-of-type{border-bottom:none}
+  .mstep-n{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:#fff;background:var(--g3);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .mstep-corpo{flex:1;min-width:0}
+  .mstep-titulo{font-size:18px;font-weight:500;color:var(--ink);margin-bottom:5px}
+  .mstep-desc{font-size:16px;color:var(--ink2);font-weight:300;margin-bottom:12px}
+  .mstep-desc strong{color:var(--g2);font-weight:500}
+  .codigo-box{background:#0a1f12;color:#a8d8b4;border-radius:6px;padding:16px 18px;font-family:'DM Mono',monospace;font-size:12px;line-height:1.5;word-break:break-all;max-height:130px;overflow-y:auto;margin-bottom:12px;user-select:all}
+  .codigo-vazio{background:var(--g6);color:var(--ink3);text-align:center;font-family:'DM Sans',sans-serif;font-size:15px;padding:22px}
+  .msg{padding:14px 18px;border-radius:6px;font-size:16px;margin-top:14px;display:none}
+  .msg.show{display:block}
+  .msg.ok{background:var(--g6);color:var(--g2);border-left:4px solid var(--g4)}
+  .msg.erro{background:#fdf3f3;color:#9c4a4a;border-left:4px solid #c87070}
+
+  /* ═══ PAINEL DE RESULTADO ═══ */
+  .form-res{background:var(--white);border:2px solid var(--ambar);border-radius:8px;padding:32px 36px;margin-top:36px;display:none}
+  .form-res.show{display:block}
+  .form-res h3{font-family:'EB Garamond',serif;font-size:27px;color:var(--g1);font-weight:600;margin-bottom:8px}
+  .form-res > p{font-size:16px;color:var(--ink2);font-weight:300;margin-bottom:24px}
+  .fr-campo{margin-bottom:24px}
+  .fr-lab{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:8px}
+  .fr-hint{font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:10px}
+  .fr-input{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:5px;font-family:'DM Sans',sans-serif;font-size:16px;color:var(--ink2)}
+  .fr-input:focus{outline:2px solid var(--ambar);outline-offset:-1px}
+
+  .crit-linha{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .crit-linha:last-child{border-bottom:none}
+  .crit-nome{flex:1;min-width:200px;font-size:16px;color:var(--ink2);font-weight:300}
+  .crit-opts{display:flex;gap:6px}
+  .crit-op{width:44px;height:40px;border:1px solid var(--line);background:var(--white);border-radius:5px;
+    font-family:'DM Mono',monospace;font-size:15px;color:var(--ink3);cursor:pointer;transition:all .16s}
+  .crit-op:hover{border-color:var(--g4)}
+  .crit-op.sel{background:var(--g3);border-color:var(--g3);color:#fff;font-weight:500}
+
+  .fr-colar{background:var(--g7);border:1px solid var(--line);border-left:4px solid var(--g3);padding:24px 26px;margin-bottom:26px}
+  .fr-colar .fr-lab{margin-bottom:6px}
+  .fr-leitura{margin-top:14px;padding:14px 18px;border-radius:6px;font-size:15px;display:none;line-height:1.6}
+  .fr-leitura.show{display:block}
+  .fr-leitura.ok{background:var(--g6);color:var(--g2);border-left:4px solid var(--g4)}
+  .fr-leitura.parcial{background:var(--ambar-bg);color:#8a6224;border-left:4px solid var(--ambar)}
+  .fr-leitura.erro{background:#fdf3f3;color:#9c4a4a;border-left:4px solid #c87070}
+  .fr-leitura strong{font-weight:500}
+
+  .aviso-envio{background:var(--ambar-bg);border:1px solid var(--ambar);border-left:4px solid var(--ambar);
+    padding:20px 26px;margin-top:18px;display:none}
+  .aviso-envio.show{display:block}
+  .aviso-envio-lab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8a6224;margin-bottom:8px}
+  .aviso-envio p{font-size:16px;color:var(--ink2);font-weight:300;margin:0}
+  .aviso-envio strong{color:#8a6224;font-weight:500}
+  .passo-envio{display:flex;gap:14px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .passo-envio-n{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:#fff;background:var(--ambar);
+    width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+  /* painel */
+  .painel{display:none;margin-top:36px;background:var(--g1);border-radius:10px;overflow:hidden}
+  .painel.show{display:block}
+  .pn-topo{padding:38px 40px 30px;text-align:center;position:relative;border-bottom:1px solid rgba(82,176,106,.2)}
+  .pn-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--g4);margin-bottom:14px}
+  .pn-nome{font-family:'EB Garamond',serif;font-size:34px;color:#fff;font-weight:500;line-height:1.15;margin-bottom:6px}
+  .pn-data{font-size:14px;color:var(--g5);opacity:.7;font-weight:300}
+  .pn-tema{margin-top:16px;font-size:16px;color:var(--g5);font-weight:300}
+  .pn-tema strong{color:#fff;font-weight:500}
+
+  .pn-nota{display:flex;align-items:center;justify-content:center;gap:26px;padding:34px 40px;flex-wrap:wrap;border-bottom:1px solid rgba(82,176,106,.2)}
+  .pn-nota-num{font-family:'EB Garamond',serif;font-size:82px;line-height:.9;color:#fff;font-weight:600}
+  .pn-nota-num small{font-size:26px;opacity:.5;font-weight:400}
+  .pn-selo-ap{width:96px;height:96px;border-radius:50%;background:var(--ambar-cl);color:#3d2a08;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex-shrink:0}
+  .pn-selo-ap span{font-family:'EB Garamond',serif;font-size:26px;font-weight:600;line-height:1}
+  .pn-selo-ap small{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+  .pn-selo-rep{background:transparent;border:2px dashed rgba(168,216,180,.4);color:var(--g5)}
+
+  .pn-cert{padding:22px 40px;border-bottom:1px solid rgba(82,176,106,.2);background:rgba(217,169,78,.07)}
+  .pn-cert-txt{font-size:14.5px;line-height:1.7;color:var(--g5);font-weight:300;text-align:center;max-width:640px;margin:0 auto}
+  .pn-cert-txt strong{color:#fff;font-weight:500}
+
+  .pn-datas{display:flex;border-bottom:1px solid rgba(82,176,106,.2)}
+  .pn-dt{flex:1;padding:20px 40px;text-align:center}
+  .pn-dt + .pn-dt{border-left:1px solid rgba(82,176,106,.2)}
+  .pn-dt-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--g4);margin-bottom:6px}
+  .pn-dt-v{font-size:16px;color:#fff;font-weight:400}
+
+  .pn-crits{padding:30px 40px;border-bottom:1px solid rgba(82,176,106,.2)}
+  .pn-sec-lab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g4);margin-bottom:18px}
+  .pn-crit{display:flex;align-items:center;gap:14px;padding:9px 0}
+  .pn-crit-nome{flex:1;font-size:15px;color:var(--g5);font-weight:300}
+  .pn-barra{display:flex;gap:4px;flex-shrink:0}
+  .pn-seg{width:34px;height:9px;border-radius:2px;background:rgba(168,216,180,.16)}
+  .pn-seg.on{background:var(--g4)}
+  .pn-crit-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--g4);min-width:26px;text-align:right}
+
+  .pn-antes{padding:30px 40px;border-bottom:1px solid rgba(82,176,106,.2)}
+  .pn-ab{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .pn-col{background:rgba(255,255,255,.045);border-radius:6px;padding:20px 22px}
+  .pn-col-lab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  .pn-col.a .pn-col-lab{color:rgba(168,216,180,.55)}
+  .pn-col.b .pn-col-lab{color:var(--g4)}
+  .pn-col-txt{font-size:14.5px;line-height:1.65;font-weight:300;color:var(--g5);white-space:pre-wrap}
+  .pn-col.a .pn-col-txt{opacity:.62}
+  .pn-col.b{border:1px solid rgba(82,176,106,.3)}
+
+  .pn-stats{display:flex;padding:26px 40px;gap:14px;flex-wrap:wrap}
+  .pn-st{flex:1;min-width:118px;text-align:center}
+  .pn-st-v{font-family:'EB Garamond',serif;font-size:30px;color:#fff;font-weight:500;line-height:1}
+  .pn-st-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--g4);margin-top:6px}
+
+  .pn-rodape{background:rgba(0,0,0,.22);padding:18px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+  .pn-marca{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g4)}
+  .pn-metodo{font-size:13px;color:var(--g5);opacity:.7;font-weight:300}
+  .pn-metodo strong{font-family:'DM Mono',monospace;color:var(--g4);font-weight:500;letter-spacing:1px}
+
+  .painel-acoes{display:none;margin-top:18px;gap:10px;flex-wrap:wrap}
+  .painel-acoes.show{display:flex}
+  .btn-print{background:var(--g1);color:#fff}
+  .btn-editar{background:transparent;color:var(--ink3);border:1px solid var(--line)}
+
+  @media print{
+    body{background:#fff}
+    .topbar, header.hero, main > .aviso, main > .troca-faixa, #etapas, footer,
+    .form-res, .painel-acoes, .toast, .modal-bg, .final > p, .final > .btn-open,
+    .final > h2, .final-selo{display:none !important}
+    .wrap{max-width:100%}
+    main{padding:0}
+    .final{background:#fff;padding:0;margin:0}
+    .painel{display:block !important;margin:0;border-radius:0}
+    @page{margin:12mm}
+  }
+    *{animation:none !important;transition:none !important}
+  }
+  @media (max-width:640px){
+    body{font-size:17px}
+    .topbar{padding:14px 18px}
+    header.hero{padding:32px 20px 26px}
+    .hero h1{font-size:31px}
+    .stats{gap:8px}
+    .stat{min-width:calc(50% - 4px);padding:12px 14px}
+    .stat-val{font-size:23px}
+    main{padding:26px 18px 70px}
+    .card-head{padding:16px 18px;gap:14px}
+    .dia-badge{min-width:54px;height:54px}
+    .dia-badge span{font-size:23px}
+    .card-titulo{font-size:18px}
+    .card-status .status-txt{display:none}
+    .card-body{padding:0 18px 22px}
+    .selos{gap:6px}
+    .selo{min-width:calc(20% - 5px)}
+    .selo-med{width:42px;height:42px;font-size:16px}
+    .final{padding:32px 20px}
+    footer{padding:22px 18px}
+    .toast{left:12px;right:12px;transform:translateY(140%);max-width:none}
+    .toast.show{transform:translateY(0)}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand">S.I.M · Opinião não é argumento</span>
+  <span class="topbar-prog" id="topProg">0 de 12 etapas</span>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-eyebrow">Método de 12 etapas · Da opinião ao argumento</div>
+    <h1>A sua <em>jornada</em></h1>
+    <div class="hero-nome" id="heroNome"></div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-lab">Etapas</div>
+        <div class="stat-val" id="stEtapas">0<small> / 12</small></div>
+      </div>
+      <div class="stat">
+        <div class="stat-lab">Práticas no Vértice</div>
+        <div class="stat-val" id="stChats">0<small> / 4</small></div>
+      </div>
+      <div class="stat">
+        <div class="stat-lab">Prática deliberada</div>
+        <div class="stat-val" id="stTempo">0<small>min</small></div>
+      </div>
+      <div class="stat">
+        <div class="stat-lab">Selos conquistados</div>
+        <div class="stat-val" id="stSelos">0<small> / 5</small></div>
+      </div>
+    </div>
+
+    <div class="trilha-wrap">
+      <div class="trilha-lab">
+        <span class="trilha-txt">Seu percurso</span>
+        <span class="trilha-agora" id="trilhaAgora"></span>
+      </div>
+      <div class="trilha" id="trilha"></div>
+
+      <div class="selos" id="selos"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="aviso">
+      <p><strong>Como funciona:</strong> as etapas abrem uma de cada vez. Se você conseguir fazer duas no mesmo dia, ótimo, o método não exige que você espere. O que ele exige é que você faça na ordem, porque cada prática usa o que você produziu na anterior. <strong>Trabalhe sempre no computador e sempre neste guia</strong>, porque é daqui que sai o material das quatro práticas.</p>
+    </div>
+
+    <div class="troca-faixa">
+      <p><strong>Guarde uma cópia de segurança.</strong> Tudo que você escreve aqui fica salvo apenas neste navegador. Se você limpar os dados do navegador ou trocar de computador, perde a jornada inteira.</p>
+      <button class="btn btn-troca" id="btnTroca">Guardar cópia de segurança</button>
+    </div>
+
+    <div id="etapas"></div>
+
+    <div class="final" id="blocoFinal">
+      <div class="final-selo">✓</div>
+      <h2>Você concluiu o método.</h2>
+      <p>Doze etapas, quatro práticas, uma posição construída, defendida e avaliada. Agora registre o seu resultado — ele vira o painel que você guarda, imprime e envia para receber o certificado.</p>
+    </div>
+
+    <!-- FORMULÁRIO DO RESULTADO -->
+    <div class="form-res" id="formRes">
+      <h3>Registre o resultado da sua prova</h3>
+      <p>Pegue a avaliação que o Vértice fez no Chat 4 e preencha os campos abaixo. Leva menos de dois minutos.</p>
+
+      <div class="fr-campo">
+        <div class="fr-lab">O tema que você trabalhou</div>
+        <div class="fr-hint">Preenchi a partir do que você produziu nas práticas. Ajuste se quiser deixar mais preciso.</div>
+        <input class="fr-input" id="frTema" maxlength="120" placeholder="Ex.: cobertura jornalística sobre valuation de mercado">
+      </div>
+
+      <div class="fr-colar">
+        <div class="fr-lab">Cole aqui a avaliação completa do Vértice</div>
+        <div class="fr-hint">Copie tudo que ele escreveu na avaliação final, com as notas e as justificativas, e cole abaixo. O guia lê as notas sozinho.</div>
+        <textarea id="frAvaliacao" style="min-height:150px" placeholder="Cole aqui a avaliação que o Vértice fez da sua opinião crítica…"></textarea>
+        <button class="btn btn-copy" id="btnLerAval" style="margin-top:12px">Ler a avaliação</button>
+        <div class="fr-leitura" id="frLeitura"></div>
+      </div>
+
+      <div class="fr-campo">
+        <div class="fr-lab">As notas em cada critério</div>
+        <div class="fr-hint">Confira se o guia leu certo. Você pode corrigir qualquer uma clicando nos botões.</div>
+        <div id="frCrits"></div>
+      </div>
+
+      <div class="fr-campo">
+        <div class="fr-lab">Cole aqui a sua opinião crítica final</div>
+        <div class="fr-hint">A versão que foi aprovada pelo Vértice na prova.</div>
+        <textarea id="frOpiniao" placeholder="Cole aqui a opinião crítica completa que você escreveu no Chat 4…"></textarea>
+      </div>
+
+      <button class="btn btn-done" id="btnGeraPainel">Gerar meu painel de resultado</button>
+    </div>
+
+    <!-- PAINEL -->
+    <div class="painel" id="painel">
+      <div class="pn-topo">
+        <div class="pn-eyebrow" id="pnEyebrow">Resultado do treinamento · Opinião não é argumento</div>
+        <div class="pn-nome" id="pnNome">—</div>
+        <div class="pn-data" id="pnData">—</div>
+        <div class="pn-tema" id="pnTema"></div>
+      </div>
+
+      <div class="pn-nota">
+        <div class="pn-nota-num" id="pnNota">—<small>/10</small></div>
+        <div class="pn-selo-ap" id="pnSelo"><span>✓</span><small>Aprovado</small></div>
+      </div>
+
+      <div class="pn-cert" id="pnCert">
+        <div class="pn-cert-txt">Este painel atesta que o participante concluiu integralmente o método <strong>Opinião não é argumento</strong> e foi <strong>aprovado na avaliação final</strong>, realizada com o agente Vértice contra cinco critérios objetivos, com nota igual ou superior a 7.</div>
+      </div>
+
+      <div class="pn-datas">
+        <div class="pn-dt"><div class="pn-dt-l">Início do treinamento</div><div class="pn-dt-v" id="pnInicio">—</div></div>
+        <div class="pn-dt"><div class="pn-dt-l">Conclusão e emissão</div><div class="pn-dt-v" id="pnFim">—</div></div>
+      </div>
+
+      <div class="pn-crits">
+        <div class="pn-sec-lab">Avaliação por critério</div>
+        <div id="pnCrits"></div>
+      </div>
+
+      <div class="pn-antes">
+        <div class="pn-sec-lab">A distância percorrida</div>
+        <div class="pn-ab">
+          <div class="pn-col a">
+            <div class="pn-col-lab">Antes · Dia 1</div>
+            <div class="pn-col-txt" id="pnAntes">—</div>
+          </div>
+          <div class="pn-col b">
+            <div class="pn-col-lab">Depois · Dia 12</div>
+            <div class="pn-col-txt" id="pnDepois">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pn-stats">
+        <div class="pn-st"><div class="pn-st-v">12</div><div class="pn-st-l">Etapas cumpridas</div></div>
+        <div class="pn-st"><div class="pn-st-v" id="pnAula">—</div><div class="pn-st-l">Aula em vídeo</div></div>
+        <div class="pn-st"><div class="pn-st-v" id="pnPrat">—</div><div class="pn-st-l">Prática deliberada</div></div>
+        <div class="pn-st"><div class="pn-st-v">4</div><div class="pn-st-l">Práticas no Vértice</div></div>
+      </div>
+
+      <div class="pn-rodape">
+        <span class="pn-marca">S.I.M · Sistema Inteligente de Mentoria</span>
+        <span class="pn-metodo">Verificação <strong id="pnCodigo">—</strong> · leiturasim.com</span>
+      </div>
+    </div>
+
+    <div class="painel-acoes" id="painelAcoes">
+      <div style="width:100%">
+        <div class="aviso-envio show">
+          <div class="aviso-envio-lab">Para receber o seu certificado</div>
+          <p>O certificado é emitido a partir deste painel. <strong>Salve ele em PDF e envie pelo WhatsApp</strong> junto com a sua solicitação.</p>
+          <div class="passo-envio">
+            <span class="passo-envio-n">1</span>
+            <button class="btn btn-print" id="btnImprime" style="margin:0">Salvar o painel em PDF</button>
+          </div>
+          <div class="passo-envio">
+            <span class="passo-envio-n">2</span>
+            <a class="btn btn-open" id="btnCert" href="#" target="_blank" rel="noopener" style="margin:0">Abrir o WhatsApp e anexar o PDF</a>
+          </div>
+        </div>
+        <button class="btn btn-editar" id="btnEditaRes" style="margin-top:16px">Corrigir os dados</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>S.I.M · Sistema Inteligente de Mentoria</span>
+    <button class="btn-reset" id="btnReset">Recomeçar o guia</button>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">
+  <div class="toast-med" id="toastMed">I</div>
+  <div>
+    <div class="toast-lab" id="toastLab">Selo conquistado</div>
+    <div class="toast-txt" id="toastTxt"></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <button class="modal-x" id="modalX" aria-label="Fechar">&times;</button>
+    <div class="modal-head">
+      <div class="modal-eyebrow">Cópia de segurança</div>
+      <h2>Guarde uma cópia da sua jornada</h2>
+      <p>Você vai copiar um código e enviar para si mesmo. Não precisa entender o que está escrito nele: é só copiar e colar. Se um dia perder os dados, esse código traz tudo de volta.</p>
+    </div>
+    <div class="modal-tabs">
+      <button class="mtab ativo" data-tab="sair">Guardar uma cópia</button>
+      <button class="mtab" data-tab="chegar">Restaurar uma cópia</button>
+    </div>
+    <div class="mpane" id="paneSair">
+      <div class="mstep">
+        <div class="mstep-n">1</div>
+        <div class="mstep-corpo">
+          <div class="mstep-titulo">Copie o seu código</div>
+          <div class="mstep-desc">Este código guarda tudo: as etapas concluídas, os selos, a fonte que você escolheu, a sua resposta do Dia 1 e os resumos das práticas.</div>
+          <div class="codigo-box" id="codigoBox">—</div>
+          <button class="btn btn-copy" id="btnCopiaCodigo">Copiar o código</button>
+        </div>
+      </div>
+      <div class="mstep">
+        <div class="mstep-n">2</div>
+        <div class="mstep-corpo">
+          <div class="mstep-titulo">Envie o código para você mesmo</div>
+          <div class="mstep-desc">Cole num e-mail para você mesmo, ou numa mensagem de WhatsApp para o seu próprio número. <strong>Guarde onde você conseguir achar depois.</strong> Vale repetir isso a cada prática concluída.</div>
+        </div>
+      </div>
+      <div class="mstep">
+        <div class="mstep-n">3</div>
+        <div class="mstep-corpo">
+          <div class="mstep-titulo">Se um dia precisar, restaure</div>
+          <div class="mstep-desc">Abra este guia, clique em <strong>“Guardar cópia de segurança”</strong> e vá na aba <strong>“Restaurar uma cópia”</strong>. Cole o código lá e a sua jornada volta de onde parou.</div>
+        </div>
+      </div>
+      <div class="msg" id="msgSair"></div>
+    </div>
+    <div class="mpane hide" id="paneChegar">
+      <div class="mstep">
+        <div class="mstep-n">1</div>
+        <div class="mstep-corpo">
+          <div class="mstep-titulo">Cole aqui o código que você guardou</div>
+          <div class="mstep-desc">Abra o e-mail ou a mensagem que você mandou para si mesmo, copie o código inteiro e cole no campo abaixo.</div>
+          <textarea id="campoCodigo" style="min-height:110px" placeholder="Cole aqui o código que você copiou no outro aparelho…"></textarea>
+        </div>
+      </div>
+      <div class="mstep">
+        <div class="mstep-n">2</div>
+        <div class="mstep-corpo">
+          <div class="mstep-titulo">Restaure a sua jornada</div>
+          <div class="mstep-desc">Isso substitui o que estiver salvo neste navegador pelo conteúdo do código.</div>
+          <button class="btn btn-done" id="btnRestaura">Restaurar minha jornada</button>
+        </div>
+      </div>
+      <div class="msg" id="msgChegar"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var AGENTE = "https://chatgpt.com/g/g-6889f64739dc81918e236ff00731768c-vertice-assistente-de-leituras";
+  var P = {};
+
+  P.b1 = 'BRIEFING — Treinamento "Opinião não é argumento" · Chat 1 de 4 · Desconstrução\n\n'+
+'Estou em um treinamento de 12 dias para transformar opiniões rasas em\n'+
+'argumentos defensáveis. Cheguei à primeira prática. Você é o Vértice e vai\n'+
+'me guiar pela DESCONSTRUÇÃO de um argumento alheio.\n\n'+
+'O QUE EU JÁ APRENDI:\n'+
+'- A diferença entre opinião (reação não examinada) e argumento (tese +\n'+
+'  evidência + limite)\n'+
+'- Que toda fonte tem uma tese implícita, além do assunto declarado\n'+
+'- Que todo argumento tem ausências: pressupostos não declarados,\n'+
+'  perspectivas ignoradas e perguntas que ele evita responder\n\n'+
+'CONTEXTO:\n'+
+'Logo após este briefing está colado o texto da fonte que eu escolhi analisar.\n\n'+
+'>> Se a fonte NÃO estiver colada abaixo, PEÇA que eu cole antes de começar.\n\n'+
+'O QUE VOCÊ DEVE FAZER AGORA:\n'+
+'1. Leia a fonte colada abaixo e confirme que entendeu do que ela trata.\n'+
+'2. Conduza, UMA PERGUNTA DE CADA VEZ, até eu:\n'+
+'   - identificar a TESE implícita (não o assunto, mas o que a fonte quer\n'+
+'     que eu acredite);\n'+
+'   - encontrar o que está FALTANDO (pressuposto, perspectiva ausente ou\n'+
+'     pergunta evitada).\n'+
+'3. CONFRONTE minhas respostas. Se eu confundir assunto com tese, ou der\n'+
+'   uma análise rasa ou vaga, NÃO valide — me empurre a aprofundar.\n'+
+'4. Me ajude a fechar a análise em uma frase, na estrutura:\n'+
+'   "A fonte defende implicitamente que ___, mas deixa sem resposta ___."\n'+
+'5. FECHAMENTO OBRIGATÓRIO: ao final, me peça para classificar a fonte como\n'+
+'   informação neutra, divulgação favorável ou análise crítica incompleta —\n'+
+'   e defender minha escolha em 3 linhas. Essa será minha primeira posição\n'+
+'   sobre o tema, que vou desenvolver nos próximos chats.\n\n'+
+'REGRAS:\n'+
+'- Não facilite. Seu papel é me treinar, não concordar comigo.\n'+
+'- Uma pergunta de cada vez. Espere minha resposta antes de seguir.\n'+
+'- Estou reservando de 40 a 60 minutos. Pode me fazer trabalhar.\n\n'+
+'Pode começar.';
+
+  P.r1 = 'Encerramos a desconstrução. Antes de eu sair desta conversa, gere um\n'+
+'RESUMO ESTRUTURADO que eu vou levar para a próxima etapa do meu\n'+
+'treinamento (a construção da minha própria tese).\n\n'+
+'O resumo deve conter, de forma enxuta:\n\n'+
+'1. CONTEÚDO ANALISADO: qual fonte eu trouxe (1 linha).\n'+
+'2. TESE IMPLÍCITA: a frase final que fechamos —\n'+
+'   "A fonte defende implicitamente que ___, mas deixa sem resposta ___".\n'+
+'3. AUSÊNCIA CENTRAL: o pressuposto, perspectiva ausente ou pergunta\n'+
+'   evitada mais importante que identifiquei.\n'+
+'4. MINHA PRIMEIRA POSIÇÃO: como classifiquei a fonte e o resumo da minha\n'+
+'   defesa de 3 linhas.\n\n'+
+'Gere apenas o resumo, pronto para eu copiar. Não acrescente comentários\n'+
+'nem recomece a análise.';
+
+  P.b2 = 'BRIEFING — Treinamento "Opinião não é argumento" · Chat 2 de 4 · Construção\n\n'+
+'Estou no treinamento de 12 dias para transformar opiniões rasas em\n'+
+'argumentos defensáveis. Cheguei à segunda prática. Você é o Vértice e vai\n'+
+'me guiar na CONSTRUÇÃO da minha própria tese sobre o tema que venho\n'+
+'trabalhando.\n\n'+
+'O QUE EU JÁ APRENDI:\n'+
+'- Que uma posição defensável tem três componentes: TESE (o que afirmo, em\n'+
+'  uma frase precisa), EVIDÊNCIA (o que sustenta) e LIMITE (onde a posição\n'+
+'  deixa de valer)\n'+
+'- Que declarar o limite não enfraquece — fortalece, porque elimina objeções\n'+
+'  fáceis antes que alguém as faça\n\n'+
+'O QUE VOCÊ DEVE FAZER:\n'+
+'1. Parta da minha primeira posição do Chat 1 (colada abaixo) e me ajude a\n'+
+'   transformá-la em uma TESE PRÓPRIA — não mais analisando a fonte, mas\n'+
+'   afirmando o que EU penso sobre o tema.\n'+
+'2. Conduza, UMA PERGUNTA DE CADA VEZ, a construção dos três componentes:\n'+
+'   - a TESE em uma frase específica (o que falha, em que situação, por quê);\n'+
+'   - as EVIDÊNCIAS que a sustentam;\n'+
+'   - o LIMITE — em que condições minha tese deixa de ser verdadeira.\n'+
+'3. CONFRONTE cada componente. Se a tese for vaga ou eu não declarar um\n'+
+'   limite real, NÃO valide — me empurre a refinar.\n'+
+'4. Ao final, me ajude a enunciar minha posição completa em um parágrafo,\n'+
+'   com os três componentes integrados.\n\n'+
+'REGRAS SOBRE O ESCOPO DO TREINO — LEIA COM ATENÇÃO:\n'+
+'- Este treino é sobre ESTRUTURA DE ARGUMENTO, não sobre domínio técnico do\n'+
+'  assunto. NÃO me peça dados estatísticos, estudos acadêmicos, números de\n'+
+'  mercado ou qualquer informação que exija pesquisa externa.\n'+
+'- Conta como evidência válida aqui: minha experiência profissional direta,\n'+
+'  casos concretos que eu observei, o conteúdo da própria fonte que analisei\n'+
+'  no Chat 1, consistência lógica e conhecimento público amplamente\n'+
+'  disponível.\n'+
+'- Se eu responder "não sei" ou "não tenho essa informação", NÃO insista na\n'+
+'  mesma pergunta. Trate isso como sinal de que a minha tese está mais\n'+
+'  AMPLA do que a minha base de sustentação — e me ajude a ESTREITÁ-LA até\n'+
+'  o ponto em que eu consigo sustentá-la com o que eu sei.\n'+
+'- Uma tese estreita que eu sustento vale mais do que uma tese ampla que eu\n'+
+'  não sustento. Me leve para a primeira.\n'+
+'- Se sobrar alguma lacuna relevante, liste ao final o que eu precisaria\n'+
+'  saber para ampliar a tese no futuro. Isso é resultado do treino, não\n'+
+'  falha minha.\n\n'+
+'REGRAS GERAIS:\n'+
+'- Não facilite na estrutura. Seu papel é me treinar, não concordar comigo.\n'+
+'- Uma pergunta de cada vez. Espere minha resposta antes de seguir.\n'+
+'- Estou reservando de 40 a 60 minutos.';
+
+  P.r2 = 'Encerramos a construção. Antes de eu sair desta conversa, gere um\n'+
+'RESUMO ESTRUTURADO que eu vou levar para a próxima etapa do meu\n'+
+'treinamento (a defesa da minha tese sob questionamento).\n\n'+
+'O resumo deve conter, de forma enxuta:\n\n'+
+'1. TEMA: sobre o que é a minha posição (1 linha).\n'+
+'2. MINHA TESE: a frase final, exatamente como a formulei.\n'+
+'3. MINHAS EVIDÊNCIAS: as evidências independentes que levantei, em\n'+
+'   tópicos curtos.\n'+
+'4. MEU LIMITE: a condição em que a minha posição deixa de valer,\n'+
+'   como a declarei.\n'+
+'5. POSIÇÃO INTEGRADA: o parágrafo final com os três componentes juntos.\n'+
+'6. PONTO MAIS FRÁGIL: na sua avaliação, qual dos três componentes ficou\n'+
+'   menos sólido — e por quê. Seja direto.\n\n'+
+'Gere apenas o resumo, pronto para eu copiar. Não acrescente comentários\n'+
+'nem recomece a construção.';
+
+  P.b3 = 'BRIEFING — Treinamento "Opinião não é argumento" · Chat 3 de 4 · Defesa\n\n'+
+'Estou no treinamento de 12 dias para transformar opiniões rasas em\n'+
+'argumentos defensáveis. Cheguei à terceira prática. Você é o Vértice e\n'+
+'neste chat o seu papel MUDA: você não vai me ajudar a construir. Você vai\n'+
+'TESTAR a minha tese, atacando-a. Minha tese está colada abaixo.\n\n'+
+'O QUE EU JÁ APRENDI:\n'+
+'- Que existem dois tipos de questionamento: PRESSÃO (insistência, volume,\n'+
+'  desconforto, sem conteúdo novo) e ARGUMENTO (dado, caso ou perspectiva\n'+
+'  que eu não havia considerado)\n'+
+'- Que existem três respostas possíveis: ATUALIZAR (quando veio argumento\n'+
+'  novo), SUSTENTAR (quando veio só pressão) e DELIMITAR (quando o\n'+
+'  questionamento acerta parte da posição, não o todo)\n'+
+'- Que o erro mais comum é responder no impulso do desconforto, confundindo\n'+
+'  os dois tipos\n\n'+
+'O QUE VOCÊ DEVE FAZER:\n'+
+'1. Ataque a minha tese em rodadas, UMA POR VEZ. Alterne deliberadamente,\n'+
+'   sem avisar qual é qual:\n'+
+'   - ataques que são ARGUMENTO REAL (evidência contrária, caso que não\n'+
+'     encaixa, perspectiva que eu ignorei);\n'+
+'   - ataques que são só PRESSÃO (ceticismo genérico, apelo à autoridade,\n'+
+'     insistência, ironia, "todo mundo sabe que não é assim");\n'+
+'   - ataques PARCIAIS, que derrubam um aspecto mas não a tese inteira.\n'+
+'2. A cada rodada, exija que eu faça duas coisas antes de responder:\n'+
+'   (a) CLASSIFIQUE o ataque — pressão, argumento ou parcial;\n'+
+'   (b) ESCOLHA a resposta — sustentar, atualizar ou delimitar.\n'+
+'3. Depois da minha resposta, me diga se a classificação estava certa e onde\n'+
+'   errei. Se eu ceder à pressão, aponte com clareza. Se eu resistir a um\n'+
+'   argumento legítimo por teimosia, aponte também. Se a minha classificação\n'+
+'   estiver errada mas a minha defesa estiver correta, diga as duas coisas.\n'+
+'4. Faça no mínimo 5 rodadas de ataque, com dificuldade crescente.\n'+
+'5. Ao final, me ajude a reescrever a minha tese incorporando apenas o que\n'+
+'   os argumentos legítimos exigiram — e nada do que veio só como pressão.\n\n'+
+'REGRAS:\n'+
+'- Ataque de verdade. Não suavize para me proteger.\n'+
+'- Uma rodada de cada vez. Espere minha classificação e minha resposta.\n'+
+'- Não me diga de antemão se o ataque é pressão ou argumento. O treino é\n'+
+'  justamente esse.\n'+
+'- Estou reservando de 40 a 60 minutos. Pode me fazer trabalhar.';
+
+  P.r3 = 'Encerramos a defesa. Antes de eu sair desta conversa, gere um\n'+
+'RESUMO ESTRUTURADO que eu vou levar para a prova final do meu treinamento.\n\n'+
+'O resumo deve conter, de forma enxuta:\n\n'+
+'1. TEMA: sobre o que é a minha posição (1 linha).\n'+
+'2. TESE REFINADA: a versão final da minha tese depois da defesa.\n'+
+'3. EVIDÊNCIAS E LIMITE: como ficaram após o questionamento.\n'+
+'4. O QUE MUDOU E POR QUÊ: quais ataques eram argumento legítimo e me\n'+
+'   fizeram atualizar a posição.\n'+
+'5. O QUE EU SUSTENTEI: quais ataques eram só pressão e por que a minha\n'+
+'   posição resistiu a eles.\n'+
+'6. MEU DESEMPENHO NA CLASSIFICAÇÃO: em quantas rodadas eu classifiquei\n'+
+'   corretamente o tipo de ataque, e qual foi o meu erro mais frequente\n'+
+'   (ceder à pressão ou resistir ao argumento).\n'+
+'7. FRAGILIDADE REMANESCENTE: o ponto que ainda está mais exposto na minha\n'+
+'   posição.\n\n'+
+'Gere apenas o resumo, pronto para eu copiar. Não acrescente comentários\n'+
+'nem recomece a defesa.';
+
+  P.b4 = 'BRIEFING — Treinamento "Opinião não é argumento" · Chat 4 de 4 · Prova final\n\n'+
+'Estou no último dia do treinamento de 12 dias. Você é o Vértice e neste\n'+
+'chat o seu papel é AVALIAR. Eu vou produzir uma opinião crítica completa\n'+
+'sobre o tema que trabalhei ao longo do método, e você vai julgá-la contra\n'+
+'critérios objetivos.\n\n'+
+'Abaixo deste briefing estão colados: (a) o resumo estruturado da minha tese\n'+
+'refinada, gerado ao final do Chat 3; e (b) a resposta que eu escrevi no\n'+
+'diagnóstico do Dia 1, antes de começar o treinamento.\n\n'+
+'O QUE VOCÊ DEVE FAZER:\n'+
+'1. Me peça para escrever, de uma vez só e sem a sua ajuda, uma OPINIÃO\n'+
+'   CRÍTICA COMPLETA sobre o tema. Ela deve conter:\n'+
+'   - a minha tese, em uma frase específica;\n'+
+'   - as evidências que a sustentam;\n'+
+'   - o limite da minha posição;\n'+
+'   - o reconhecimento do que há de válido na posição contrária;\n'+
+'   - a resposta à objeção mais forte que existe contra mim.\n'+
+'2. Quando eu entregar, AVALIE contra estes cinco critérios, dando de 0 a 2\n'+
+'   pontos em cada e justificando cada nota com uma frase:\n'+
+'   - Clareza e especificidade da tese\n'+
+'   - Qualidade e independência das evidências\n'+
+'   - Reconhecimento explícito do limite\n'+
+'   - Reconhecimento do que é válido no contraditório\n'+
+'   - Tom argumentativo (nem defensivo, nem agressivo)\n'+
+'3. Dê a nota total (0 a 10) e diga, em uma frase, o que separa a minha\n'+
+'   resposta de uma nota máxima.\n'+
+'4. Se a nota total for MENOR QUE 7, não me libere: aponte exatamente o que\n'+
+'   corrigir e me peça uma segunda versão. Avalie de novo.\n'+
+'5. Quando eu atingir 7 ou mais, confirme que o objetivo do treinamento foi\n'+
+'   atingido e me diga qual habilidade eu devo continuar treinando.\n'+
+'6. FECHAMENTO OBRIGATÓRIO: compare a minha opinião crítica final com a\n'+
+'   resposta do diagnóstico do Dia 1, colada abaixo. Mostre as duas lado a\n'+
+'   lado, aponte critério por critério o que mudou, e nomeie em uma frase o\n'+
+'   ganho concreto entre a primeira e a última versão.\n\n'+
+'REGRAS:\n'+
+'- Avalie com rigor. Uma nota alta que eu não mereço destrói o sentido do\n'+
+'  treinamento.\n'+
+'- Justifique cada critério. Nota sem justificativa não me ensina nada.\n'+
+'- Estou reservando de 40 a 60 minutos. Pode me fazer trabalhar.';
+
+  var ETAPAS = [
+    {dia:1, tipo:"marco", etapa:"Abertura", tag:"Abertura · Diagnóstico inicial",
+     titulo:"Você sabe muito. Na hora H, a palavra não vem.",
+     sub:"Escolha da fonte + sua resposta de referência", mAula:10, mPrat:20,
+     antes:"Hoje você faz duas coisas: escolhe a fonte que vai trabalhar durante todo o método, e registra o que pensa sobre ela <strong>antes</strong> de qualquer treinamento. É essa resposta que você vai comparar com a do Dia 12.",
+     campos:[
+       {id:"fonte", titulo:"A fonte que você escolheu",
+        desc:"Cole aqui o texto da fonte, ou a parte dela que sustenta a posição defendida. Ela precisa defender uma posição, não apenas informar, e ser sobre um assunto em que você tenha alguma vivência. No Dia 5 ela entra automaticamente na sua primeira prática.",
+        ph:"Cole aqui o texto da notícia, coluna, artigo ou transcrição que você escolheu…"},
+       {id:"diag", titulo:"Você concorda com o que essa fonte defende? Por quê?",
+        desc:"Escreva do jeito que sair, sem pesquisar e sem tentar ficar perfeito. Esta é a sua linha de base: no Dia 12 você responde à mesma pergunta, sobre a mesma fonte, e compara as duas.",
+        ph:"Escreva aqui a sua resposta, do jeito que sair…"}
+     ]},
+    {dia:2, tipo:"aula", etapa:"Desconstruir", tag:"Aula M1A1", mAula:12, mPrat:0,
+     titulo:"A diferença que a escola nunca ensinou", sub:"Opinião versus argumento"},
+    {dia:3, tipo:"aula", etapa:"Desconstruir", tag:"Aula M1A2", mAula:12, mPrat:0,
+     titulo:"Toda fonte tem uma tese", sub:"Como achar o argumento implícito em qualquer conteúdo"},
+    {dia:4, tipo:"aula", etapa:"Desconstruir", tag:"Aula M1A3", mAula:12, mPrat:0,
+     titulo:"O que está faltando", sub:"Pressupostos, perspectivas ausentes e perguntas evitadas"},
+    {dia:5, tipo:"chat", etapa:"Desconstruir", tag:"Chat 1 · Prática com o Vértice", mAula:0, mPrat:50,
+     titulo:"Desconstrução guiada", sub:"40 a 60 minutos de prática deliberada",
+     briefing:P.b1, resumoPrompt:P.r1, salvaEm:"res1", usaFonte:true,
+     antes:"O bloco desta prática já vem com a fonte que você registrou no Dia 1. É uma colagem só: briefing e fonte juntos."},
+    {dia:6, tipo:"aula", etapa:"Construir", tag:"Aula M2A1", mAula:12, mPrat:0,
+     titulo:"Da reação à tese", sub:"Tese, evidência e limite"},
+    {dia:7, tipo:"chat", etapa:"Construir", tag:"Vídeo curto + Chat 2 · Prática", mAula:4, mPrat:50,
+     titulo:"Construção da sua tese", sub:"Assista ao vídeo de 3 minutos antes de abrir o Vértice",
+     briefing:P.b2, resumoPrompt:P.r2, salvaEm:"res2", usaResumo:"res1",
+     antes:"Antes de começar, assista ao vídeo curto <strong>“O que conta como evidência”</strong>. Ele evita o erro mais comum desta etapa: achar que você precisa de dado técnico para sustentar a sua tese."},
+    {dia:8, tipo:"aula", etapa:"Defender", tag:"Aula M2A2", mAula:12, mPrat:0,
+     titulo:"Como argumentar sem perder a pessoa", sub:"Reconhecer, concordar no válido, precisar a divergência"},
+    {dia:9, tipo:"aula", etapa:"Defender", tag:"Aula M2A3", mAula:12, mPrat:0,
+     titulo:"Como responder quando te questionam", sub:"Pressão ou argumento: atualizar, sustentar ou delimitar"},
+    {dia:10, tipo:"chat", etapa:"Defender", tag:"Chat 3 · Prática com o Vértice", mAula:0, mPrat:50,
+     titulo:"Defesa sob pressão", sub:"40 a 60 minutos · o Vértice vai atacar a sua tese",
+     briefing:P.b3, resumoPrompt:P.r3, salvaEm:"res3", usaResumo:"res2",
+     antes:"Nesta prática o Vértice muda de papel: ele para de ajudar e passa a <strong>atacar a sua tese</strong>, alternando argumentos legítimos e pressão pura sem avisar qual é qual. Isso não é hostilidade — é o treino. Sua tarefa é classificar cada ataque antes de responder."},
+    {dia:11, tipo:"aula", etapa:"Provar", tag:"Conclusão", mAula:10, mPrat:0,
+     titulo:"O que muda — e como provar", sub:"Síntese do método e preparação para a prova final"},
+    {dia:12, tipo:"chat", etapa:"Provar", tag:"Chat 4 · Prova final", mAula:0, mPrat:50,
+     titulo:"Sua opinião crítica avaliada", sub:"Nota de corte: 7 de 10",
+     briefing:P.b4, salvaEm:null, usaResumo:"res3", usaDiag:true,
+     antes:"Esta é a prova. Você vai escrever uma opinião crítica completa e o Vértice vai avaliá-la contra cinco critérios. <strong>Abaixo de 7 pontos ele devolve o trabalho e pede uma segunda versão.</strong> É esse rigor que dá valor à aprovação — e é a avaliação final que você envia para receber o certificado."}
+  ];
+
+  var SELOS = [
+    {id:"I",   nome:"Desconstruir", ate:5},
+    {id:"II",  nome:"Construir",    ate:7},
+    {id:"III", nome:"Defender",     ate:10},
+    {id:"IV",  nome:"Provar",       ate:11},
+    {id:"✓",   nome:"Aprovação",    ate:12, final:true}
+  ];
+
+  var KEY = "sim_jornada_12_v1";
+  var state = {nome:"", done:[], selos:[], fonte:"", diag:"", res1:"", res2:"", res3:"", tema:"", notas:[], opiniao:"", avaliacao:"", dataConcl:"", dataInicio:""};
+
+  function load(){
+    try{ var raw = localStorage.getItem(KEY);
+      if(raw){ var o = JSON.parse(raw); if(o && typeof o === "object") state = Object.assign(state, o); }
+    }catch(e){}
+  }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+  function isDone(d){ return state.done.indexOf(d) !== -1; }
+  function isUnlocked(d){ return d === 1 || isDone(d-1); }
+  function proximaEtapa(){ for(var i=1;i<=12;i++){ if(!isDone(i)) return i; } return null; }
+
+  function somaMin(campo){
+    var t = 0;
+    ETAPAS.forEach(function(e){ if(isDone(e.dia)) t += (e[campo]||0); });
+    return t;
+  }
+  function minAula(){ return somaMin("mAula"); }
+  function minPrat(){ return somaMin("mPrat"); }
+  function minutos(){ return minAula() + minPrat(); }
+  function hoje(){
+    var d = new Date();
+    return d.toLocaleDateString("pt-BR", {day:"2-digit", month:"long", year:"numeric"});
+  }
+  function codigoVerif(){
+    var base = (state.nome||"") + "|" + (state.dataConcl||"") + "|" + (totalNota()||0) + "|SIM12";
+    var h = 0;
+    for(var i=0;i<base.length;i++){ h = ((h<<5) - h) + base.charCodeAt(i); h |= 0; }
+    var cod = Math.abs(h).toString(36).toUpperCase();
+    while(cod.length < 6) cod = "0" + cod;
+    return "SIM-" + cod.slice(0,3) + "-" + cod.slice(3,6);
+  }
+  function fmtTempo(m){
+    if(m < 60) return m + '<small>min</small>';
+    var h = Math.floor(m/60), r = m%60;
+    return h + '<small>h</small>' + (r ? " " + (r<10?"0":"") + r + '<small>min</small>' : "");
+  }
+
+  /* ───── TOAST ───── */
+  var toast = document.getElementById("toast"), toastT = null;
+  function mostraToast(id, nome, ouro){
+    document.getElementById("toastMed").textContent = id;
+    document.getElementById("toastTxt").textContent = ouro ? "Método concluído" : nome;
+    document.getElementById("toastLab").textContent = ouro ? "Aprovação" : "Selo conquistado";
+    toast.classList.toggle("ouro", !!ouro);
+    toast.classList.add("show");
+    clearTimeout(toastT);
+    toastT = setTimeout(function(){ toast.classList.remove("show"); }, 4200);
+  }
+
+  /* ───── TRILHA E SELOS ───── */
+  var novoNo = null, novoSelo = null;
+
+  function renderTrilha(){
+    var t = document.getElementById("trilha"), h = "", prox = proximaEtapa();
+    ETAPAS.forEach(function(e, i){
+      if(i > 0) h += '<div class="conector'+(isDone(e.dia)?' done':'')+'"></div>';
+      var cls = "no" + (e.tipo==="chat"?" chat":"") + (isDone(e.dia)?" done":"") +
+                (e.dia===prox?" atual":"") + (e.dia===novoNo?" acendeu":"");
+      h += '<button class="'+cls+'" data-ir="'+e.dia+'" title="Dia '+e.dia+' — '+e.titulo.replace(/"/g,'')+'">'+
+             '<span class="no-bola">'+(isDone(e.dia)?"&#10003;":e.dia)+'</span>'+
+             '<span class="no-lab">'+(e.tipo==="chat"?"prática":"dia "+e.dia)+'</span>'+
+           '</button>';
+    });
+    t.innerHTML = h;
+
+    var agora = document.getElementById("trilhaAgora");
+    if(prox){
+      var et = ETAPAS.filter(function(x){return x.dia===prox;})[0];
+      agora.innerHTML = 'Você está no <strong>Dia '+prox+'</strong> · '+et.titulo;
+    } else {
+      agora.innerHTML = '<strong>Jornada concluída</strong>';
+    }
+
+    var s = document.getElementById("selos"), hs = "";
+    SELOS.forEach(function(sl){
+      var ganho = state.selos.indexOf(sl.id) !== -1;
+      hs += '<div class="selo'+(sl.final?" final":"")+(ganho?" ganho":"")+(sl.id===novoSelo?" novo":"")+'">'+
+              '<div class="selo-med">'+sl.id+'</div>'+
+              '<div class="selo-nome">'+sl.nome+'</div>'+
+            '</div>';
+    });
+    s.innerHTML = hs;
+    novoNo = null; novoSelo = null;
+  }
+
+  function atualizaStats(){
+    var n = state.done.length;
+    var chats = ETAPAS.filter(function(e){ return e.tipo==="chat" && isDone(e.dia); }).length;
+    document.getElementById("stEtapas").innerHTML = n + '<small> / 12</small>';
+    document.getElementById("stChats").innerHTML = chats + '<small> / 4</small>';
+    document.getElementById("stTempo").innerHTML = fmtTempo(minPrat());
+    document.getElementById("stSelos").innerHTML = state.selos.length + '<small> / 5</small>';
+    document.getElementById("topProg").textContent = n + " de 12 etapas";
+    if(typeof atualizaAreaFinal === "function") atualizaAreaFinal();
+  }
+
+  function checaSelos(){
+    SELOS.forEach(function(sl){
+      var completo = true;
+      for(var d=1; d<=sl.ate; d++){ if(!isDone(d)) completo = false; }
+      if(completo && state.selos.indexOf(sl.id) === -1){
+        state.selos.push(sl.id);
+        novoSelo = sl.id;
+        mostraToast(sl.id, sl.nome, sl.final);
+      }
+      if(!completo && state.selos.indexOf(sl.id) !== -1){
+        state.selos = state.selos.filter(function(x){ return x !== sl.id; });
+      }
+    });
+  }
+
+  /* ───── NOME ───── */
+  function renderNome(){
+    var el = document.getElementById("heroNome");
+    if(state.nome){
+      el.innerHTML = 'A jornada de <strong style="color:#fff;font-weight:500">'+
+        state.nome.replace(/</g,"&lt;")+'</strong> <button class="btn-nome" id="btnEditaNome">alterar</button>';
+      document.getElementById("btnEditaNome").addEventListener("click", pedeNome);
+    } else {
+      el.innerHTML = '<span>Como você quer ser chamado?</span>'+
+        '<input class="input-nome" id="inputNome" placeholder="Seu primeiro nome" maxlength="28">'+
+        '<button class="btn-nome" id="btnSalvaNome">Começar</button>';
+      var iv = document.getElementById("inputNome");
+      var salvar = function(){
+        var v = iv.value.trim();
+        if(v){ state.nome = v; save(); renderNome(); }
+      };
+      document.getElementById("btnSalvaNome").addEventListener("click", salvar);
+      iv.addEventListener("keydown", function(ev){ if(ev.key === "Enter") salvar(); });
+    }
+  }
+  function pedeNome(){ state.nome = ""; save(); renderNome(); document.getElementById("inputNome").focus(); }
+
+  /* ───── CARDS ───── */
+  var cont = document.getElementById("etapas");
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+
+  function render(){
+    var html = "", etapaAtual = "";
+    ETAPAS.forEach(function(e){
+      if(e.etapa !== etapaAtual && e.tipo !== "marco"){
+        etapaAtual = e.etapa;
+        html += '<div class="etapa-sep"><div class="etapa-sep-linha"></div><div class="etapa-sep-txt">Etapa · '+esc(etapaAtual)+'</div><div class="etapa-sep-linha"></div></div>';
+      }
+      var done = isDone(e.dia), unlocked = isUnlocked(e.dia);
+      var cls = "card" + (e.tipo==="chat"?" chat":"") + (done?" done":"") + (!unlocked?" locked":"");
+      var statusTxt = done ? "Feita" : (unlocked ? "Disponível" : "Bloqueada");
+
+      html += '<div class="'+cls+'" id="card'+e.dia+'">';
+      html +=   '<div class="card-head" data-toggle="'+e.dia+'">';
+      html +=     '<div class="dia-badge"><small>Dia</small><span>'+e.dia+'</span></div>';
+      html +=     '<div class="card-info"><div class="card-tag">'+esc(e.tag)+'</div>';
+      html +=       '<div class="card-titulo">'+esc(e.titulo)+'</div>';
+      html +=       '<div class="card-sub">'+esc(e.sub)+'</div></div>';
+      html +=     '<div class="card-status"><span class="status-txt">'+statusTxt+'</span><div class="status-check">&#10003;</div></div>';
+      html +=   '</div>';
+
+      if(unlocked){
+        html += '<div class="card-body"><div class="card-body-inner">';
+        if(e.antes){ html += '<div class="nota-tempo">'+e.antes+'</div>'; }
+        var n = 1;
+        if(e.tipo === "chat"){
+          html += '<div class="passo"><div class="passo-n">'+(n++)+'</div><div class="passo-corpo">';
+          html += '<div class="passo-titulo">Copie o bloco desta prática</div>';
+          html += '<div class="passo-desc">'+(e.usaResumo?'O briefing já vem com o que você produziu na prática anterior — é só uma colagem.':'Copie o briefing que abre a conversa.')+'</div>';
+          html += '<button class="btn btn-copy" data-copy="bloco" data-dia="'+e.dia+'">Copiar o bloco</button>';
+          html += '</div></div>';
+          html += '<div class="passo"><div class="passo-n">'+(n++)+'</div><div class="passo-corpo">';
+          html += '<div class="passo-titulo">Abra o Vértice e cole</div>';
+          html += '<div class="passo-desc">Abra uma <strong>conversa nova</strong> e cole o bloco que você acabou de copiar. Reserve de 40 a 60 minutos sem interrupção.</div>';
+          html += '<button class="btn btn-open" data-open="1">Abrir o Vértice</button>';
+          html += '</div></div>';
+          if(e.resumoPrompt){
+            html += '<div class="passo"><div class="passo-n">'+(n++)+'</div><div class="passo-corpo">';
+            html += '<div class="passo-titulo">Ao terminar, gere o resumo</div>';
+            html += '<div class="passo-desc">Copie este prompt e cole <strong>ainda dentro da mesma conversa</strong>, depois de concluir a prática.</div>';
+            html += '<button class="btn btn-copy" data-copy="resumo" data-dia="'+e.dia+'">Copiar o prompt de resumo</button>';
+            html += '</div></div>';
+            html += '<div class="passo"><div class="passo-n">'+(n++)+'</div><div class="passo-corpo">';
+            html += '<div class="passo-titulo">Cole aqui o resumo gerado</div>';
+            html += '<div class="passo-desc">Ele entra automaticamente no bloco da próxima prática.</div>';
+            html += '<textarea data-campo="'+e.salvaEm+'" placeholder="Cole aqui o resumo estruturado que o Vértice gerou…">'+esc(state[e.salvaEm]||"")+'</textarea>';
+            html += '<div class="salvo" data-salvo="'+e.salvaEm+'"></div>';
+            html += '</div></div>';
+          }
+        } else if(e.campos){
+          e.campos.forEach(function(c, idx){
+            html += '<div class="passo"><div class="passo-n">'+(idx+1)+'</div><div class="passo-corpo">';
+            html += '<div class="passo-titulo">'+esc(c.titulo)+'</div>';
+            html += '<div class="passo-desc">'+esc(c.desc)+'</div>';
+            html += '<textarea data-campo="'+c.id+'" placeholder="'+esc(c.ph)+'">'+esc(state[c.id]||"")+'</textarea>';
+            html += '<div class="salvo" data-salvo="'+c.id+'"></div>';
+            html += '</div></div>';
+          });
+        } else {
+          html += '<div class="passo"><div class="passo-n">1</div><div class="passo-corpo">';
+          html += '<div class="passo-titulo">Assista à aula</div>';
+          html += '<div class="passo-desc">A aula está na sua área de membros. Quando terminar, marque abaixo para liberar a próxima etapa.</div>';
+          html += '</div></div>';
+        }
+        html += '<div class="fechar-etapa">';
+        html += done ? '<button class="btn btn-undo" data-undo="'+e.dia+'">Desmarcar esta etapa</button>'
+                     : '<button class="btn btn-done" data-done="'+e.dia+'">Marcar esta etapa como feita</button>';
+        html += '</div></div></div>';
+      }
+      html += '</div>';
+    });
+    cont.innerHTML = html;
+    renderTrilha();
+    atualizaStats();
+    if(aberto){
+      var c = document.getElementById("card"+aberto);
+      if(c && !c.classList.contains("locked")) c.classList.add("open");
+    }
+  }
+
+  var aberto = null;
+
+  function montaBloco(dia){
+    var e = ETAPAS.filter(function(x){return x.dia===dia;})[0];
+    var txt = e.briefing;
+    if(e.usaFonte && state.fonte) txt += "\n\n----- A FONTE QUE EU VOU ANALISAR -----\n\n" + state.fonte;
+    if(e.usaResumo && state[e.usaResumo]) txt += "\n\n----- RESUMO ESTRUTURADO DA PRÁTICA ANTERIOR -----\n\n" + state[e.usaResumo];
+    if(e.usaDiag && state.diag) txt += "\n\n----- MINHA RESPOSTA NO DIAGNÓSTICO DO DIA 1 -----\n\n" + state.diag;
+    return txt;
+  }
+
+  function copia(texto, btn){
+    var ok = function(){
+      var orig = btn.textContent;
+      btn.textContent = "Copiado"; btn.classList.add("ok");
+      setTimeout(function(){ btn.textContent = orig; btn.classList.remove("ok"); }, 2200);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(texto).then(ok, function(){ fallback(texto, ok); });
+    } else fallback(texto, ok);
+  }
+  function fallback(texto, ok){
+    var ta = document.createElement("textarea");
+    ta.value = texto; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); ok(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  document.getElementById("trilha").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-ir]");
+    if(!b) return;
+    var d = +b.getAttribute("data-ir");
+    var card = document.getElementById("card"+d);
+    if(!card || card.classList.contains("locked")) return;
+    document.querySelectorAll(".card.open").forEach(function(c){ c.classList.remove("open"); });
+    card.classList.add("open"); aberto = d;
+    card.scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  cont.addEventListener("click", function(ev){
+    var t = ev.target;
+    var head = t.closest("[data-toggle]");
+    if(head){
+      var dia = +head.getAttribute("data-toggle");
+      var card = document.getElementById("card"+dia);
+      if(card.classList.contains("locked")) return;
+      var ja = card.classList.contains("open");
+      document.querySelectorAll(".card.open").forEach(function(c){ c.classList.remove("open"); });
+      if(!ja){ card.classList.add("open"); aberto = dia; } else aberto = null;
+      return;
+    }
+    if(t.hasAttribute("data-open")){ window.open(AGENTE, "_blank", "noopener"); return; }
+    if(t.hasAttribute("data-copy")){
+      var d = +t.getAttribute("data-dia");
+      var e = ETAPAS.filter(function(x){return x.dia===d;})[0];
+      copia(t.getAttribute("data-copy") === "bloco" ? montaBloco(d) : e.resumoPrompt, t);
+      return;
+    }
+    if(t.hasAttribute("data-done")){
+      var dd = +t.getAttribute("data-done");
+      if(!isDone(dd)) state.done.push(dd);
+      if(!state.dataInicio) state.dataInicio = hoje();
+      checaSelos(); save();
+      novoNo = dd + 1 <= 12 ? dd + 1 : null;
+      aberto = novoNo; render();
+      var prox = document.getElementById("card"+(dd+1));
+      if(prox) prox.scrollIntoView({behavior:"smooth", block:"center"});
+      else document.getElementById("blocoFinal").scrollIntoView({behavior:"smooth"});
+      return;
+    }
+    if(t.hasAttribute("data-undo")){
+      var du = +t.getAttribute("data-undo");
+      state.done = state.done.filter(function(x){ return x < du; });
+      checaSelos(); save(); aberto = du; render();
+      return;
+    }
+  });
+
+  cont.addEventListener("input", function(ev){
+    var t = ev.target;
+    if(t.tagName === "TEXTAREA" && t.hasAttribute("data-campo")){
+      var campo = t.getAttribute("data-campo");
+      state[campo] = t.value; save();
+      var sel = cont.querySelector('[data-salvo="'+campo+'"]');
+      if(sel){ sel.textContent = "Salvo"; clearTimeout(sel._t);
+        sel._t = setTimeout(function(){ sel.textContent = ""; }, 1600); }
+    }
+  });
+
+  /* ───── TRANSFERÊNCIA ───── */
+  var PREFIXO = "SIM12-";
+  function geraCodigo(){
+    try{
+      var copia = JSON.parse(JSON.stringify(state));
+      if(isDone(5)) copia.fonte = "";   // depois do Chat 1 a fonte não é mais usada
+      return PREFIXO + btoa(unescape(encodeURIComponent(JSON.stringify(copia))));
+    }catch(e){ return null; }
+  }
+  function leCodigo(txt){
+    var limpo = String(txt).replace(/\s+/g,"").trim();
+    if(limpo.indexOf(PREFIXO) !== 0) return null;
+    try{
+      var o = JSON.parse(decodeURIComponent(escape(atob(limpo.slice(PREFIXO.length)))));
+      if(!o || typeof o !== "object" || !Array.isArray(o.done)) return null;
+      return {
+        nome: typeof o.nome === "string" ? o.nome : "",
+        done: o.done.filter(function(n){ return typeof n==="number" && n>=1 && n<=12; }),
+        selos: Array.isArray(o.selos) ? o.selos : [],
+        fonte: typeof o.fonte === "string" ? o.fonte : "",
+        diag: typeof o.diag === "string" ? o.diag : "",
+        res1: typeof o.res1 === "string" ? o.res1 : "",
+        res2: typeof o.res2 === "string" ? o.res2 : "",
+        res3: typeof o.res3 === "string" ? o.res3 : "",
+        tema: typeof o.tema === "string" ? o.tema : "",
+        notas: Array.isArray(o.notas) ? o.notas : [],
+        opiniao: typeof o.opiniao === "string" ? o.opiniao : "",
+        avaliacao: typeof o.avaliacao === "string" ? o.avaliacao : "",
+        dataConcl: typeof o.dataConcl === "string" ? o.dataConcl : "",
+        dataInicio: typeof o.dataInicio === "string" ? o.dataInicio : ""
+      };
+    }catch(e){ return null; }
+  }
+  function mostraMsg(el, txt, tipo){ el.textContent = txt; el.className = "msg show " + tipo; }
+
+  var modalBg = document.getElementById("modalBg");
+  function abreModal(){
+    var cod = geraCodigo(), box = document.getElementById("codigoBox");
+    var tem = state.done.length > 0 || state.diag || state.res1 || state.res2 || state.res3 || state.nome;
+    if(cod && tem){
+      box.textContent = cod; box.classList.remove("codigo-vazio");
+      document.getElementById("btnCopiaCodigo").disabled = false;
+    } else {
+      box.textContent = "Você ainda não tem progresso para transferir. Comece pelo Dia 1.";
+      box.classList.add("codigo-vazio");
+      document.getElementById("btnCopiaCodigo").disabled = true;
+    }
+    document.getElementById("msgSair").className = "msg";
+    document.getElementById("msgChegar").className = "msg";
+    modalBg.classList.add("show"); document.body.style.overflow = "hidden";
+  }
+  function fechaModal(){ modalBg.classList.remove("show"); document.body.style.overflow = ""; }
+
+  document.getElementById("btnTroca").addEventListener("click", abreModal);
+  document.getElementById("modalX").addEventListener("click", fechaModal);
+  modalBg.addEventListener("click", function(ev){ if(ev.target === modalBg) fechaModal(); });
+  document.addEventListener("keydown", function(ev){ if(ev.key === "Escape") fechaModal(); });
+
+  document.querySelectorAll(".mtab").forEach(function(tab){
+    tab.addEventListener("click", function(){
+      document.querySelectorAll(".mtab").forEach(function(t){ t.classList.remove("ativo"); });
+      tab.classList.add("ativo");
+      var alvo = tab.getAttribute("data-tab");
+      document.getElementById("paneSair").classList.toggle("hide", alvo !== "sair");
+      document.getElementById("paneChegar").classList.toggle("hide", alvo !== "chegar");
+    });
+  });
+
+  document.getElementById("btnCopiaCodigo").addEventListener("click", function(){
+    var cod = geraCodigo(); if(!cod) return;
+    copia(cod, this);
+    mostraMsg(document.getElementById("msgSair"),
+      "Código copiado. Agora cole num e-mail ou numa mensagem para você mesmo, e guarde onde consiga achar depois.", "ok");
+  });
+
+  document.getElementById("btnRestaura").addEventListener("click", function(){
+    var campo = document.getElementById("campoCodigo"), msg = document.getElementById("msgChegar");
+    var novo = leCodigo(campo.value);
+    if(!novo){
+      mostraMsg(msg, "Esse código não foi reconhecido. Confira se você copiou ele inteiro, do começo ao fim, incluindo a parte que começa com SIM12.", "erro");
+      return;
+    }
+    var tem = state.done.length > 0 || state.diag || state.res1 || state.res2 || state.res3;
+    if(tem && !confirm("Você já tem progresso salvo neste navegador. Restaurar vai substituir tudo pelo conteúdo do código. Continuar?")) return;
+    state = novo; save(); aberto = null; renderNome(); render();
+    campo.value = "";
+    mostraMsg(msg, "Jornada restaurada: " + novo.done.length + " de 12 etapas concluídas. Pode fechar esta janela e continuar de onde parou.", "ok");
+    setTimeout(function(){ fechaModal(); window.scrollTo({top:0, behavior:"smooth"}); }, 2600);
+  });
+
+  /* ═══ PAINEL DE RESULTADO ═══ */
+  var CRITS = [
+    "Clareza e especificidade da tese",
+    "Qualidade e independência das evidências",
+    "Reconhecimento explícito do limite",
+    "Reconhecimento do que é válido no contraditório",
+    "Tom argumentativo"
+  ];
+
+  function limpaTema(t){
+    return String(t)
+      .replace(/[*_`#>]/g, "")
+      .replace(/^\s*\d+[\.\)]\s*/, "")
+      .replace(/\s+/g, " ")
+      .replace(/^[\s:\-\u2013\u2014]+/, "")
+      .replace(/[\s.;,:]+$/, "")
+      .trim();
+  }
+
+  function extraiTema(){
+    var origens = [state.res3, state.res2, state.res1];
+    for(var i=0; i<origens.length; i++){
+      var t = origens[i] || "";
+      if(!t) continue;
+      var m = t.match(/tema\s*[:\-\u2013\u2014]\s*([^\n\r]{6,180})/i);
+      if(m) return limpaTema(m[1]);
+      var m2 = t.match(/conte[\u00fau]do\s+analisado\s*[:\-\u2013\u2014]\s*([^\n\r]{6,180})/i);
+      if(m2) return limpaTema(m2[1]);
+    }
+    if(state.fonte){
+      var f = state.fonte.replace(/\s+/g, " ").trim();
+      var corte = f.search(/[.!?]\s/);
+      var frase = corte > 20 ? f.slice(0, corte) : f.slice(0, 140);
+      return limpaTema(frase);
+    }
+    return "";
+  }
+
+  function preencheTema(){
+    var campo = document.getElementById("frTema");
+    if(!campo) return;
+    if(!state.tema){
+      var sug = extraiTema();
+      if(sug){ state.tema = sug; save(); }
+    }
+    campo.value = state.tema || "";
+  }
+
+  function lerAvaliacao(txt){
+    var t = " " + String(txt).toLowerCase().replace(/\s+/g," ") + " ";
+    var out = {notas:[null,null,null,null,null], total:null};
+    var chaves = [
+      ["tese"],
+      ["evid"],
+      ["limite"],
+      ["contradit","contrári","contrari","posição contrária","oposta"],
+      ["tom"]
+    ];
+    chaves.forEach(function(alts, i){
+      for(var a=0; a<alts.length && out.notas[i]===null; a++){
+        var idx = t.indexOf(alts[a]);
+        while(idx !== -1){
+          var jan = t.slice(idx, idx + 140);
+          var m = jan.match(/([0-2])\s*(?:\/|de\s+)\s*2\b/) ||
+                  jan.match(/\b([0-2])\s*pontos?\b/) ||
+                  jan.match(/[:\u2013\u2014-]\s*([0-2])\b(?!\s*\/\s*10)/);
+          if(m){ out.notas[i] = parseInt(m[1],10); break; }
+          idx = t.indexOf(alts[a], idx + 1);
+        }
+      }
+    });
+    var mt = t.match(/nota\s*(?:total|final|geral)?\s*[:\u2013\u2014-]?\s*(\d{1,2})\s*(?:\/|de\s+)\s*10\b/) ||
+             t.match(/\b(\d{1,2})\s*\/\s*10\b/) ||
+             t.match(/(?:total|soma)\s*[:\u2013\u2014-]?\s*(\d{1,2})\b/);
+    if(mt){ var v = parseInt(mt[1],10); if(v>=0 && v<=10) out.total = v; }
+    return out;
+  }
+
+  function renderFormCrits(){
+    var h = "";
+    CRITS.forEach(function(c, i){
+      h += '<div class="crit-linha"><div class="crit-nome">'+c+'</div><div class="crit-opts">';
+      for(var v=0; v<=2; v++){
+        var sel = (state.notas && state.notas[i] === v) ? " sel" : "";
+        h += '<button class="crit-op'+sel+'" data-crit="'+i+'" data-val="'+v+'">'+v+'</button>';
+      }
+      h += '</div></div>';
+    });
+    document.getElementById("frCrits").innerHTML = h;
+  }
+
+  function totalNota(){
+    if(!state.notas) return null;
+    var soma = 0, ok = true;
+    for(var i=0;i<5;i++){
+      if(typeof state.notas[i] !== "number"){ ok = false; break; }
+      soma += state.notas[i];
+    }
+    return ok ? soma : null;
+  }
+
+  function renderPainel(){
+    var nota = totalNota();
+    if(nota === null || !state.opiniao) return false;
+
+    document.getElementById("pnNome").textContent = state.nome || "Aluno S.I.M";
+    document.getElementById("pnData").textContent = state.dataConcl || "";
+    document.getElementById("pnTema").innerHTML = state.tema ? 'Tema trabalhado: <strong>'+esc(state.tema)+'</strong>' : "";
+    document.getElementById("pnNota").innerHTML = nota + '<small>/10</small>';
+    document.getElementById("pnAula").innerHTML = fmtTempo(minAula()).replace(/<\/?small>/g,"");
+    document.getElementById("pnPrat").innerHTML = fmtTempo(minPrat()).replace(/<\/?small>/g,"");
+    document.getElementById("pnInicio").textContent = state.dataInicio || "—";
+    document.getElementById("pnFim").textContent = (state.dataConcl||"").replace("Concluído em ","") || "—";
+    document.getElementById("pnCodigo").textContent = codigoVerif();
+    var apr = nota >= 7;
+    document.getElementById("pnEyebrow").textContent = apr
+      ? "Certificado de aprovação · Opinião não é argumento"
+      : "Resultado do treinamento · Opinião não é argumento";
+    document.getElementById("pnCert").style.display = apr ? "" : "none";
+
+    var selo = document.getElementById("pnSelo");
+    if(nota >= 7){
+      selo.className = "pn-selo-ap";
+      selo.innerHTML = '<span>✓</span><small>Aprovado</small>';
+    } else {
+      selo.className = "pn-selo-ap pn-selo-rep";
+      selo.innerHTML = '<span>—</span><small>Refazer</small>';
+    }
+
+    var hc = "";
+    CRITS.forEach(function(c, i){
+      var v = state.notas[i];
+      hc += '<div class="pn-crit"><div class="pn-crit-nome">'+c+'</div><div class="pn-barra">';
+      for(var s=1; s<=2; s++) hc += '<div class="pn-seg'+(v>=s?" on":"")+'"></div>';
+      hc += '</div><div class="pn-crit-val">'+v+'/2</div></div>';
+    });
+    document.getElementById("pnCrits").innerHTML = hc;
+
+    document.getElementById("pnAntes").textContent = state.diag || "(não registrado)";
+    document.getElementById("pnDepois").textContent = state.opiniao;
+
+    var msg = "Concluí o método de 12 dias \"Opinião não é argumento\" com nota " + nota +
+      " de 10 e quero solicitar o meu certificado de aprovação. Segue em anexo o PDF do meu painel de resultado.";
+    document.getElementById("btnCert").href = "https://wa.me/5527999507096?text=" + encodeURIComponent(msg);
+
+    document.getElementById("painel").classList.add("show");
+    document.getElementById("painelAcoes").classList.add("show");
+    document.getElementById("formRes").classList.remove("show");
+    return true;
+  }
+
+  function atualizaAreaFinal(){
+    var completo = state.done.length === 12;
+    var temPainel = totalNota() !== null && state.opiniao;
+    document.getElementById("blocoFinal").classList.toggle("show", completo && !temPainel);
+    document.getElementById("formRes").classList.toggle("show", completo && !temPainel);
+    if(completo && !temPainel) preencheTema();
+    if(completo && temPainel) renderPainel();
+    else {
+      document.getElementById("painel").classList.remove("show");
+      document.getElementById("painelAcoes").classList.remove("show");
+    }
+  }
+
+  document.getElementById("frCrits").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-crit]");
+    if(!b) return;
+    var i = +b.getAttribute("data-crit"), v = +b.getAttribute("data-val");
+    if(!state.notas) state.notas = [];
+    state.notas[i] = v; save(); renderFormCrits();
+  });
+
+  document.getElementById("frAvaliacao").addEventListener("input", function(){ state.avaliacao = this.value; save(); });
+
+  document.getElementById("btnLerAval").addEventListener("click", function(){
+    var el = document.getElementById("frLeitura");
+    var txt = document.getElementById("frAvaliacao").value || "";
+    if(txt.trim().length < 40){
+      el.className = "fr-leitura show erro";
+      el.innerHTML = "Cole a avaliação completa do Vértice antes de continuar.";
+      return;
+    }
+    var r = lerAvaliacao(txt);
+    var achou = r.notas.filter(function(n){ return n !== null; }).length;
+    if(!state.notas) state.notas = [];
+    r.notas.forEach(function(n, i){ if(n !== null) state.notas[i] = n; });
+    save(); renderFormCrits();
+
+    var soma = 0, completo = true;
+    for(var i=0;i<5;i++){ if(typeof state.notas[i] === "number") soma += state.notas[i]; else completo = false; }
+
+    if(achou === 5){
+      var aviso = "";
+      if(r.total !== null && r.total !== soma){
+        aviso = " O Vértice registrou nota total <strong>" + r.total + "</strong>, e a soma dos critérios deu <strong>" + soma + "</strong>. Confira qual está certa antes de gerar o painel.";
+      }
+      el.className = "fr-leitura show " + (aviso ? "parcial" : "ok");
+      el.innerHTML = "Li as cinco notas. Soma: <strong>" + soma + " de 10</strong>. Confira abaixo se está tudo certo." + aviso;
+    } else if(achou > 0){
+      el.className = "fr-leitura show parcial";
+      el.innerHTML = "Consegui ler <strong>" + achou + " de 5</strong> notas. Complete as que faltam clicando nos botões abaixo.";
+    } else {
+      el.className = "fr-leitura show erro";
+      el.innerHTML = "Não consegui identificar as notas nesse texto. Marque as cinco manualmente nos botões abaixo.";
+    }
+  });
+
+  document.getElementById("frTema").addEventListener("input", function(){ state.tema = this.value; save(); });
+  document.getElementById("frOpiniao").addEventListener("input", function(){ state.opiniao = this.value; save(); });
+
+  document.getElementById("btnGeraPainel").addEventListener("click", function(){
+    var nota = totalNota();
+    if(nota === null){ alert("Marque a nota de todos os cinco critérios antes de gerar o painel."); return; }
+    if(!state.opiniao || state.opiniao.trim().length < 40){ alert("Cole a sua opinião crítica final para completar o painel."); return; }
+    if(!state.dataConcl) state.dataConcl = "Concluído em " + hoje();
+    if(!state.dataInicio) state.dataInicio = hoje();
+    save(); atualizaAreaFinal();
+    document.getElementById("painel").scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  document.getElementById("btnEditaRes").addEventListener("click", function(){
+    document.getElementById("painel").classList.remove("show");
+    document.getElementById("painelAcoes").classList.remove("show");
+    document.getElementById("formRes").classList.add("show");
+    preencheTema();
+    document.getElementById("frOpiniao").value = state.opiniao || "";
+    document.getElementById("frAvaliacao").value = state.avaliacao || "";
+    renderFormCrits();
+    document.getElementById("formRes").scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  document.getElementById("btnImprime").addEventListener("click", function(){ window.print(); });
+
+  document.getElementById("btnReset").addEventListener("click", function(){
+    if(confirm("Isso apaga a sua jornada inteira: progresso, selos e tudo que você escreveu. Tem certeza?")){
+      state = {nome:"", done:[], selos:[], fonte:"", diag:"", res1:"", res2:"", res3:"", tema:"", notas:[], opiniao:"", avaliacao:"", dataConcl:"", dataInicio:""};
+      save(); aberto = null; renderNome(); render(); window.scrollTo({top:0, behavior:"smooth"});
+    }
+  });
+
+  load();
+  renderNome();
+  renderFormCrits();
+  preencheTema();
+  document.getElementById("frOpiniao").value = state.opiniao || "";
+  document.getElementById("frAvaliacao").value = state.avaliacao || "";
+  render();
+  atualizaAreaFinal();
+})();
+</script>
+
+</body>
+</html>
