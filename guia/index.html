@@ -1309,11 +1309,12 @@
   function preencheTema(){
     var campo = document.getElementById("frTema");
     if(!campo) return;
+    campo.value = state.tema || "";
     if(!state.tema){
       var sug = extraiTema();
-      if(sug){ state.tema = sug; save(); }
+      campo.placeholder = sug ? sug : "Sobre o que você trabalhou nas quatro práticas";
+      campo.dataset.sug = sug || "";
     }
-    campo.value = state.tema || "";
   }
 
   function lerAvaliacao(txt){
@@ -1479,6 +1480,8 @@
   document.getElementById("frOpiniao").addEventListener("input", function(){ state.opiniao = this.value; save(); });
 
   document.getElementById("btnGeraPainel").addEventListener("click", function(){
+    var ct = document.getElementById("frTema");
+    if(!state.tema && !ct.value.trim() && ct.dataset.sug){ state.tema = ct.dataset.sug; ct.value = state.tema; save(); }
     var nota = totalNota();
     if(nota === null){ alert("Marque a nota de todos os cinco critérios antes de gerar o painel."); return; }
     if(!state.opiniao || state.opiniao.trim().length < 40){ alert("Cole a sua opinião crítica final para completar o painel."); return; }
